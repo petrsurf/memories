@@ -1131,13 +1131,13 @@ export default function Home() {
         const galleryItem = galleryItems.find((item) => item.id === id);
         if (galleryItem?.albumId) {
           setSelectedAlbumId(galleryItem.albumId);
-          window.location.hash = "#albums";
+          document.getElementById('albums')?.scrollIntoView({ behavior: 'smooth' });
           return;
         }
         const albumMatch = albums.find((album) => album.id === galleryItem?.id);
         if (albumMatch) {
           setSelectedAlbumId(albumMatch.id);
-          window.location.hash = "#albums";
+          document.getElementById('albums')?.scrollIntoView({ behavior: 'smooth' });
         } else {
           openLightbox(id);
         }
@@ -1894,7 +1894,11 @@ export default function Home() {
             />
           </div>
           <nav className="hidden items-center gap-6 font-ui text-xs uppercase tracking-[0.25em] text-[color:var(--ink)] sm:flex">
-            <a className="transition-opacity hover:opacity-70" href="#albums">
+            <button 
+              type="button"
+              className="transition-opacity hover:opacity-70"
+              onClick={() => document.getElementById('albums')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               <EditableText
                 as="span"
                 value={resolveText("nav.albums", "albums")}
@@ -1902,8 +1906,12 @@ export default function Home() {
                 className={labelEffectClass}
                 editable={false}
               />
-            </a>
-            <a className="transition-opacity hover:opacity-70" href="#gallery">
+            </button>
+            <button 
+              type="button"
+              className="transition-opacity hover:opacity-70"
+              onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               <EditableText
                 as="span"
                 value={resolveText("nav.gallery", "gallery")}
@@ -1911,8 +1919,12 @@ export default function Home() {
                 className={labelEffectClass}
                 editable={false}
               />
-            </a>
-            <a className="transition-opacity hover:opacity-70" href="#timeline">
+            </button>
+            <button 
+              type="button"
+              className="transition-opacity hover:opacity-70"
+              onClick={() => document.getElementById('timeline')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               <EditableText
                 as="span"
                 value={resolveText("nav.timeline", "timeline")}
@@ -1920,9 +1932,13 @@ export default function Home() {
                 className={labelEffectClass}
                 editable={false}
               />
-            </a>
+            </button>
             {isEditMode ? (
-              <a className="transition-opacity hover:opacity-70" href="#upload">
+              <button 
+                type="button"
+                className="transition-opacity hover:opacity-70"
+                onClick={() => document.getElementById('upload')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 <EditableText
                   as="span"
                   value={resolveText("nav.upload", "upload")}
@@ -1930,9 +1946,13 @@ export default function Home() {
                   className={labelEffectClass}
                   editable={false}
                 />
-              </a>
+              </button>
             ) : null}
-            <a className="transition-opacity hover:opacity-70" href="#about">
+            <button 
+              type="button"
+              className="transition-opacity hover:opacity-70"
+              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               <EditableText
                 as="span"
                 value={resolveText("nav.about", "about")}
@@ -1940,7 +1960,7 @@ export default function Home() {
                 className={labelEffectClass}
                 editable={false}
               />
-            </a>
+            </button>
           </nav>
           <div className="hidden items-center gap-3 sm:flex">
             <span className="rounded-full border border-[color:var(--muted)] px-3 py-1 font-ui text-[11px] uppercase tracking-[0.2em]">
