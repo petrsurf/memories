@@ -11,17 +11,16 @@
   --shadow: rgba(43, 39, 35, 0.12);
 }
 
+
 :root {
   --color-background: var(--paper);
   --color-foreground: var(--ink);
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
 }
 
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-body), serif;
+  font-family: 'Playfair Display', 'Manrope', serif;
 }
 
 a {

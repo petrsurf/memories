@@ -158,23 +158,23 @@ const defaultContent: Content = {
 };
 
 const displayFontOptions = [
-  { id: "playfair", label: "Playfair Display", value: "var(--font-display-playfair)" },
-  { id: "fraunces", label: "Fraunces", value: "var(--font-display-fraunces)" },
-  { id: "cormorant", label: "Cormorant Garamond", value: "var(--font-display-cormorant)" },
-  { id: "dmserif", label: "DM Serif Display", value: "var(--font-display-dmserif)" },
-  { id: "bodoni", label: "Bodoni Moda", value: "var(--font-display-bodoni)" },
-  { id: "lora", label: "Lora", value: "var(--font-display-lora)" },
-  { id: "merriweather", label: "Merriweather", value: "var(--font-display-merriweather)" },
-  { id: "spacegrotesk", label: "Space Grotesk", value: "var(--font-display-spacegrotesk)" },
+  { id: "playfair", label: "Playfair Display", value: "'Playfair Display', serif" },
+  { id: "fraunces", label: "Fraunces", value: "'Fraunces', serif" },
+  { id: "cormorant", label: "Cormorant Garamond", value: "'Cormorant Garamond', serif" },
+  { id: "dmserif", label: "DM Serif Display", value: "'DM Serif Display', serif" },
+  { id: "bodoni", label: "Bodoni Moda", value: "'Bodoni Moda', serif" },
+  { id: "lora", label: "Lora", value: "'Lora', serif" },
+  { id: "merriweather", label: "Merriweather", value: "'Merriweather', serif" },
+  { id: "spacegrotesk", label: "Space Grotesk", value: "'Space Grotesk', sans-serif" },
 ];
 
 const bodyFontOptions = [
-  { id: "manrope", label: "Manrope", value: "var(--font-body-manrope)" },
-  { id: "worksans", label: "Work Sans", value: "var(--font-body-worksans)" },
-  { id: "sourcesans", label: "Source Sans 3", value: "var(--font-body-sourcesans)" },
-  { id: "ibmplex", label: "IBM Plex Sans", value: "var(--font-body-ibmplex)" },
-  { id: "nunito", label: "Nunito Sans", value: "var(--font-body-nunito)" },
-  { id: "jakarta", label: "Plus Jakarta Sans", value: "var(--font-body-jakarta)" },
+  { id: "manrope", label: "Manrope", value: "'Manrope', sans-serif" },
+  { id: "worksans", label: "Work Sans", value: "'Work Sans', sans-serif" },
+  { id: "sourcesans", label: "Source Sans 3", value: "'Source Sans 3', sans-serif" },
+  { id: "ibmplex", label: "IBM Plex Sans", value: "'IBM Plex Sans', sans-serif" },
+  { id: "nunito", label: "Nunito Sans", value: "'Nunito Sans', sans-serif" },
+  { id: "jakarta", label: "Plus Jakarta Sans", value: "'Plus Jakarta Sans', sans-serif" },
 ];
 
 const effectOptions: { id: TextEffect; label: string }[] = [
@@ -234,8 +234,8 @@ const defaultTheme: Theme = {
     shadow: "rgba(43, 39, 35, 0.12)",
   },
   fonts: {
-    display: "var(--font-display-playfair)",
-    body: "var(--font-body-manrope)",
+    display: "'Playfair Display', serif",
+    body: "'Manrope', sans-serif",
   },
   effects: {
     display: "none",
@@ -259,8 +259,8 @@ const themePresets: ThemePreset[] = [
       shadow: "rgba(43, 39, 35, 0.12)",
     },
     fonts: {
-      display: "var(--font-display-playfair)",
-      body: "var(--font-body-manrope)",
+      display: "'Playfair Display', serif",
+      body: "'Manrope', sans-serif",
     },
     effects: {
       display: "none",
@@ -282,8 +282,8 @@ const themePresets: ThemePreset[] = [
       shadow: "rgba(47, 43, 38, 0.12)",
     },
     fonts: {
-      display: "var(--font-display-cormorant)",
-      body: "var(--font-body-sourcesans)",
+      display: "'Cormorant Garamond', serif",
+      body: "'Source Sans 3', sans-serif",
     },
     effects: {
       display: "soft-shadow",
@@ -305,8 +305,8 @@ const themePresets: ThemePreset[] = [
       shadow: "rgba(47, 36, 26, 0.12)",
     },
     fonts: {
-      display: "var(--font-display-fraunces)",
-      body: "var(--font-body-worksans)",
+      display: "'Fraunces', serif",
+      body: "'Work Sans', sans-serif",
     },
     effects: {
       display: "emboss",
@@ -328,8 +328,8 @@ const themePresets: ThemePreset[] = [
       shadow: "rgba(35, 38, 36, 0.12)",
     },
     fonts: {
-      display: "var(--font-display-dmserif)",
-      body: "var(--font-body-ibmplex)",
+      display: "'DM Serif Display', serif",
+      body: "'IBM Plex Sans', sans-serif",
     },
     effects: {
       display: "outline",
@@ -351,8 +351,8 @@ const themePresets: ThemePreset[] = [
       shadow: "rgba(45, 42, 38, 0.08)",
     },
     fonts: {
-      display: "var(--font-display-fraunces)",
-      body: "var(--font-body-manrope)",
+      display: "'Fraunces', serif",
+      body: "'Manrope', sans-serif",
     },
     effects: {
       display: "none",
