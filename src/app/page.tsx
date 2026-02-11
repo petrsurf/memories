@@ -1014,8 +1014,7 @@ export default function Home() {
     ? albums.find((album) => album.id === heroSourceId)
     : undefined;
   const heroCoverItem = heroAlbum
-    ? uploadsByAlbum[heroAlbum.id]?.find((item) => item.id === heroAlbum.coverId) ??
-      uploadsByAlbum[heroAlbum.id]?.[0]
+    ? uploadsByAlbum[heroAlbum.id]?.find((item) => item.id === heroAlbum.coverId)
     : undefined;
   const heroMediaId = heroCoverItem?.id;
   const hero: GalleryItem = {

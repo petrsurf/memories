@@ -122,7 +122,12 @@ const AlbumsSection = ({
             className="paper-card p-6 transition-transform hover:-translate-y-1"
           >
             {(() => {
-              const coverItems = uploadsByAlbum[album.id]?.slice(0, 3) ?? [];
+              // Only show cover if explicitly set by user via coverId
+              const hasCover = album.coverId && uploadsByAlbum[album.id];
+              const coverItem = hasCover 
+                ? uploadsByAlbum[album.id]?.find((item) => item.id === album.coverId)
+                : null;
+              
               return (
                 <div
                   className="relative"
@@ -145,28 +150,26 @@ const AlbumsSection = ({
                     style={{ height: albumImageHeight, "--gallery-scale": 1.03 } as CSSProperties}
                     aria-label={`Open ${album.title}`}
                   >
-                    {coverItems.length > 0 ? (
+                    {coverItem ? (
                       <div className="album-stack">
-                        {coverItems.map((item) => (
-                          <div key={item.id} className="album-stack-item">
-                            {item.type === "video" && item.videoSrc ? (
-                              <video
-                                className="gallery-image h-full w-full object-cover"
-                                src={resolveAssetSrc(item.videoSrc)}
-                                muted
-                                playsInline
-                                style={getMediaStyle(item)}
-                              />
-                            ) : (
-                              <img
-                                src={resolveAssetSrc(item.src)}
-                                alt={item.alt}
-                                className="gallery-image h-full w-full object-cover"
-                                style={getMediaStyle(item)}
-                              />
-                            )}
-                          </div>
-                        ))}
+                        <div className="album-stack-item">
+                          {coverItem.type === "video" && coverItem.videoSrc ? (
+                            <video
+                              className="gallery-image h-full w-full object-cover"
+                              src={resolveAssetSrc(coverItem.videoSrc)}
+                              muted
+                              playsInline
+                              style={getMediaStyle(coverItem)}
+                            />
+                          ) : (
+                            <img
+                              src={resolveAssetSrc(coverItem.src)}
+                              alt={coverItem.alt}
+                              className="gallery-image h-full w-full object-cover"
+                              style={getMediaStyle(coverItem)}
+                            />
+                          )}
+                        </div>
                       </div>
                     ) : (
                       <Image
