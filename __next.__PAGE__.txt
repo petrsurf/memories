@@ -1,6 +1,9 @@
 1:"$Sreact.fragment"
-2:I[97367,["/memories/_next/static/chunks/2f236954d6a65e12.js"],"OutletBoundary"]
-3:"$Sreact.suspense"
-:HL["/media/album-winter-kitchen.svg","image"]
-0:{"buildId":"R0VFC02T--7oj1f-BzIaI","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"children":[["$","h1",null,{"children":"Private Frames: Cherry Main"}],["$","section",null,{"children":[["$","h2",null,{"children":"Albums"}],["$","ul",null,{"children":[["$","li","album-winter-kitchen",{"children":[["$","img",null,{"src":"/media/album-winter-kitchen.svg","alt":"Cozy kitchen scene","style":{"width":120}}],["$","div",null,{"children":[["$","strong",null,{"children":"Winter Kitchen"}]," (","18 photos",")",["$","br",null,{}],["$","em",null,{"children":"Jan 2026"}],["$","br",null,{}],"Morning light and warm tea.",["$","br",null,{}],"Private link"]}]]}]]}]]}],["$","section",null,{"children":[["$","h2",null,{"children":"About"}],["$","p",null,{"children":"This is a static backup homepage for the Private Frames project, deployed on GitHub Pages."}]]}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
-4:null
+2:I[47257,["/memories/_next/static/chunks/ff1a16fafef87110.js","/memories/_next/static/chunks/d2be314c3ece3fbe.js"],"ClientPageRoot"]
+3:I[52683,["/memories/_next/static/chunks/ff1a16fafef87110.js","/memories/_next/static/chunks/ffcd76b1e416036e.js"],"default"]
+6:I[97367,["/memories/_next/static/chunks/ff1a16fafef87110.js","/memories/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+0:{"buildId":"MlTkuENgHsp-iYie5QpiB","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/memories/_next/static/chunks/ff1a16fafef87110.js","async":true}],["$","script","script-1",{"src":"/memories/_next/static/chunks/ffcd76b1e416036e.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null
