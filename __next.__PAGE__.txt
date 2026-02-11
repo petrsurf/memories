@@ -1,9 +1,6 @@
 1:"$Sreact.fragment"
-2:I[47257,["/privateframes-Petr_Cherry/_next/static/chunks/ff1a16fafef87110.js","/privateframes-Petr_Cherry/_next/static/chunks/d2be314c3ece3fbe.js"],"ClientPageRoot"]
-3:I[52683,["/privateframes-Petr_Cherry/_next/static/chunks/ff1a16fafef87110.js","/privateframes-Petr_Cherry/_next/static/chunks/54cfb248b7a2a0aa.js"],"default"]
-6:I[97367,["/privateframes-Petr_Cherry/_next/static/chunks/ff1a16fafef87110.js","/privateframes-Petr_Cherry/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
-7:"$Sreact.suspense"
-0:{"buildId":"eKBWGa5RkQjOpa1UDQX3z","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/privateframes-Petr_Cherry/_next/static/chunks/ff1a16fafef87110.js","async":true}],["$","script","script-1",{"src":"/privateframes-Petr_Cherry/_next/static/chunks/54cfb248b7a2a0aa.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
-4:{}
-5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
-8:null
+2:I[97367,["/privateframes-Petr_Cherry/_next/static/chunks/2f236954d6a65e12.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+:HL["/media/album-winter-kitchen.svg","image"]
+0:{"buildId":"okEigUlTjEdFWX2yRt8H-","rsc":["$","$1","c",{"children":[["$","div",null,{"children":["$","main",null,{"children":[["$","h1",null,{"children":"Private Frames: Cherry Main"}],["$","section",null,{"children":[["$","h2",null,{"children":"Albums"}],["$","ul",null,{"children":[["$","li","album-winter-kitchen",{"children":[["$","img",null,{"src":"/media/album-winter-kitchen.svg","alt":"Cozy kitchen scene","style":{"width":120}}],["$","div",null,{"children":[["$","strong",null,{"children":"Winter Kitchen"}]," (","18 photos",")",["$","br",null,{}],["$","em",null,{"children":"Jan 2026"}],["$","br",null,{}],"Morning light and warm tea.",["$","br",null,{}],"Private link"]}]]}]]}]]}],["$","section",null,{"children":[["$","h2",null,{"children":"About"}],["$","p",null,{"children":"This is a static backup homepage for the Private Frames project, deployed on GitHub Pages."}]]}]]}]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
+4:null
