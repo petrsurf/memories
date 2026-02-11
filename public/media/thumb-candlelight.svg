@@ -1,0 +1,10 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="thumb2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0d6c2" />
+      <stop offset="100%" stop-color="#d5b99f" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#thumb2)" />
+  <circle cx="540" cy="220" r="120" fill="rgba(255,255,255,0.3)" />
+</svg>
