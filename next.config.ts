@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const basePath = "/privateframes-Petr_Cherry";
+const basePath = "/memories";
 
 const nextConfig: NextConfig = {
   output: "export",

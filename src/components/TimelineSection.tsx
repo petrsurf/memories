@@ -18,6 +18,7 @@ type TimelineSectionProps = {
   labelEffectClass: string;
   bodyEffectClass: string;
   EditableText: EditableTextComponent;
+  uploads: GalleryItem[];
 };
 
 const TimelineSection = ({
@@ -35,6 +36,7 @@ const TimelineSection = ({
   labelEffectClass,
   bodyEffectClass,
   EditableText,
+  uploads,
 }: TimelineSectionProps) => {
   return (
     <section id="timeline" className="mt-20 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
@@ -75,20 +77,26 @@ const TimelineSection = ({
                 value={moment.date}
                 onChange={(value) => updateTimelineItem(moment.id, { date: value })}
                 className={`font-ui text-xs uppercase tracking-[0.2em] text-[color:var(--olive)] ${labelEffectClass}`}
-                editable={!(moment as any).isGenerated}
+                editable={!moment.isGenerated}
               />
               <EditableText
                 as="p"
                 value={moment.title}
                 onChange={(value) => updateTimelineItem(moment.id, { title: value })}
                 className={`font-display text-lg ${displayEffectClass}`}
-                editable={!(moment as any).isGenerated}
+                editable={!moment.isGenerated}
               />
             </div>
             <div className="flex items-center gap-4">
               <button
                 type="button"
-                onClick={() => openLightbox(moment.id)}
+                onClick={() => {
+                  // For generated timeline items, extract the original upload ID and pass uploads array
+                  const actualId = moment.id.startsWith('moment-') 
+                    ? moment.id.replace('moment-', '') 
+                    : moment.id;
+                  openLightbox(actualId, uploads);
+                }}
                 className="group relative h-14 w-20 overflow-hidden rounded-lg"
                 aria-label={`Open ${moment.title}`}
               >
@@ -107,7 +115,7 @@ const TimelineSection = ({
                   />
                 )}
               </button>
-              {isEditMode && !(moment as any).isGenerated ? (
+              {isEditMode && !moment.isGenerated ? (
                 <button
                   type="button"
                   className="rounded-full border border-[color:var(--muted)] px-3 py-1 font-ui text-[11px] uppercase tracking-[0.2em]"
@@ -121,7 +129,7 @@ const TimelineSection = ({
                 value={moment.detail}
                 onChange={(value) => updateTimelineItem(moment.id, { detail: value })}
                 className={`text-sm text-[color:var(--ink)]/70 ${bodyEffectClass}`}
-                editable={!(moment as any).isGenerated}
+                editable={!moment.isGenerated}
               />
             </div>
           </div>
