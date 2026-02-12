@@ -6,7 +6,8 @@
         "type":  "image",
         "albumId":  "canada-2024",
         "timestamp":  1770530361245,
-        "filename":  "2023-11-22-16-33-54-34b799079b.jpg"
+        "filename":  "2023-11-22-16-33-54-34b799079b.jpg",
+        "sizeBytes":  9834420
     },
     {
         "id":  "upload-canada-2024-305281006b",
@@ -15,7 +16,8 @@
         "type":  "image",
         "albumId":  "canada-2024",
         "timestamp":  1770530361197,
-        "filename":  "2023-11-22-16-36-04-305281006b.jpg"
+        "filename":  "2023-11-22-16-36-04-305281006b.jpg",
+        "sizeBytes":  8555672
     },
     {
         "id":  "upload-canada-2024-70e00d2d66",
@@ -24,7 +26,8 @@
         "type":  "image",
         "albumId":  "canada-2024",
         "timestamp":  1770530360798,
-        "filename":  "2023-11-22-16-36-36-70e00d2d66.jpg"
+        "filename":  "2023-11-22-16-36-36-70e00d2d66.jpg",
+        "sizeBytes":  8106682
     },
     {
         "id":  "upload-canada-2024-0318f2bc8c",
@@ -33,7 +36,8 @@
         "type":  "image",
         "albumId":  "canada-2024",
         "timestamp":  1770530361155,
-        "filename":  "2023-11-22-16-40-13-0318f2bc8c.jpg"
+        "filename":  "2023-11-22-16-40-13-0318f2bc8c.jpg",
+        "sizeBytes":  9009731
     },
     {
         "id":  "upload-canada-2024-2d8fde904d",
@@ -42,7 +46,8 @@
         "type":  "video",
         "albumId":  "canada-2024",
         "timestamp":  1770530360644,
-        "filename":  "2023-11-23-05-28-46-2d8fde904d.mov"
+        "filename":  "2023-11-23-05-28-46-2d8fde904d.mov",
+        "sizeBytes":  25223164
     },
     {
         "id":  "upload-canada-2024-f85040684b",
@@ -51,7 +56,8 @@
         "type":  "image",
         "albumId":  "canada-2024",
         "timestamp":  1770530361109,
-        "filename":  "2023-11-23-06-15-53-f85040684b.jpg"
+        "filename":  "2023-11-23-06-15-53-f85040684b.jpg",
+        "sizeBytes":  6786667
     },
     {
         "id":  "upload-canada-2024-a0c1b1e0a2",
@@ -60,7 +66,8 @@
         "type":  "image",
         "albumId":  "canada-2024",
         "timestamp":  1770530360836,
-        "filename":  "2023-11-23-06-32-29-a0c1b1e0a2.jpg"
+        "filename":  "2023-11-23-06-32-29-a0c1b1e0a2.jpg",
+        "sizeBytes":  7691577
     },
     {
         "id":  "upload-canada-2024-fa0ad9c43b",
@@ -69,7 +76,8 @@
         "type":  "video",
         "albumId":  "canada-2024",
         "timestamp":  1770530361064,
-        "filename":  "2023-11-23-06-35-45-fa0ad9c43b.mov"
+        "filename":  "2023-11-23-06-35-45-fa0ad9c43b.mov",
+        "sizeBytes":  34181032
     },
     {
         "id":  "upload-canada-2024-ee7e00a2e1",
@@ -78,7 +86,8 @@
         "type":  "video",
         "albumId":  "canada-2024",
         "timestamp":  1770530360520,
-        "filename":  "2023-11-23-06-49-25-ee7e00a2e1.mov"
+        "filename":  "2023-11-23-06-49-25-ee7e00a2e1.mov",
+        "sizeBytes":  21411479
     },
     {
         "id":  "upload-canada-2024-8169dd05ec",
@@ -87,7 +96,8 @@
         "type":  "video",
         "albumId":  "canada-2024",
         "timestamp":  1770530360695,
-        "filename":  "2023-11-24-05-53-21-8169dd05ec.mov"
+        "filename":  "2023-11-24-05-53-21-8169dd05ec.mov",
+        "sizeBytes":  8672140
     },
     {
         "id":  "upload-canada-2024-2ce4fa6d7f",
@@ -96,7 +106,8 @@
         "type":  "image",
         "albumId":  "canada-2024",
         "timestamp":  1770530360758,
-        "filename":  "2023-11-24-06-01-04-2ce4fa6d7f.jpg"
+        "filename":  "2023-11-24-06-01-04-2ce4fa6d7f.jpg",
+        "sizeBytes":  6104382
     },
     {
         "id":  "upload-canada-2024-75c77f7960",
@@ -105,7 +116,8 @@
         "type":  "image",
         "albumId":  "canada-2024",
         "timestamp":  1770530360872,
-        "filename":  "2023-11-24-06-02-54-75c77f7960.jpg"
+        "filename":  "2023-11-24-06-02-54-75c77f7960.jpg",
+        "sizeBytes":  7157548
     },
     {
         "id":  "upload-canada-2024-86cd1c0b86",
@@ -114,7 +126,8 @@
         "type":  "image",
         "albumId":  "canada-2024",
         "timestamp":  1770530360727,
-        "filename":  "2023-11-28-08-41-19-86cd1c0b86.jpg"
+        "filename":  "2023-11-28-08-41-19-86cd1c0b86.jpg",
+        "sizeBytes":  6361662
     },
     {
         "id":  "upload-canada-2024-b416ab3201",
@@ -123,7 +136,8 @@
         "type":  "image",
         "albumId":  "canada-2024",
         "timestamp":  1770530360902,
-        "filename":  "2023-11-28-09-10-24-b416ab3201.jpg"
+        "filename":  "2023-11-28-09-10-24-b416ab3201.jpg",
+        "sizeBytes":  6053793
     },
     {
         "id":  "upload-sydney-598eb28dcb",
@@ -132,7 +146,8 @@
         "type":  "image",
         "albumId":  "sydney",
         "timestamp":  1770531396429,
-        "filename":  "2023-02-25-17-07-47-598eb28dcb.jpeg"
+        "filename":  "2023-02-25-17-07-47-598eb28dcb.jpeg",
+        "sizeBytes":  6858558
     },
     {
         "id":  "upload-sydney-ce1b7e29e5",
@@ -141,7 +156,8 @@
         "type":  "image",
         "albumId":  "sydney",
         "timestamp":  1770531396445,
-        "filename":  "2023-02-25-17-07-49-ce1b7e29e5.jpeg"
+        "filename":  "2023-02-25-17-07-49-ce1b7e29e5.jpeg",
+        "sizeBytes":  6020298
     },
     {
         "id":  "upload-sydney-bc37cab4de",
@@ -150,7 +166,8 @@
         "type":  "image",
         "albumId":  "sydney",
         "timestamp":  1770531396506,
-        "filename":  "2023-02-25-17-08-21-bc37cab4de.jpeg"
+        "filename":  "2023-02-25-17-08-21-bc37cab4de.jpeg",
+        "sizeBytes":  6192525
     },
     {
         "id":  "upload-sydney-3ca6834ab9",
@@ -159,7 +176,8 @@
         "type":  "video",
         "albumId":  "sydney",
         "timestamp":  1770530144140,
-        "filename":  "img-5064-3ca6834ab9.mov"
+        "filename":  "img-5064-3ca6834ab9.mov",
+        "sizeBytes":  24555573
     },
     {
         "id":  "upload-sydney-9ee1e04d59",
@@ -168,7 +186,8 @@
         "type":  "image",
         "albumId":  "sydney",
         "timestamp":  1770783236752,
-        "filename":  "img-5244-9ee1e04d59.jpg"
+        "filename":  "img-5244-9ee1e04d59.jpg",
+        "sizeBytes":  559720
     },
     {
         "id":  "upload-sydney-a3a00dbba6",
@@ -177,7 +196,8 @@
         "type":  "image",
         "albumId":  "sydney",
         "timestamp":  1770783236829,
-        "filename":  "img-5245-a3a00dbba6.jpg"
+        "filename":  "img-5245-a3a00dbba6.jpg",
+        "sizeBytes":  493315
     },
     {
         "id":  "upload-sydney-812985b98c",
@@ -186,7 +206,8 @@
         "type":  "image",
         "albumId":  "sydney",
         "timestamp":  1770867986581,
-        "filename":  "img-5246-812985b98c.jpg"
+        "filename":  "img-5246-812985b98c.jpg",
+        "sizeBytes":  498411
     },
     {
         "id":  "upload-sydney-deaa82e458",
@@ -195,7 +216,8 @@
         "type":  "image",
         "albumId":  "sydney",
         "timestamp":  1770783236906,
-        "filename":  "img-5247-deaa82e458.jpg"
+        "filename":  "img-5247-deaa82e458.jpg",
+        "sizeBytes":  462016
     },
     {
         "id":  "upload-sydney-b108efe4f2",
@@ -204,7 +226,8 @@
         "type":  "image",
         "albumId":  "sydney",
         "timestamp":  1770783237128,
-        "filename":  "img-5249-b108efe4f2.jpg"
+        "filename":  "img-5249-b108efe4f2.jpg",
+        "sizeBytes":  649212
     },
     {
         "id":  "upload-sydney-397c0d3b79",
@@ -213,7 +236,8 @@
         "type":  "image",
         "albumId":  "sydney",
         "timestamp":  1770783237407,
-        "filename":  "img-5250-397c0d3b79.jpg"
+        "filename":  "img-5250-397c0d3b79.jpg",
+        "sizeBytes":  1431566
     },
     {
         "id":  "upload-sydney-9749a9837b",
@@ -222,7 +246,8 @@
         "type":  "image",
         "albumId":  "sydney",
         "timestamp":  1770783237659,
-        "filename":  "img-5333-9749a9837b.jpg"
+        "filename":  "img-5333-9749a9837b.jpg",
+        "sizeBytes":  1336377
     },
     {
         "id":  "upload-sydney-8b20f5cf92",
@@ -231,7 +256,8 @@
         "type":  "video",
         "albumId":  "sydney",
         "timestamp":  1770530145921,
-        "filename":  "img-5333-8b20f5cf92.mp4"
+        "filename":  "img-5333-8b20f5cf92.mp4",
+        "sizeBytes":  1705233
     },
     {
         "id":  "upload-sydney-1912e80aaf",
@@ -240,7 +266,8 @@
         "type":  "image",
         "albumId":  "sydney",
         "timestamp":  1770783237920,
-        "filename":  "img-5334-1912e80aaf.jpg"
+        "filename":  "img-5334-1912e80aaf.jpg",
+        "sizeBytes":  1414161
     },
     {
         "id":  "upload-blue-mountains-215702cfd0",
@@ -249,7 +276,8 @@
         "type":  "image",
         "albumId":  "blue-mountains",
         "timestamp":  1770783232002,
-        "filename":  "img-5039-215702cfd0.jpg"
+        "filename":  "img-5039-215702cfd0.jpg",
+        "sizeBytes":  947304
     },
     {
         "id":  "upload-blue-mountains-71c1dc6178",
@@ -258,7 +286,8 @@
         "type":  "image",
         "albumId":  "blue-mountains",
         "timestamp":  1770783232300,
-        "filename":  "img-5045-71c1dc6178.jpg"
+        "filename":  "img-5045-71c1dc6178.jpg",
+        "sizeBytes":  1983844
     },
     {
         "id":  "upload-blue-mountains-5130e5a1ff",
@@ -267,7 +296,8 @@
         "type":  "image",
         "albumId":  "blue-mountains",
         "timestamp":  1770783232561,
-        "filename":  "img-5046-5130e5a1ff.jpg"
+        "filename":  "img-5046-5130e5a1ff.jpg",
+        "sizeBytes":  1479445
     },
     {
         "id":  "upload-blue-mountains-15236b4da0",
@@ -276,7 +306,8 @@
         "type":  "image",
         "albumId":  "blue-mountains",
         "timestamp":  1770783232805,
-        "filename":  "img-5047-15236b4da0.jpg"
+        "filename":  "img-5047-15236b4da0.jpg",
+        "sizeBytes":  727520
     },
     {
         "id":  "upload-blue-mountains-98ba0e7ddb",
@@ -285,7 +316,8 @@
         "type":  "image",
         "albumId":  "blue-mountains",
         "timestamp":  1770867912543,
-        "filename":  "img-5048-98ba0e7ddb.jpg"
+        "filename":  "img-5048-98ba0e7ddb.jpg",
+        "sizeBytes":  801061
     },
     {
         "id":  "upload-blue-mountains-5826db3954",
@@ -294,7 +326,8 @@
         "type":  "image",
         "albumId":  "blue-mountains",
         "timestamp":  1770783233283,
-        "filename":  "img-5049-5826db3954.jpg"
+        "filename":  "img-5049-5826db3954.jpg",
+        "sizeBytes":  879074
     },
     {
         "id":  "upload-blue-mountains-449fed625b",
@@ -303,7 +336,8 @@
         "type":  "image",
         "albumId":  "blue-mountains",
         "timestamp":  1770783233536,
-        "filename":  "img-5050-449fed625b.jpg"
+        "filename":  "img-5050-449fed625b.jpg",
+        "sizeBytes":  1128890
     },
     {
         "id":  "upload-blue-mountains-a50c52c401",
@@ -312,7 +346,8 @@
         "type":  "image",
         "albumId":  "blue-mountains",
         "timestamp":  1770783233800,
-        "filename":  "img-5051-a50c52c401.jpg"
+        "filename":  "img-5051-a50c52c401.jpg",
+        "sizeBytes":  1547893
     },
     {
         "id":  "upload-blue-mountains-f6eb7f1cf6",
@@ -321,7 +356,8 @@
         "type":  "image",
         "albumId":  "blue-mountains",
         "timestamp":  1770867912759,
-        "filename":  "img-5052-f6eb7f1cf6.jpg"
+        "filename":  "img-5052-f6eb7f1cf6.jpg",
+        "sizeBytes":  780614
     },
     {
         "id":  "upload-nelson-bay-5f2df1cca5",
@@ -330,7 +366,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531395575,
-        "filename":  "2018-07-01-06-37-06-5f2df1cca5.jpeg"
+        "filename":  "2018-07-01-06-37-06-5f2df1cca5.jpeg",
+        "sizeBytes":  3612704
     },
     {
         "id":  "upload-nelson-bay-0a20e30e43",
@@ -339,7 +376,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531395578,
-        "filename":  "2018-07-14-16-29-32-0a20e30e43.jpeg"
+        "filename":  "2018-07-14-16-29-32-0a20e30e43.jpeg",
+        "sizeBytes":  3603723
     },
     {
         "id":  "upload-nelson-bay-4a4d5c0ef6",
@@ -348,7 +386,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531395580,
-        "filename":  "2018-07-14-16-29-39-4a4d5c0ef6.jpeg"
+        "filename":  "2018-07-14-16-29-39-4a4d5c0ef6.jpeg",
+        "sizeBytes":  3365228
     },
     {
         "id":  "upload-nelson-bay-04275d4069",
@@ -357,7 +396,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531395599,
-        "filename":  "2018-07-14-16-30-01-04275d4069.jpeg"
+        "filename":  "2018-07-14-16-30-01-04275d4069.jpeg",
+        "sizeBytes":  3161064
     },
     {
         "id":  "upload-nelson-bay-7194ca5074",
@@ -366,7 +406,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531395653,
-        "filename":  "2018-07-14-17-13-40-2-7194ca5074.jpeg"
+        "filename":  "2018-07-14-17-13-40-2-7194ca5074.jpeg",
+        "sizeBytes":  3468118
     },
     {
         "id":  "upload-nelson-bay-2604357a6b",
@@ -375,7 +416,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531395665,
-        "filename":  "2018-07-15-07-25-01-2604357a6b.jpeg"
+        "filename":  "2018-07-15-07-25-01-2604357a6b.jpeg",
+        "sizeBytes":  4297580
     },
     {
         "id":  "upload-nelson-bay-ea2c81f2c5",
@@ -384,7 +426,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531395664,
-        "filename":  "2018-07-15-07-25-10-ea2c81f2c5.jpeg"
+        "filename":  "2018-07-15-07-25-10-ea2c81f2c5.jpeg",
+        "sizeBytes":  3759223
     },
     {
         "id":  "upload-nelson-bay-78d78cf28d",
@@ -393,7 +436,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531395680,
-        "filename":  "2018-07-15-07-25-27-78d78cf28d.jpeg"
+        "filename":  "2018-07-15-07-25-27-78d78cf28d.jpeg",
+        "sizeBytes":  3568269
     },
     {
         "id":  "upload-nelson-bay-e1a6f94dfa",
@@ -402,7 +446,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531396407,
-        "filename":  "2024-08-27-17-39-59-e1a6f94dfa.jpeg"
+        "filename":  "2024-08-27-17-39-59-e1a6f94dfa.jpeg",
+        "sizeBytes":  2095386
     },
     {
         "id":  "upload-nelson-bay-4e35e10cbb",
@@ -411,7 +456,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531396541,
-        "filename":  "2024-08-31-13-49-06-4e35e10cbb.jpeg"
+        "filename":  "2024-08-31-13-49-06-4e35e10cbb.jpeg",
+        "sizeBytes":  3443490
     },
     {
         "id":  "upload-nelson-bay-f01baab36d",
@@ -420,7 +466,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145585,
-        "filename":  "2024-08-31-13-49-06-f01baab36d.jpg"
+        "filename":  "2024-08-31-13-49-06-f01baab36d.jpg",
+        "sizeBytes":  3358627
     },
     {
         "id":  "upload-nelson-bay-5bf90f22bc",
@@ -429,7 +476,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531396569,
-        "filename":  "2024-08-31-13-49-15-5bf90f22bc.jpeg"
+        "filename":  "2024-08-31-13-49-15-5bf90f22bc.jpeg",
+        "sizeBytes":  3653170
     },
     {
         "id":  "upload-nelson-bay-0ce48af56f",
@@ -438,7 +486,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145701,
-        "filename":  "2024-08-31-13-49-15-0ce48af56f.jpg"
+        "filename":  "2024-08-31-13-49-15-0ce48af56f.jpg",
+        "sizeBytes":  3577075
     },
     {
         "id":  "upload-nelson-bay-2dc87cc8ea",
@@ -447,7 +496,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531396563,
-        "filename":  "2024-08-31-13-49-19-2dc87cc8ea.jpeg"
+        "filename":  "2024-08-31-13-49-19-2dc87cc8ea.jpeg",
+        "sizeBytes":  2783063
     },
     {
         "id":  "upload-nelson-bay-fc78bd054b",
@@ -456,7 +506,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145667,
-        "filename":  "2024-08-31-13-49-19-fc78bd054b.jpg"
+        "filename":  "2024-08-31-13-49-19-fc78bd054b.jpg",
+        "sizeBytes":  2672618
     },
     {
         "id":  "upload-nelson-bay-c4c8612450",
@@ -465,7 +516,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531396636,
-        "filename":  "2024-08-31-16-12-26-c4c8612450.jpeg"
+        "filename":  "2024-08-31-16-12-26-c4c8612450.jpeg",
+        "sizeBytes":  3409972
     },
     {
         "id":  "upload-nelson-bay-391a279421",
@@ -474,7 +526,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145603,
-        "filename":  "2024-08-31-16-12-26-391a279421.jpg"
+        "filename":  "2024-08-31-16-12-26-391a279421.jpg",
+        "sizeBytes":  3347529
     },
     {
         "id":  "upload-nelson-bay-f749fd1c5a",
@@ -483,7 +536,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145873,
-        "filename":  "2024-08-31-16-12-49-f749fd1c5a.jpg"
+        "filename":  "2024-08-31-16-12-49-f749fd1c5a.jpg",
+        "sizeBytes":  3151630
     },
     {
         "id":  "upload-nelson-bay-e0ad73ca09",
@@ -492,7 +546,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145398,
-        "filename":  "2024-08-31-16-15-30-e0ad73ca09.jpg"
+        "filename":  "2024-08-31-16-15-30-e0ad73ca09.jpg",
+        "sizeBytes":  3186090
     },
     {
         "id":  "upload-nelson-bay-4f41133931",
@@ -501,7 +556,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145752,
-        "filename":  "2024-08-31-16-15-37-4f41133931.jpg"
+        "filename":  "2024-08-31-16-15-37-4f41133931.jpg",
+        "sizeBytes":  894346
     },
     {
         "id":  "upload-nelson-bay-75cfe20793",
@@ -510,7 +566,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145474,
-        "filename":  "2024-08-31-16-15-41-75cfe20793.jpg"
+        "filename":  "2024-08-31-16-15-41-75cfe20793.jpg",
+        "sizeBytes":  2743320
     },
     {
         "id":  "upload-nelson-bay-d60876f577",
@@ -519,7 +576,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145334,
-        "filename":  "2024-08-31-16-16-09-d60876f577.jpg"
+        "filename":  "2024-08-31-16-16-09-d60876f577.jpg",
+        "sizeBytes":  2778244
     },
     {
         "id":  "upload-nelson-bay-888849ab71",
@@ -528,7 +586,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770531395515,
-        "filename":  "39b04c66-fda9-4665-8921-888849ab71.jpeg"
+        "filename":  "39b04c66-fda9-4665-8921-888849ab71.jpeg",
+        "sizeBytes":  398623
     },
     {
         "id":  "upload-nelson-bay-c4d0d3c428",
@@ -537,7 +596,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770530337721,
-        "filename":  "img-5796-c4d0d3c428.jpeg"
+        "filename":  "img-5796-c4d0d3c428.jpeg",
+        "sizeBytes":  3438427
     },
     {
         "id":  "upload-nelson-bay-0ac41b8d3a",
@@ -546,7 +606,8 @@
         "type":  "video",
         "albumId":  "nelson-bay",
         "timestamp":  1770530146126,
-        "filename":  "img-5796-0ac41b8d3a.mp4"
+        "filename":  "img-5796-0ac41b8d3a.mp4",
+        "sizeBytes":  2513372
     },
     {
         "id":  "upload-nelson-bay-5081932e94",
@@ -555,7 +616,8 @@
         "type":  "video",
         "albumId":  "nelson-bay",
         "timestamp":  1770530146087,
-        "filename":  "img-5797-5081932e94.mp4"
+        "filename":  "img-5797-5081932e94.mp4",
+        "sizeBytes":  2120202
     },
     {
         "id":  "upload-nelson-bay-5acded06dc",
@@ -564,7 +626,8 @@
         "type":  "video",
         "albumId":  "nelson-bay",
         "timestamp":  1770530146006,
-        "filename":  "img-5798-5acded06dc.mp4"
+        "filename":  "img-5798-5acded06dc.mp4",
+        "sizeBytes":  2070705
     },
     {
         "id":  "upload-nelson-bay-1c94d10c07",
@@ -573,7 +636,8 @@
         "type":  "video",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145232,
-        "filename":  "img-5799-1c94d10c07.mp4"
+        "filename":  "img-5799-1c94d10c07.mp4",
+        "sizeBytes":  1830638
     },
     {
         "id":  "upload-nelson-bay-c7b8cd4bd5",
@@ -582,7 +646,8 @@
         "type":  "video",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145348,
-        "filename":  "img-5800-c7b8cd4bd5.mp4"
+        "filename":  "img-5800-c7b8cd4bd5.mp4",
+        "sizeBytes":  2313666
     },
     {
         "id":  "upload-nelson-bay-771bbceb12",
@@ -591,7 +656,8 @@
         "type":  "video",
         "albumId":  "nelson-bay",
         "timestamp":  1770530146016,
-        "filename":  "img-5802-771bbceb12.mp4"
+        "filename":  "img-5802-771bbceb12.mp4",
+        "sizeBytes":  1723496
     },
     {
         "id":  "upload-nelson-bay-b2cd2da5b0",
@@ -600,7 +666,8 @@
         "type":  "video",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145487,
-        "filename":  "img-5803-b2cd2da5b0.mp4"
+        "filename":  "img-5803-b2cd2da5b0.mp4",
+        "sizeBytes":  2510010
     },
     {
         "id":  "upload-nelson-bay-6eaf2ef84c",
@@ -609,7 +676,8 @@
         "type":  "video",
         "albumId":  "nelson-bay",
         "timestamp":  1770530146113,
-        "filename":  "img-5804-6eaf2ef84c.mp4"
+        "filename":  "img-5804-6eaf2ef84c.mp4",
+        "sizeBytes":  2425380
     },
     {
         "id":  "upload-nelson-bay-8034c88c53",
@@ -618,7 +686,8 @@
         "type":  "video",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145972,
-        "filename":  "img-5805-8034c88c53.mp4"
+        "filename":  "img-5805-8034c88c53.mp4",
+        "sizeBytes":  2368440
     },
     {
         "id":  "upload-nelson-bay-38af7bcc54",
@@ -627,7 +696,8 @@
         "type":  "image",
         "albumId":  "nelson-bay",
         "timestamp":  1770783239153,
-        "filename":  "img-5806-38af7bcc54.jpg"
+        "filename":  "img-5806-38af7bcc54.jpg",
+        "sizeBytes":  613285
     },
     {
         "id":  "upload-nelson-bay-872045a5ff",
@@ -636,7 +706,8 @@
         "type":  "video",
         "albumId":  "nelson-bay",
         "timestamp":  1770530145959,
-        "filename":  "img-5806-872045a5ff.mp4"
+        "filename":  "img-5806-872045a5ff.mp4",
+        "sizeBytes":  1953072
     },
     {
         "id":  "upload-sunday-walk-c861d3bfcc",
@@ -645,7 +716,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531395536,
-        "filename":  "019bbefe-8ed7-4cee-9dba-c861d3bfcc.jpeg"
+        "filename":  "019bbefe-8ed7-4cee-9dba-c861d3bfcc.jpeg",
+        "sizeBytes":  921629
     },
     {
         "id":  "upload-sunday-walk-36d596d06c",
@@ -654,7 +726,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531395719,
-        "filename":  "2018-11-23-20-48-09-36d596d06c.jpeg"
+        "filename":  "2018-11-23-20-48-09-36d596d06c.jpeg",
+        "sizeBytes":  3181050
     },
     {
         "id":  "upload-sunday-walk-9b3a28f952",
@@ -663,7 +736,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531395801,
-        "filename":  "2019-03-23-23-06-56-9b3a28f952.jpeg"
+        "filename":  "2019-03-23-23-06-56-9b3a28f952.jpeg",
+        "sizeBytes":  3786375
     },
     {
         "id":  "upload-sunday-walk-2831bfd67e",
@@ -672,7 +746,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531395812,
-        "filename":  "2022-08-01-13-53-02-2831bfd67e.jpeg"
+        "filename":  "2022-08-01-13-53-02-2831bfd67e.jpeg",
+        "sizeBytes":  6077821
     },
     {
         "id":  "upload-sunday-walk-21ce80ce03",
@@ -681,7 +756,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531395839,
-        "filename":  "2022-08-01-13-53-43-21ce80ce03.jpeg"
+        "filename":  "2022-08-01-13-53-43-21ce80ce03.jpeg",
+        "sizeBytes":  7825950
     },
     {
         "id":  "upload-sunday-walk-1c297f4a5e",
@@ -690,7 +766,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531395840,
-        "filename":  "2022-08-02-17-29-28-1c297f4a5e.jpeg"
+        "filename":  "2022-08-02-17-29-28-1c297f4a5e.jpeg",
+        "sizeBytes":  5389269
     },
     {
         "id":  "upload-sunday-walk-f190d6b74c",
@@ -699,7 +776,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531395914,
-        "filename":  "2022-08-05-16-44-27-f190d6b74c.jpeg"
+        "filename":  "2022-08-05-16-44-27-f190d6b74c.jpeg",
+        "sizeBytes":  5275910
     },
     {
         "id":  "upload-sunday-walk-941f2283e5",
@@ -708,7 +786,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531395943,
-        "filename":  "2022-08-06-11-09-45-941f2283e5.jpeg"
+        "filename":  "2022-08-06-11-09-45-941f2283e5.jpeg",
+        "sizeBytes":  6808128
     },
     {
         "id":  "upload-sunday-walk-39cb4f2a4e",
@@ -717,7 +796,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531395980,
-        "filename":  "2022-08-06-11-29-55-39cb4f2a4e.jpeg"
+        "filename":  "2022-08-06-11-29-55-39cb4f2a4e.jpeg",
+        "sizeBytes":  7943927
     },
     {
         "id":  "upload-sunday-walk-295043365b",
@@ -726,7 +806,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531395976,
-        "filename":  "2022-08-06-11-29-59-295043365b.jpeg"
+        "filename":  "2022-08-06-11-29-59-295043365b.jpeg",
+        "sizeBytes":  7535961
     },
     {
         "id":  "upload-sunday-walk-b9c5c2af04",
@@ -735,7 +816,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531396063,
-        "filename":  "2022-08-06-11-41-59-b9c5c2af04.jpeg"
+        "filename":  "2022-08-06-11-41-59-b9c5c2af04.jpeg",
+        "sizeBytes":  9101723
     },
     {
         "id":  "upload-sunday-walk-be8a723bab",
@@ -744,7 +826,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770530146060,
-        "filename":  "2022-08-06-11-41-59-be8a723bab.jpg"
+        "filename":  "2022-08-06-11-41-59-be8a723bab.jpg",
+        "sizeBytes":  8920900
     },
     {
         "id":  "upload-sunday-walk-7097222d0e",
@@ -753,7 +836,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531396090,
-        "filename":  "2022-08-08-17-26-33-7097222d0e.jpeg"
+        "filename":  "2022-08-08-17-26-33-7097222d0e.jpeg",
+        "sizeBytes":  4526940
     },
     {
         "id":  "upload-sunday-walk-aff0aebf2c",
@@ -762,7 +846,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531396100,
-        "filename":  "2022-08-13-17-44-58-aff0aebf2c.jpeg"
+        "filename":  "2022-08-13-17-44-58-aff0aebf2c.jpeg",
+        "sizeBytes":  5178086
     },
     {
         "id":  "upload-sunday-walk-81ec71bf27",
@@ -771,7 +856,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531396164,
-        "filename":  "2022-08-13-17-45-23-81ec71bf27.jpeg"
+        "filename":  "2022-08-13-17-45-23-81ec71bf27.jpeg",
+        "sizeBytes":  3943718
     },
     {
         "id":  "upload-sunday-walk-43628deded",
@@ -780,7 +866,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531396207,
-        "filename":  "2022-08-14-10-27-58-43628deded.jpeg"
+        "filename":  "2022-08-14-10-27-58-43628deded.jpeg",
+        "sizeBytes":  5491794
     },
     {
         "id":  "upload-sunday-walk-171c1ad8ce",
@@ -789,7 +876,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531396233,
-        "filename":  "2022-08-14-10-33-03-171c1ad8ce.jpeg"
+        "filename":  "2022-08-14-10-33-03-171c1ad8ce.jpeg",
+        "sizeBytes":  7458990
     },
     {
         "id":  "upload-sunday-walk-c66e86d1b0",
@@ -798,7 +886,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531396289,
-        "filename":  "2022-08-14-10-56-44-c66e86d1b0.jpeg"
+        "filename":  "2022-08-14-10-56-44-c66e86d1b0.jpeg",
+        "sizeBytes":  6203473
     },
     {
         "id":  "upload-sunday-walk-63050e0fc4",
@@ -807,7 +896,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531396303,
-        "filename":  "2022-08-14-10-57-36-63050e0fc4.jpeg"
+        "filename":  "2022-08-14-10-57-36-63050e0fc4.jpeg",
+        "sizeBytes":  7692546
     },
     {
         "id":  "upload-sunday-walk-740cc585ca",
@@ -816,7 +906,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770531395492,
-        "filename":  "7a0585b2-f0c1-48e7-aa39-740cc585ca.jpeg"
+        "filename":  "7a0585b2-f0c1-48e7-aa39-740cc585ca.jpeg",
+        "sizeBytes":  231448
     },
     {
         "id":  "upload-sunday-walk-6a8599e80b",
@@ -825,7 +916,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783226774,
-        "filename":  "img-4918-6a8599e80b.jpg"
+        "filename":  "img-4918-6a8599e80b.jpg",
+        "sizeBytes":  1378082
     },
     {
         "id":  "upload-sunday-walk-3e4a50c3ae",
@@ -834,7 +926,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783227054,
-        "filename":  "img-4919-3e4a50c3ae.jpg"
+        "filename":  "img-4919-3e4a50c3ae.jpg",
+        "sizeBytes":  2062843
     },
     {
         "id":  "upload-sunday-walk-8ec54297d7",
@@ -843,7 +936,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783227298,
-        "filename":  "img-4920-8ec54297d7.jpg"
+        "filename":  "img-4920-8ec54297d7.jpg",
+        "sizeBytes":  1162622
     },
     {
         "id":  "upload-sunday-walk-6e92332938",
@@ -852,7 +946,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783227554,
-        "filename":  "img-4923-6e92332938.jpg"
+        "filename":  "img-4923-6e92332938.jpg",
+        "sizeBytes":  1279479
     },
     {
         "id":  "upload-sunday-walk-a85749133b",
@@ -861,7 +956,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770784062423,
-        "filename":  "img-4924-a85749133b.jpg"
+        "filename":  "img-4924-a85749133b.jpg",
+        "sizeBytes":  1770154
     },
     {
         "id":  "upload-sunday-walk-446033f148",
@@ -870,7 +966,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783228114,
-        "filename":  "img-4925-446033f148.jpg"
+        "filename":  "img-4925-446033f148.jpg",
+        "sizeBytes":  2124239
     },
     {
         "id":  "upload-sunday-walk-59583fa9fd",
@@ -879,7 +976,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783228412,
-        "filename":  "img-4926-59583fa9fd.jpg"
+        "filename":  "img-4926-59583fa9fd.jpg",
+        "sizeBytes":  2167858
     },
     {
         "id":  "upload-sunday-walk-c38cb1cc39",
@@ -888,7 +986,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783228711,
-        "filename":  "img-4927-c38cb1cc39.jpg"
+        "filename":  "img-4927-c38cb1cc39.jpg",
+        "sizeBytes":  2030625
     },
     {
         "id":  "upload-sunday-walk-a55bd56fe8",
@@ -897,7 +996,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770784062421,
-        "filename":  "img-4929-a55bd56fe8.jpg"
+        "filename":  "img-4929-a55bd56fe8.jpg",
+        "sizeBytes":  2204771
     },
     {
         "id":  "upload-sunday-walk-61b30c33d4",
@@ -906,7 +1006,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783229603,
-        "filename":  "img-4930-61b30c33d4.jpg"
+        "filename":  "img-4930-61b30c33d4.jpg",
+        "sizeBytes":  944593
     },
     {
         "id":  "upload-sunday-walk-88bebd05d7",
@@ -915,7 +1016,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783229862,
-        "filename":  "img-4931-88bebd05d7.jpg"
+        "filename":  "img-4931-88bebd05d7.jpg",
+        "sizeBytes":  837521
     },
     {
         "id":  "upload-sunday-walk-314f17e8dc",
@@ -924,7 +1026,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783230111,
-        "filename":  "img-4944-314f17e8dc.jpg"
+        "filename":  "img-4944-314f17e8dc.jpg",
+        "sizeBytes":  1056264
     },
     {
         "id":  "upload-sunday-walk-39e6297347",
@@ -933,7 +1036,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783230347,
-        "filename":  "img-4945-39e6297347.jpg"
+        "filename":  "img-4945-39e6297347.jpg",
+        "sizeBytes":  759684
     },
     {
         "id":  "upload-sunday-walk-a462f0d922",
@@ -942,7 +1046,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783230597,
-        "filename":  "img-4946-a462f0d922.jpg"
+        "filename":  "img-4946-a462f0d922.jpg",
+        "sizeBytes":  1364451
     },
     {
         "id":  "upload-sunday-walk-53c080eabb",
@@ -951,7 +1056,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783230891,
-        "filename":  "img-4947-53c080eabb.jpg"
+        "filename":  "img-4947-53c080eabb.jpg",
+        "sizeBytes":  1911983
     },
     {
         "id":  "upload-sunday-walk-cf7d437720",
@@ -960,7 +1066,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783231151,
-        "filename":  "img-4948-cf7d437720.jpg"
+        "filename":  "img-4948-cf7d437720.jpg",
+        "sizeBytes":  1488892
     },
     {
         "id":  "upload-sunday-walk-cbc3566145",
@@ -969,7 +1076,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783231515,
-        "filename":  "img-4949-cbc3566145.jpg"
+        "filename":  "img-4949-cbc3566145.jpg",
+        "sizeBytes":  2100297
     },
     {
         "id":  "upload-sunday-walk-148382ab41",
@@ -978,7 +1086,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783231753,
-        "filename":  "img-5038-148382ab41.jpg"
+        "filename":  "img-5038-148382ab41.jpg",
+        "sizeBytes":  618029
     },
     {
         "id":  "upload-sunday-walk-98ba0e7ddb",
@@ -987,7 +1096,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783233039,
-        "filename":  "img-5048-98ba0e7ddb.jpg"
+        "filename":  "img-5048-98ba0e7ddb.jpg",
+        "sizeBytes":  801061
     },
     {
         "id":  "upload-sunday-walk-f6eb7f1cf6",
@@ -996,7 +1106,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783234029,
-        "filename":  "img-5052-f6eb7f1cf6.jpg"
+        "filename":  "img-5052-f6eb7f1cf6.jpg",
+        "sizeBytes":  780614
     },
     {
         "id":  "upload-sunday-walk-3e30176f80",
@@ -1005,7 +1116,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783234266,
-        "filename":  "img-5057-3e30176f80.jpg"
+        "filename":  "img-5057-3e30176f80.jpg",
+        "sizeBytes":  845820
     },
     {
         "id":  "upload-sunday-walk-44009d9eec",
@@ -1014,7 +1126,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783234508,
-        "filename":  "img-5058-44009d9eec.jpg"
+        "filename":  "img-5058-44009d9eec.jpg",
+        "sizeBytes":  1122422
     },
     {
         "id":  "upload-sunday-walk-85b1c18877",
@@ -1023,7 +1136,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783234751,
-        "filename":  "img-5059-85b1c18877.jpg"
+        "filename":  "img-5059-85b1c18877.jpg",
+        "sizeBytes":  926865
     },
     {
         "id":  "upload-sunday-walk-c4a916dcab",
@@ -1032,7 +1146,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783234984,
-        "filename":  "img-5060-c4a916dcab.jpg"
+        "filename":  "img-5060-c4a916dcab.jpg",
+        "sizeBytes":  971490
     },
     {
         "id":  "upload-sunday-walk-091bb4d3c8",
@@ -1041,7 +1156,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783235210,
-        "filename":  "img-5061-091bb4d3c8.jpg"
+        "filename":  "img-5061-091bb4d3c8.jpg",
+        "sizeBytes":  609318
     },
     {
         "id":  "upload-sunday-walk-23d849e1d0",
@@ -1050,7 +1166,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783235470,
-        "filename":  "img-5062-23d849e1d0.jpg"
+        "filename":  "img-5062-23d849e1d0.jpg",
+        "sizeBytes":  1421565
     },
     {
         "id":  "upload-sunday-walk-2cdfee8dfa",
@@ -1059,7 +1176,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783235764,
-        "filename":  "img-5063-2cdfee8dfa.jpg"
+        "filename":  "img-5063-2cdfee8dfa.jpg",
+        "sizeBytes":  1864963
     },
     {
         "id":  "upload-sunday-walk-9b0441222e",
@@ -1068,7 +1186,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783235999,
-        "filename":  "img-5065-9b0441222e.jpg"
+        "filename":  "img-5065-9b0441222e.jpg",
+        "sizeBytes":  923746
     },
     {
         "id":  "upload-sunday-walk-216a69b4d6",
@@ -1077,7 +1196,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783236292,
-        "filename":  "img-5067-216a69b4d6.jpg"
+        "filename":  "img-5067-216a69b4d6.jpg",
+        "sizeBytes":  2052795
     },
     {
         "id":  "upload-sunday-walk-bfb779fa09",
@@ -1086,7 +1206,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783236529,
-        "filename":  "img-5068-bfb779fa09.jpg"
+        "filename":  "img-5068-bfb779fa09.jpg",
+        "sizeBytes":  1015471
     },
     {
         "id":  "upload-sunday-walk-d530a36c99",
@@ -1095,7 +1216,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783238160,
-        "filename":  "img-5504-d530a36c99.jpg"
+        "filename":  "img-5504-d530a36c99.jpg",
+        "sizeBytes":  1121273
     },
     {
         "id":  "upload-sunday-walk-91746c75da",
@@ -1104,7 +1226,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783238418,
-        "filename":  "img-5505-91746c75da.jpg"
+        "filename":  "img-5505-91746c75da.jpg",
+        "sizeBytes":  1206119
     },
     {
         "id":  "upload-sunday-walk-cc2436be76",
@@ -1113,7 +1236,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783667476,
-        "filename":  "img-5506-cc2436be76.jpg"
+        "filename":  "img-5506-cc2436be76.jpg",
+        "sizeBytes":  978526
     },
     {
         "id":  "upload-sunday-walk-3a0a8b1571",
@@ -1122,7 +1246,8 @@
         "type":  "video",
         "albumId":  "sunday-walk",
         "timestamp":  1770530145567,
-        "filename":  "img-5506-3a0a8b1571.mp4"
+        "filename":  "img-5506-3a0a8b1571.mp4",
+        "sizeBytes":  1780039
     },
     {
         "id":  "upload-sunday-walk-cc6e989bbd",
@@ -1131,7 +1256,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783667698,
-        "filename":  "img-5507-cc6e989bbd.jpg"
+        "filename":  "img-5507-cc6e989bbd.jpg",
+        "sizeBytes":  674068
     },
     {
         "id":  "upload-sunday-walk-3b6ec25e6c",
@@ -1140,7 +1266,8 @@
         "type":  "video",
         "albumId":  "sunday-walk",
         "timestamp":  1770530145208,
-        "filename":  "img-5507-3b6ec25e6c.mp4"
+        "filename":  "img-5507-3b6ec25e6c.mp4",
+        "sizeBytes":  2456978
     },
     {
         "id":  "upload-sunday-walk-7e535f56ec",
@@ -1149,7 +1276,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783667861,
-        "filename":  "img-5783-7e535f56ec.jpg"
+        "filename":  "img-5783-7e535f56ec.jpg",
+        "sizeBytes":  629759
     },
     {
         "id":  "upload-sunday-walk-4696ba2dd4",
@@ -1158,7 +1286,8 @@
         "type":  "video",
         "albumId":  "sunday-walk",
         "timestamp":  1770530145376,
-        "filename":  "img-5783-4696ba2dd4.mp4"
+        "filename":  "img-5783-4696ba2dd4.mp4",
+        "sizeBytes":  2235389
     },
     {
         "id":  "upload-sunday-walk-c4a363d0b9",
@@ -1167,7 +1296,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783238664,
-        "filename":  "img-5801-c4a363d0b9.jpg"
+        "filename":  "img-5801-c4a363d0b9.jpg",
+        "sizeBytes":  1035990
     },
     {
         "id":  "upload-sunday-walk-9a206a71c0",
@@ -1176,7 +1306,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783238935,
-        "filename":  "img-5802-9a206a71c0.jpg"
+        "filename":  "img-5802-9a206a71c0.jpg",
+        "sizeBytes":  1126467
     },
     {
         "id":  "upload-sunday-walk-4415d9b0e3",
@@ -1185,7 +1316,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783239445,
-        "filename":  "img-5807-4415d9b0e3.jpg"
+        "filename":  "img-5807-4415d9b0e3.jpg",
+        "sizeBytes":  2181079
     },
     {
         "id":  "upload-sunday-walk-278900fd67",
@@ -1194,7 +1326,8 @@
         "type":  "image",
         "albumId":  "sunday-walk",
         "timestamp":  1770783239784,
-        "filename":  "img-5808-278900fd67.jpg"
+        "filename":  "img-5808-278900fd67.jpg",
+        "sizeBytes":  2110549
     },
     {
         "id":  "upload-port-lincoln-232164b306",
@@ -1203,7 +1336,8 @@
         "type":  "image",
         "albumId":  "port-lincoln",
         "timestamp":  1770531395690,
-        "filename":  "2019-03-16-16-40-58-232164b306.jpeg"
+        "filename":  "2019-03-16-16-40-58-232164b306.jpeg",
+        "sizeBytes":  813021
     },
     {
         "id":  "upload-port-lincoln-e41f8b2d3e",
@@ -1212,7 +1346,8 @@
         "type":  "image",
         "albumId":  "port-lincoln",
         "timestamp":  1770531395688,
-        "filename":  "2019-03-16-17-02-42-e41f8b2d3e.jpeg"
+        "filename":  "2019-03-16-17-02-42-e41f8b2d3e.jpeg",
+        "sizeBytes":  600952
     },
     {
         "id":  "upload-port-lincoln-9779261c47",
@@ -1221,7 +1356,8 @@
         "type":  "image",
         "albumId":  "port-lincoln",
         "timestamp":  1770531395508,
-        "filename":  "6ebf9ffd-7aa4-44b7-9c9d-9779261c47.jpeg"
+        "filename":  "6ebf9ffd-7aa4-44b7-9c9d-9779261c47.jpeg",
+        "sizeBytes":  691168
     },
     {
         "id":  "upload-port-lincoln-1565a22b99",
@@ -1230,7 +1366,8 @@
         "type":  "image",
         "albumId":  "port-lincoln",
         "timestamp":  1770531395502,
-        "filename":  "9c01efaa-4c39-47e6-968b-1565a22b99.jpeg"
+        "filename":  "9c01efaa-4c39-47e6-968b-1565a22b99.jpeg",
+        "sizeBytes":  223278
     },
     {
         "id":  "upload-port-lincoln-9ac0858bea",
@@ -1239,7 +1376,8 @@
         "type":  "image",
         "albumId":  "port-lincoln",
         "timestamp":  1770530988358,
-        "filename":  "img-3922-9ac0858bea.jpeg"
+        "filename":  "img-3922-9ac0858bea.jpeg",
+        "sizeBytes":  605720
     },
     {
         "id":  "upload-port-lincoln-91aee7dc19",
@@ -1248,7 +1386,8 @@
         "type":  "video",
         "albumId":  "port-lincoln",
         "timestamp":  1770530146074,
-        "filename":  "img-5047-91aee7dc19.mp4"
+        "filename":  "img-5047-91aee7dc19.mp4",
+        "sizeBytes":  2472711
     },
     {
         "id":  "upload-port-lincoln-ef583d7677",
@@ -1257,7 +1396,8 @@
         "type":  "video",
         "albumId":  "port-lincoln",
         "timestamp":  1770530145681,
-        "filename":  "img-5048-ef583d7677.mp4"
+        "filename":  "img-5048-ef583d7677.mp4",
+        "sizeBytes":  2532720
     },
     {
         "id":  "upload-port-lincoln-a0146bd223",
@@ -1266,7 +1406,8 @@
         "type":  "video",
         "albumId":  "port-lincoln",
         "timestamp":  1770530145615,
-        "filename":  "img-5052-a0146bd223.mp4"
+        "filename":  "img-5052-a0146bd223.mp4",
+        "sizeBytes":  2485673
     },
     {
         "id":  "upload-port-lincoln-87565c8592",
@@ -1275,7 +1416,8 @@
         "type":  "video",
         "albumId":  "port-lincoln",
         "timestamp":  1770530145222,
-        "filename":  "img-5060-87565c8592.mp4"
+        "filename":  "img-5060-87565c8592.mp4",
+        "sizeBytes":  2564981
     },
     {
         "id":  "upload-port-lincoln-cfcbac3387",
@@ -1284,7 +1426,8 @@
         "type":  "video",
         "albumId":  "port-lincoln",
         "timestamp":  1770530145948,
-        "filename":  "img-5065-cfcbac3387.mp4"
+        "filename":  "img-5065-cfcbac3387.mp4",
+        "sizeBytes":  2519643
     },
     {
         "id":  "upload-port-lincoln-8a3a31f186",
@@ -1293,7 +1436,8 @@
         "type":  "video",
         "albumId":  "port-lincoln",
         "timestamp":  1770530146099,
-        "filename":  "img-5249-8a3a31f186.mp4"
+        "filename":  "img-5249-8a3a31f186.mp4",
+        "sizeBytes":  2357730
     },
     {
         "id":  "upload-japan-bc919747e3",
@@ -1302,7 +1446,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453853363,
-        "filename":  "img-6007-bc919747e3.jpeg"
+        "filename":  "img-6007-bc919747e3.jpeg",
+        "sizeBytes":  5015507
     },
     {
         "id":  "upload-japan-ad56a76313",
@@ -1311,7 +1456,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453850742,
-        "filename":  "img-6008-ad56a76313.jpeg"
+        "filename":  "img-6008-ad56a76313.jpeg",
+        "sizeBytes":  2532950
     },
     {
         "id":  "upload-japan-611c8d98cf",
@@ -1320,7 +1466,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453855918,
-        "filename":  "img-6009-611c8d98cf.jpeg"
+        "filename":  "img-6009-611c8d98cf.jpeg",
+        "sizeBytes":  2738159
     },
     {
         "id":  "upload-japan-d31cc9a3a5",
@@ -1329,7 +1476,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453858571,
-        "filename":  "img-6010-d31cc9a3a5.jpeg"
+        "filename":  "img-6010-d31cc9a3a5.jpeg",
+        "sizeBytes":  2506612
     },
     {
         "id":  "upload-japan-d3d0d722dd",
@@ -1338,7 +1486,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453853186,
-        "filename":  "img-6011-d3d0d722dd.jpeg"
+        "filename":  "img-6011-d3d0d722dd.jpeg",
+        "sizeBytes":  2855032
     },
     {
         "id":  "upload-japan-328d60052d",
@@ -1347,7 +1496,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453855643,
-        "filename":  "img-6012-328d60052d.jpeg"
+        "filename":  "img-6012-328d60052d.jpeg",
+        "sizeBytes":  2696584
     },
     {
         "id":  "upload-japan-07065211bd",
@@ -1356,7 +1506,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453853450,
-        "filename":  "img-6013-07065211bd.jpeg"
+        "filename":  "img-6013-07065211bd.jpeg",
+        "sizeBytes":  1986836
     },
     {
         "id":  "upload-japan-7228d35fb3",
@@ -1365,7 +1516,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453855742,
-        "filename":  "img-6014-7228d35fb3.jpeg"
+        "filename":  "img-6014-7228d35fb3.jpeg",
+        "sizeBytes":  2515270
     },
     {
         "id":  "upload-japan-73bc347f8c",
@@ -1374,7 +1526,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453858266,
-        "filename":  "img-6015-73bc347f8c.jpeg"
+        "filename":  "img-6015-73bc347f8c.jpeg",
+        "sizeBytes":  3284748
     },
     {
         "id":  "upload-japan-fc224044ab",
@@ -1383,7 +1536,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453857946,
-        "filename":  "img-6016-fc224044ab.jpeg"
+        "filename":  "img-6016-fc224044ab.jpeg",
+        "sizeBytes":  2602199
     },
     {
         "id":  "upload-japan-44b34879f8",
@@ -1392,7 +1546,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453858076,
-        "filename":  "img-6017-44b34879f8.jpeg"
+        "filename":  "img-6017-44b34879f8.jpeg",
+        "sizeBytes":  2500360
     },
     {
         "id":  "upload-japan-ce559f4183",
@@ -1401,7 +1556,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453860489,
-        "filename":  "img-6019-ce559f4183.jpeg"
+        "filename":  "img-6019-ce559f4183.jpeg",
+        "sizeBytes":  2955794
     },
     {
         "id":  "upload-japan-e3debbe3c0",
@@ -1410,7 +1566,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453860783,
-        "filename":  "img-6020-e3debbe3c0.jpeg"
+        "filename":  "img-6020-e3debbe3c0.jpeg",
+        "sizeBytes":  3512407
     },
     {
         "id":  "upload-japan-89afd86788",
@@ -1419,7 +1576,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453860635,
-        "filename":  "img-6021-89afd86788.jpeg"
+        "filename":  "img-6021-89afd86788.jpeg",
+        "sizeBytes":  2841789
     },
     {
         "id":  "upload-japan-3e726f49de",
@@ -1428,7 +1586,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453860967,
-        "filename":  "img-6025-3e726f49de.jpeg"
+        "filename":  "img-6025-3e726f49de.jpeg",
+        "sizeBytes":  3050991
     },
     {
         "id":  "upload-japan-cb74f67b56",
@@ -1437,7 +1596,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453862818,
-        "filename":  "img-6026-cb74f67b56.jpeg"
+        "filename":  "img-6026-cb74f67b56.jpeg",
+        "sizeBytes":  2700809
     },
     {
         "id":  "upload-japan-0e3897fa3f",
@@ -1446,7 +1606,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453863006,
-        "filename":  "img-6027-0e3897fa3f.jpeg"
+        "filename":  "img-6027-0e3897fa3f.jpeg",
+        "sizeBytes":  2750808
     },
     {
         "id":  "upload-japan-cfa6234fe5",
@@ -1455,7 +1616,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453862823,
-        "filename":  "img-6028-cfa6234fe5.jpeg"
+        "filename":  "img-6028-cfa6234fe5.jpeg",
+        "sizeBytes":  2078797
     },
     {
         "id":  "upload-japan-e643258a55",
@@ -1464,7 +1626,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453863339,
-        "filename":  "img-6033-e643258a55.jpeg"
+        "filename":  "img-6033-e643258a55.jpeg",
+        "sizeBytes":  2932546
     },
     {
         "id":  "upload-japan-7bcd0b117b",
@@ -1473,7 +1636,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453865166,
-        "filename":  "img-6034-7bcd0b117b.jpeg"
+        "filename":  "img-6034-7bcd0b117b.jpeg",
+        "sizeBytes":  2784265
     },
     {
         "id":  "upload-japan-f1b75c1491",
@@ -1482,7 +1646,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453866262,
-        "filename":  "img-6037-f1b75c1491.jpeg"
+        "filename":  "img-6037-f1b75c1491.jpeg",
+        "sizeBytes":  4754380
     },
     {
         "id":  "upload-japan-c7251af98f",
@@ -1491,7 +1656,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453866554,
-        "filename":  "img-6042-c7251af98f.jpeg"
+        "filename":  "img-6042-c7251af98f.jpeg",
+        "sizeBytes":  5878003
     },
     {
         "id":  "upload-japan-08895138d9",
@@ -1500,7 +1666,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453865960,
-        "filename":  "img-6044-08895138d9.jpeg"
+        "filename":  "img-6044-08895138d9.jpeg",
+        "sizeBytes":  3412339
     },
     {
         "id":  "upload-japan-321277653a",
@@ -1509,7 +1676,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453869135,
-        "filename":  "img-6045-321277653a.jpeg"
+        "filename":  "img-6045-321277653a.jpeg",
+        "sizeBytes":  6045673
     },
     {
         "id":  "upload-japan-e803003d5f",
@@ -1518,7 +1686,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453868471,
-        "filename":  "img-6046-e803003d5f.jpeg"
+        "filename":  "img-6046-e803003d5f.jpeg",
+        "sizeBytes":  3240367
     },
     {
         "id":  "upload-japan-23d5d78cf8",
@@ -1527,7 +1696,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453868803,
-        "filename":  "img-6049-23d5d78cf8.jpeg"
+        "filename":  "img-6049-23d5d78cf8.jpeg",
+        "sizeBytes":  3218112
     },
     {
         "id":  "upload-japan-d05a7142ab",
@@ -1536,7 +1706,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453870632,
-        "filename":  "img-6050-d05a7142ab.jpeg"
+        "filename":  "img-6050-d05a7142ab.jpeg",
+        "sizeBytes":  5468631
     },
     {
         "id":  "upload-japan-2b83b95b9d",
@@ -1545,7 +1716,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453870117,
-        "filename":  "img-6051-2b83b95b9d.jpeg"
+        "filename":  "img-6051-2b83b95b9d.jpeg",
+        "sizeBytes":  1656513
     },
     {
         "id":  "upload-japan-9b78768e0b",
@@ -1554,7 +1726,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453870956,
-        "filename":  "img-6052-9b78768e0b.jpeg"
+        "filename":  "img-6052-9b78768e0b.jpeg",
+        "sizeBytes":  2470786
     },
     {
         "id":  "upload-japan-d1a9ea4b7d",
@@ -1563,7 +1736,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453870885,
-        "filename":  "img-6054-d1a9ea4b7d.jpeg"
+        "filename":  "img-6054-d1a9ea4b7d.jpeg",
+        "sizeBytes":  1804041
     },
     {
         "id":  "upload-japan-dee2074127",
@@ -1572,7 +1746,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453873451,
-        "filename":  "img-6059-dee2074127.jpeg"
+        "filename":  "img-6059-dee2074127.jpeg",
+        "sizeBytes":  5024308
     },
     {
         "id":  "upload-japan-30e82c9e70",
@@ -1581,7 +1756,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453874084,
-        "filename":  "img-6060-30e82c9e70.jpeg"
+        "filename":  "img-6060-30e82c9e70.jpeg",
+        "sizeBytes":  6149103
     },
     {
         "id":  "upload-japan-d5a6e798de",
@@ -1590,7 +1766,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453874190,
-        "filename":  "img-6061-d5a6e798de.jpeg"
+        "filename":  "img-6061-d5a6e798de.jpeg",
+        "sizeBytes":  4298972
     },
     {
         "id":  "upload-japan-57beab4cbb",
@@ -1599,7 +1776,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453871083,
-        "filename":  "img-6062-57beab4cbb.jpeg"
+        "filename":  "img-6062-57beab4cbb.jpeg",
+        "sizeBytes":  5037853
     },
     {
         "id":  "upload-japan-73e6d770cf",
@@ -1608,7 +1786,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453873429,
-        "filename":  "img-6064-73e6d770cf.jpeg"
+        "filename":  "img-6064-73e6d770cf.jpeg",
+        "sizeBytes":  2711067
     },
     {
         "id":  "upload-japan-0e2179f8c6",
@@ -1617,7 +1796,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453877468,
-        "filename":  "img-6065-0e2179f8c6.jpeg"
+        "filename":  "img-6065-0e2179f8c6.jpeg",
+        "sizeBytes":  5761379
     },
     {
         "id":  "upload-japan-ddac6b6faa",
@@ -1626,7 +1806,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453875783,
-        "filename":  "img-6066-ddac6b6faa.jpeg"
+        "filename":  "img-6066-ddac6b6faa.jpeg",
+        "sizeBytes":  2690484
     },
     {
         "id":  "upload-japan-8b157a04a4",
@@ -1635,7 +1816,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453876445,
-        "filename":  "img-6067-8b157a04a4.jpeg"
+        "filename":  "img-6067-8b157a04a4.jpeg",
+        "sizeBytes":  2804555
     },
     {
         "id":  "upload-japan-f350b5de1a",
@@ -1644,7 +1826,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453877637,
-        "filename":  "img-6069-f350b5de1a.jpeg"
+        "filename":  "img-6069-f350b5de1a.jpeg",
+        "sizeBytes":  5192162
     },
     {
         "id":  "upload-japan-61267a6e75",
@@ -1653,7 +1836,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453880385,
-        "filename":  "img-6070-61267a6e75.jpeg"
+        "filename":  "img-6070-61267a6e75.jpeg",
+        "sizeBytes":  11088095
     },
     {
         "id":  "upload-japan-1fb8b2af4e",
@@ -1662,7 +1846,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453881041,
-        "filename":  "img-6071-1fb8b2af4e.jpeg"
+        "filename":  "img-6071-1fb8b2af4e.jpeg",
+        "sizeBytes":  11041748
     },
     {
         "id":  "upload-japan-f2771e7e22",
@@ -1671,7 +1856,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453880021,
-        "filename":  "img-6072-f2771e7e22.jpeg"
+        "filename":  "img-6072-f2771e7e22.jpeg",
+        "sizeBytes":  3387235
     },
     {
         "id":  "upload-japan-836ff38ef4",
@@ -1680,7 +1866,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453880211,
-        "filename":  "img-6073-836ff38ef4.jpeg"
+        "filename":  "img-6073-836ff38ef4.jpeg",
+        "sizeBytes":  3509245
     },
     {
         "id":  "upload-japan-26484635e2",
@@ -1689,7 +1876,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453883941,
-        "filename":  "img-6074-26484635e2.jpeg"
+        "filename":  "img-6074-26484635e2.jpeg",
+        "sizeBytes":  7114396
     },
     {
         "id":  "upload-japan-43f5207414",
@@ -1698,7 +1886,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453884120,
-        "filename":  "img-6075-43f5207414.jpeg"
+        "filename":  "img-6075-43f5207414.jpeg",
+        "sizeBytes":  6071230
     },
     {
         "id":  "upload-japan-61e7f934bd",
@@ -1707,7 +1896,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453884576,
-        "filename":  "img-6076-61e7f934bd.jpeg"
+        "filename":  "img-6076-61e7f934bd.jpeg",
+        "sizeBytes":  6282252
     },
     {
         "id":  "upload-japan-8fe7af03d2",
@@ -1716,7 +1906,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453885549,
-        "filename":  "img-6077-8fe7af03d2.jpeg"
+        "filename":  "img-6077-8fe7af03d2.jpeg",
+        "sizeBytes":  10411991
     },
     {
         "id":  "upload-japan-3cddc26495",
@@ -1725,7 +1916,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453888331,
-        "filename":  "img-6078-3cddc26495.jpeg"
+        "filename":  "img-6078-3cddc26495.jpeg",
+        "sizeBytes":  10272233
     },
     {
         "id":  "upload-japan-c4b423e07f",
@@ -1734,7 +1926,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453886608,
-        "filename":  "img-6079-c4b423e07f.jpeg"
+        "filename":  "img-6079-c4b423e07f.jpeg",
+        "sizeBytes":  3157186
     },
     {
         "id":  "upload-japan-99d0f88b3e",
@@ -1743,7 +1936,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453887071,
-        "filename":  "img-6080-99d0f88b3e.jpeg"
+        "filename":  "img-6080-99d0f88b3e.jpeg",
+        "sizeBytes":  3177616
     },
     {
         "id":  "upload-japan-12dd3a0ff6",
@@ -1752,7 +1946,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453887939,
-        "filename":  "img-6081-12dd3a0ff6.jpeg"
+        "filename":  "img-6081-12dd3a0ff6.jpeg",
+        "sizeBytes":  2969914
     },
     {
         "id":  "upload-japan-8c5d1fefc4",
@@ -1761,7 +1956,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453889012,
-        "filename":  "img-6082-8c5d1fefc4.jpeg"
+        "filename":  "img-6082-8c5d1fefc4.jpeg",
+        "sizeBytes":  3023792
     },
     {
         "id":  "upload-japan-3dc720fb54",
@@ -1770,7 +1966,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453890685,
-        "filename":  "img-6083-3dc720fb54.jpeg"
+        "filename":  "img-6083-3dc720fb54.jpeg",
+        "sizeBytes":  6280044
     },
     {
         "id":  "upload-japan-a2489a06f7",
@@ -1779,7 +1976,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453888033,
-        "filename":  "img-6084-a2489a06f7.jpeg"
+        "filename":  "img-6084-a2489a06f7.jpeg",
+        "sizeBytes":  6121834
     },
     {
         "id":  "upload-japan-223b025865",
@@ -1788,7 +1986,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453888137,
-        "filename":  "img-6085-223b025865.jpeg"
+        "filename":  "img-6085-223b025865.jpeg",
+        "sizeBytes":  6778924
     },
     {
         "id":  "upload-japan-5e6bdf00e7",
@@ -1797,7 +1996,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453892314,
-        "filename":  "img-6086-5e6bdf00e7.jpeg"
+        "filename":  "img-6086-5e6bdf00e7.jpeg",
+        "sizeBytes":  9539893
     },
     {
         "id":  "upload-japan-5fc0e6a0f6",
@@ -1806,7 +2006,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453892297,
-        "filename":  "img-6087-5fc0e6a0f6.jpeg"
+        "filename":  "img-6087-5fc0e6a0f6.jpeg",
+        "sizeBytes":  8697895
     },
     {
         "id":  "upload-japan-718cc0c2ea",
@@ -1815,7 +2016,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453892578,
-        "filename":  "img-6088-718cc0c2ea.jpeg"
+        "filename":  "img-6088-718cc0c2ea.jpeg",
+        "sizeBytes":  6405758
     },
     {
         "id":  "upload-japan-ab24918f5f",
@@ -1824,7 +2026,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453894439,
-        "filename":  "img-6089-ab24918f5f.jpeg"
+        "filename":  "img-6089-ab24918f5f.jpeg",
+        "sizeBytes":  6630532
     },
     {
         "id":  "upload-japan-ccc465bb2d",
@@ -1833,7 +2036,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453892500,
-        "filename":  "img-6090-ccc465bb2d.jpeg"
+        "filename":  "img-6090-ccc465bb2d.jpeg",
+        "sizeBytes":  9435529
     },
     {
         "id":  "upload-japan-c172beb26e",
@@ -1842,7 +2046,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453892515,
-        "filename":  "img-6091-c172beb26e.jpeg"
+        "filename":  "img-6091-c172beb26e.jpeg",
+        "sizeBytes":  9203692
     },
     {
         "id":  "upload-japan-20034867e7",
@@ -1851,7 +2056,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453897333,
-        "filename":  "img-6093-20034867e7.jpeg"
+        "filename":  "img-6093-20034867e7.jpeg",
+        "sizeBytes":  12019670
     },
     {
         "id":  "upload-japan-3cd490b544",
@@ -1860,7 +2066,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453892725,
-        "filename":  "img-6094-3cd490b544.jpeg"
+        "filename":  "img-6094-3cd490b544.jpeg",
+        "sizeBytes":  9705346
     },
     {
         "id":  "upload-japan-42d0eeae93",
@@ -1869,7 +2076,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453892781,
-        "filename":  "img-6095-42d0eeae93.jpeg"
+        "filename":  "img-6095-42d0eeae93.jpeg",
+        "sizeBytes":  9531487
     },
     {
         "id":  "upload-japan-efd4705072",
@@ -1878,7 +2086,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453895173,
-        "filename":  "img-6096-efd4705072.jpeg"
+        "filename":  "img-6096-efd4705072.jpeg",
+        "sizeBytes":  3060514
     },
     {
         "id":  "upload-japan-ce7ea3825b",
@@ -1887,7 +2096,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453895476,
-        "filename":  "img-6097-ce7ea3825b.jpeg"
+        "filename":  "img-6097-ce7ea3825b.jpeg",
+        "sizeBytes":  3018934
     },
     {
         "id":  "upload-japan-f5b764fdd6",
@@ -1896,7 +2106,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453896927,
-        "filename":  "img-6098-f5b764fdd6.jpeg"
+        "filename":  "img-6098-f5b764fdd6.jpeg",
+        "sizeBytes":  3107430
     },
     {
         "id":  "upload-japan-70187550e8",
@@ -1905,7 +2116,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453899500,
-        "filename":  "img-6099-70187550e8.jpeg"
+        "filename":  "img-6099-70187550e8.jpeg",
+        "sizeBytes":  6170784
     },
     {
         "id":  "upload-japan-b111c24e4f",
@@ -1914,7 +2126,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453899779,
-        "filename":  "img-6100-b111c24e4f.jpeg"
+        "filename":  "img-6100-b111c24e4f.jpeg",
+        "sizeBytes":  5960552
     },
     {
         "id":  "upload-japan-91aee872c1",
@@ -1923,7 +2136,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453901052,
-        "filename":  "img-6101-91aee872c1.jpeg"
+        "filename":  "img-6101-91aee872c1.jpeg",
+        "sizeBytes":  6088048
     },
     {
         "id":  "upload-japan-3b581478f8",
@@ -1932,7 +2146,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453900048,
-        "filename":  "img-6102-3b581478f8.jpeg"
+        "filename":  "img-6102-3b581478f8.jpeg",
+        "sizeBytes":  3675179
     },
     {
         "id":  "upload-japan-4806f556f0",
@@ -1941,7 +2156,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453902371,
-        "filename":  "img-6103-4806f556f0.jpeg"
+        "filename":  "img-6103-4806f556f0.jpeg",
+        "sizeBytes":  3614572
     },
     {
         "id":  "upload-japan-6e38d75652",
@@ -1950,7 +2166,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453902505,
-        "filename":  "img-6104-6e38d75652.jpeg"
+        "filename":  "img-6104-6e38d75652.jpeg",
+        "sizeBytes":  3310350
     },
     {
         "id":  "upload-japan-7f778737a7",
@@ -1959,7 +2176,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453900223,
-        "filename":  "img-6105-7f778737a7.jpeg"
+        "filename":  "img-6105-7f778737a7.jpeg",
+        "sizeBytes":  5821167
     },
     {
         "id":  "upload-japan-c0b13502cf",
@@ -1968,7 +2186,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453903059,
-        "filename":  "img-6115-c0b13502cf.jpeg"
+        "filename":  "img-6115-c0b13502cf.jpeg",
+        "sizeBytes":  3560049
     },
     {
         "id":  "upload-japan-8c898493a4",
@@ -1977,7 +2196,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453903714,
-        "filename":  "img-6117-8c898493a4.jpeg"
+        "filename":  "img-6117-8c898493a4.jpeg",
+        "sizeBytes":  3088554
     },
     {
         "id":  "upload-japan-6ad312b2bd",
@@ -1986,7 +2206,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453906671,
-        "filename":  "img-6118-6ad312b2bd.jpeg"
+        "filename":  "img-6118-6ad312b2bd.jpeg",
+        "sizeBytes":  7382998
     },
     {
         "id":  "upload-japan-3ab9670c16",
@@ -1995,7 +2216,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453902609,
-        "filename":  "img-6119-3ab9670c16.jpeg"
+        "filename":  "img-6119-3ab9670c16.jpeg",
+        "sizeBytes":  3039329
     },
     {
         "id":  "upload-japan-ce84fca602",
@@ -2004,7 +2226,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453906711,
-        "filename":  "img-6131-ce84fca602.jpeg"
+        "filename":  "img-6131-ce84fca602.jpeg",
+        "sizeBytes":  5137139
     },
     {
         "id":  "upload-japan-b8215fcb0e",
@@ -2013,7 +2236,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453907041,
-        "filename":  "img-6132-b8215fcb0e.jpeg"
+        "filename":  "img-6132-b8215fcb0e.jpeg",
+        "sizeBytes":  5097215
     },
     {
         "id":  "upload-japan-a90c04f230",
@@ -2022,7 +2246,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453907815,
-        "filename":  "img-6133-a90c04f230.jpeg"
+        "filename":  "img-6133-a90c04f230.jpeg",
+        "sizeBytes":  5077103
     },
     {
         "id":  "upload-japan-99817b9811",
@@ -2031,7 +2256,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453910631,
-        "filename":  "img-6134-99817b9811.jpeg"
+        "filename":  "img-6134-99817b9811.jpeg",
+        "sizeBytes":  4876793
     },
     {
         "id":  "upload-japan-a9e247b746",
@@ -2040,7 +2266,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453910780,
-        "filename":  "img-6135-a9e247b746.jpeg"
+        "filename":  "img-6135-a9e247b746.jpeg",
+        "sizeBytes":  5099789
     },
     {
         "id":  "upload-japan-73086a1ff6",
@@ -2049,7 +2276,8 @@
         "type":  "image",
         "albumId":  "japan",
         "timestamp":  1770453911134,
-        "filename":  "img-6141-73086a1ff6.jpeg"
+        "filename":  "img-6141-73086a1ff6.jpeg",
+        "sizeBytes":  6115744
     },
     {
         "id":  "upload-japan-2025-presentation-0d4546c47a",
@@ -2058,6 +2286,7 @@
         "type":  "video",
         "albumId":  "japan-2025-presentation",
         "timestamp":  1770444562464,
-        "filename":  "japan-2025-presentation-0d4546c47a.mp4"
+        "filename":  "japan-2025-presentation-0d4546c47a.mp4",
+        "sizeBytes":  41107550
     }
 ]
