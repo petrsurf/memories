@@ -200,26 +200,6 @@
     "sizeBytes": 493315
   },
   {
-    "id": "upload-sydney-812985b98c",
-    "title": "IMG 5246",
-    "alt": "Sydney - IMG 5246",
-    "type": "image",
-    "albumId": "sydney",
-    "timestamp": 1770867986581,
-    "filename": "img-5246-812985b98c.jpg",
-    "sizeBytes": 498411
-  },
-  {
-    "id": "upload-sydney-deaa82e458",
-    "title": "IMG 5247",
-    "alt": "Sydney - IMG 5247",
-    "type": "image",
-    "albumId": "sydney",
-    "timestamp": 1770783236906,
-    "filename": "img-5247-deaa82e458.jpg",
-    "sizeBytes": 462016
-  },
-  {
     "id": "upload-sydney-b108efe4f2",
     "title": "IMG 5249",
     "alt": "Sydney - IMG 5249",
@@ -308,26 +288,6 @@
     "timestamp": 1770783232805,
     "filename": "img-5047-15236b4da0.jpg",
     "sizeBytes": 727520
-  },
-  {
-    "id": "upload-blue-mountains-98ba0e7ddb",
-    "title": "IMG 5048",
-    "alt": "Blue Mountains - IMG 5048",
-    "type": "image",
-    "albumId": "blue-mountains",
-    "timestamp": 1770867912543,
-    "filename": "img-5048-98ba0e7ddb.jpg",
-    "sizeBytes": 801061
-  },
-  {
-    "id": "upload-blue-mountains-5826db3954",
-    "title": "IMG 5049",
-    "alt": "Blue Mountains - IMG 5049",
-    "type": "image",
-    "albumId": "blue-mountains",
-    "timestamp": 1770783233283,
-    "filename": "img-5049-5826db3954.jpg",
-    "sizeBytes": 879074
   },
   {
     "id": "upload-blue-mountains-449fed625b",
@@ -1090,16 +1050,6 @@
     "sizeBytes": 618029
   },
   {
-    "id": "upload-sunday-walk-98ba0e7ddb",
-    "title": "IMG 5048",
-    "alt": "Sunday walk - IMG 5048",
-    "type": "image",
-    "albumId": "sunday-walk",
-    "timestamp": 1770783233039,
-    "filename": "img-5048-98ba0e7ddb.jpg",
-    "sizeBytes": 801061
-  },
-  {
     "id": "upload-sunday-walk-f6eb7f1cf6",
     "title": "IMG 5052",
     "alt": "Sunday walk - IMG 5052",
@@ -1250,26 +1200,6 @@
     "sizeBytes": 1780039
   },
   {
-    "id": "upload-sunday-walk-cc6e989bbd",
-    "title": "IMG 5507",
-    "alt": "Sunday walk - IMG 5507",
-    "type": "image",
-    "albumId": "sunday-walk",
-    "timestamp": 1770783667698,
-    "filename": "img-5507-cc6e989bbd.jpg",
-    "sizeBytes": 674068
-  },
-  {
-    "id": "upload-sunday-walk-3b6ec25e6c",
-    "title": "IMG 5507",
-    "alt": "Sunday walk - IMG 5507",
-    "type": "video",
-    "albumId": "sunday-walk",
-    "timestamp": 1770530145208,
-    "filename": "img-5507-3b6ec25e6c.mp4",
-    "sizeBytes": 2456978
-  },
-  {
     "id": "upload-sunday-walk-7e535f56ec",
     "title": "IMG 5783",
     "alt": "Sunday walk - IMG 5783",
@@ -1308,26 +1238,6 @@
     "timestamp": 1770783238935,
     "filename": "img-5802-9a206a71c0.jpg",
     "sizeBytes": 1126467
-  },
-  {
-    "id": "upload-sunday-walk-4415d9b0e3",
-    "title": "IMG 5807",
-    "alt": "Salt air and slow days in Nelson Bay, Shoal Bay, and Anna Bay - IMG 5807",
-    "type": "image",
-    "albumId": "nelson-bay",
-    "timestamp": 1770783239445,
-    "filename": "img-5807-4415d9b0e3.jpg",
-    "sizeBytes": 2181079
-  },
-  {
-    "id": "upload-sunday-walk-278900fd67",
-    "title": "IMG 5808",
-    "alt": "Salt air and slow days in Nelson Bay, Shoal Bay, and Anna Bay - IMG 5808",
-    "type": "image",
-    "albumId": "nelson-bay",
-    "timestamp": 1770783239784,
-    "filename": "img-5808-278900fd67.jpg",
-    "sizeBytes": 2110549
   },
   {
     "id": "upload-port-lincoln-232164b306",
@@ -1388,16 +1298,6 @@
     "timestamp": 1770530146074,
     "filename": "img-5047-91aee7dc19.mp4",
     "sizeBytes": 2472711
-  },
-  {
-    "id": "upload-port-lincoln-ef583d7677",
-    "title": "IMG 5048",
-    "alt": "Port Lincoln - IMG 5048",
-    "type": "video",
-    "albumId": "port-lincoln",
-    "timestamp": 1770530145681,
-    "filename": "img-5048-ef583d7677.mp4",
-    "sizeBytes": 2532720
   },
   {
     "id": "upload-port-lincoln-a0146bd223",
