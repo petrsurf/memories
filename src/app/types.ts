@@ -39,6 +39,8 @@ type TimelineItem = {
   alt: string;
   type: "image" | "video";
   videoSrc?: string;
+  mediaId?: string;
+  albumId?: string;
 };
 
 type Content = {

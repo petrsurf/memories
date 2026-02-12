@@ -91,11 +91,25 @@ const TimelineSection = ({
               <button
                 type="button"
                 onClick={() => {
-                  // For generated timeline items, extract the original upload ID and pass uploads array
-                  const actualId = moment.id.startsWith('moment-') 
-                    ? moment.id.replace('moment-', '') 
-                    : moment.id;
-                  openLightbox(actualId, uploads);
+                  const linkedId =
+                    moment.mediaId ??
+                    (moment.id.startsWith("moment-")
+                      ? moment.id.replace("moment-", "")
+                      : moment.id);
+                  const matchedUpload = uploads.find((upload) => upload.id === linkedId);
+                  if (!matchedUpload) {
+                    openLightbox(linkedId, uploads);
+                    return;
+                  }
+                  const targetAlbumId = moment.albumId ?? matchedUpload.albumId;
+                  if (!targetAlbumId) {
+                    openLightbox(matchedUpload.id, uploads);
+                    return;
+                  }
+                  const albumItems = uploads.filter(
+                    (upload) => upload.albumId === targetAlbumId
+                  );
+                  openLightbox(matchedUpload.id, albumItems.length > 0 ? albumItems : uploads);
                 }}
                 className="group relative h-14 w-20 overflow-hidden rounded-lg"
                 aria-label={`Open ${moment.title}`}

@@ -38,6 +38,51 @@ import type {
 } from "./types";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const EDIT_PASSWORD = "Bluesky";
+const IMAGE_CACHE_BUST = "20260212-2";
+const REOPEN_EDIT_MODE_KEY = "sunday-album-reopen-edit";
+
+type UploadManifestItem = {
+  id: string;
+  title: string;
+  alt: string;
+  type: "image" | "video";
+  albumId?: string;
+  timestamp?: number;
+  filename: string;
+  sizeBytes?: number;
+};
+
+const loadUploadsFromManifest = async () => {
+  try {
+    const manifestUrl = `${basePath}/media/uploads/manifest.json`;
+    const response = await fetch(manifestUrl, { cache: "no-store" });
+    if (!response.ok) return [] as GalleryItem[];
+    const manifest = (await response.json()) as UploadManifestItem[];
+
+    return manifest.map((item) => {
+      const albumId = item.albumId || "unsorted";
+      const src = `/media/uploads/albums/${albumId}/${item.filename}`;
+      return {
+        id: item.id,
+        title: item.title,
+        alt: item.alt,
+        type: item.type,
+        src,
+        videoSrc: item.type === "video" ? src : undefined,
+        albumId: item.albumId,
+        timestamp: item.timestamp,
+        isLocal: false,
+        fileSize:
+          typeof item.sizeBytes === "number" && item.sizeBytes > 0
+            ? `${(item.sizeBytes / (1024 * 1024)).toFixed(1)} MB`
+            : undefined,
+      } as GalleryItem;
+    });
+  } catch {
+    return [] as GalleryItem[];
+  }
+};
 
 const resolveAssetSrc = (src?: string) => {
   if (!src) return "";
@@ -45,8 +90,17 @@ const resolveAssetSrc = (src?: string) => {
     return src;
   }
   const normalized = src.startsWith("/") ? src : `/${src}`;
-  return `${basePath}${normalized}`;
+  const assetUrl = `${basePath}${normalized}`;
+  const joiner = assetUrl.includes("?") ? "&" : "?";
+  return `${assetUrl}${joiner}v=${IMAGE_CACHE_BUST}`;
 };
+
+const titleFromAlbumId = (albumId: string) =>
+  albumId
+    .split("-")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
 
 const initialAlbums: Album[] = [
   {
@@ -126,10 +180,6 @@ const initialTimeline: TimelineItem[] = [
   },
 ];
 
-const VIEW_PASSWORD = "Cherry";
-const EDIT_PASSWORD = "Bluesky";
-const GALLERY_TOTAL_LIMIT = 18;
-
 const defaultContent: Content = {
   siteKicker: "personal archive",
   siteTitle: "Sunday Album",
@@ -148,10 +198,10 @@ const defaultContent: Content = {
   uploadDescription: "Drag and drop images or videos, or use the picker.",
   timelineTitle: "Recent moments",
   timelineDescription:
-    "A quiet feed of the week, saved in order so it feels like turning pages.",
+    "A gentle flow of time, preserved in sequence so each moment unfolds like a page.",
   aboutTitle: "Made for friends and family",
   aboutBody:
-    "This space is private by default. Every album can be shared with a link, and videos play softly until you choose to listen. I add new moments every Sunday.",
+    "A private place for keeping memories safe. Videos start softly in the background. More moments are added as life unfolds.",
   contactLabel: "contact",
   contactText: "Send a note for a private link or a download.",
   contactEmail: "hello@sundayalbum.com",
@@ -532,6 +582,7 @@ export default function Home() {
   const [noteEditingId, setNoteEditingId] = useState<string | null>(null);
   const [editorTargetId, setEditorTargetId] = useState<string | null>(null);
   const [showLightboxInfo, setShowLightboxInfo] = useState(false);
+  const [deletedUploadIds, setDeletedUploadIds] = useState<string[]>([]);
 
   const [albums, setAlbums] = useState<Album[]>(initialAlbums);
   const [timeline, setTimeline] = useState<TimelineItem[]>(initialTimeline);
@@ -540,7 +591,7 @@ export default function Home() {
 
   const totalSizeMb = useMemo(() => {
     return uploads.reduce((acc, item) => {
-      const sizeStr = item.fileSize || "0";
+      const sizeStr = item.fileSize || item.detail || "0";
       const val = parseFloat(sizeStr.replace(/[^0-9.]/g, ""));
       return acc + (isNaN(val) ? 0 : val);
     }, 0).toFixed(1);
@@ -595,6 +646,7 @@ export default function Home() {
         textOverrides?: Record<string, string>;
         globalTheme?: Theme;
         albumThemes?: Record<string, Theme>;
+        deletedUploadIds?: string[];
       } | null = null;
 
       try {
@@ -629,6 +681,7 @@ export default function Home() {
       if (parsed.textOverrides) setTextOverrides(parsed.textOverrides);
       if (parsed.globalTheme) setGlobalTheme(parsed.globalTheme);
       if (parsed.albumThemes) setAlbumThemes(parsed.albumThemes);
+      if (parsed.deletedUploadIds) setDeletedUploadIds(parsed.deletedUploadIds);
     };
 
     void loadSettings();
@@ -901,6 +954,63 @@ export default function Home() {
   useEffect(() => {
     let isMounted = true;
     const loadUploads = async () => {
+      const manifestUploads = await loadUploadsFromManifest();
+      if (!isMounted) return;
+      if (manifestUploads.length > 0) {
+        const filteredUploads =
+          deletedUploadIds.length > 0
+            ? manifestUploads.filter((item) => !deletedUploadIds.includes(item.id))
+            : manifestUploads;
+        setUploads(filteredUploads);
+        setAlbums((prev) => {
+          const known = new Set(prev.map((album) => album.id));
+          const missingIds = Array.from(
+            new Set(
+              filteredUploads
+                .map((item) => item.albumId)
+                .filter((id): id is string => Boolean(id))
+            )
+          ).filter((id) => !known.has(id));
+
+          if (missingIds.length === 0) return prev;
+
+          const importedAlbums: Album[] = missingIds.map((id) => {
+            const albumItems = filteredUploads.filter((item) => item.albumId === id);
+            const firstItem = albumItems[0];
+            const latestTimestamp = Math.max(
+              ...albumItems.map((item) => item.timestamp ?? Date.now()),
+              Date.now()
+            );
+            const date = new Date(latestTimestamp).toLocaleString("en-US", {
+              month: "short",
+              year: "numeric",
+            });
+            const imageCount = albumItems.filter((item) => item.type === "image").length;
+            const videoCount = albumItems.filter((item) => item.type === "video").length;
+            const countParts = [`${imageCount} photo${imageCount === 1 ? "" : "s"}`];
+            if (videoCount > 0) {
+              countParts.push(`${videoCount} video${videoCount === 1 ? "" : "s"}`);
+            }
+
+            return {
+              id,
+              title: titleFromAlbumId(id),
+              count: countParts.join(" · "),
+              date,
+              mood: "Imported collection.",
+              privacy: "Private link",
+              src: firstItem?.src ?? "/media/album-winter-kitchen.svg",
+              alt: `${titleFromAlbumId(id)} cover`,
+              type: firstItem?.type ?? "image",
+              coverId: firstItem?.id,
+            };
+          });
+
+          return [...importedAlbums, ...prev];
+        });
+        return;
+      }
+
       const storedUploads = await loadUploadsFromDb();
       if (!isMounted || storedUploads.length === 0) return;
       const restored = storedUploads.map((item) => {
@@ -930,10 +1040,18 @@ export default function Home() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [deletedUploadIds]);
 
   useEffect(() => {
-    persistSettings();
+    if (deletedUploadIds.length === 0) return;
+    setUploads((prev) => prev.filter((item) => !deletedUploadIds.includes(item.id)));
+  }, [deletedUploadIds]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      persistSettings();
+    }, 250);
+    return () => window.clearTimeout(timer);
   }, [
     content,
     heroHeight,
@@ -949,6 +1067,7 @@ export default function Home() {
     textOverrides,
     globalTheme,
     albumThemes,
+    deletedUploadIds,
   ]);
 
   const uploadCounts = useMemo(() => {
@@ -1017,17 +1136,31 @@ export default function Home() {
     ? uploadsByAlbum[heroAlbum.id]?.find((item) => item.id === heroAlbum.coverId)
     : undefined;
   const heroMediaId = heroCoverItem?.id;
-  const hero: GalleryItem = {
+  const hero = useMemo(() => ({
     id: heroAlbum?.id ?? "hero-sunday-light",
-    title: content.heroCardTitle,
-    detail: content.heroCardDetail,
+    title: heroAlbum?.title ?? content.heroCardTitle,
+    detail: heroAlbum?.mood ?? content.heroCardDetail,
     src: heroCoverItem?.src ?? heroAlbum?.src ?? "/media/hero-sunday-light.svg",
     alt: heroCoverItem?.alt ?? heroAlbum?.alt ?? "Warm morning light through a kitchen window",
     type: heroCoverItem?.type ?? heroAlbum?.type ?? "image",
     videoSrc: heroCoverItem?.videoSrc,
     isLocal: heroCoverItem?.isLocal,
     mediaId: heroMediaId,
+  }), [heroAlbum, heroCoverItem, content.heroCardTitle, content.heroCardDetail]);
+
+  const handleSafeReload = () => {
+    persistSettings();
+    sessionStorage.setItem(REOPEN_EDIT_MODE_KEY, "1");
+    window.location.reload();
   };
+
+  useEffect(() => {
+    if (sessionStorage.getItem(REOPEN_EDIT_MODE_KEY) !== "1") return;
+    sessionStorage.removeItem(REOPEN_EDIT_MODE_KEY);
+    setAccessLevel("edit");
+    setShowAuth(false);
+    setAuthError("");
+  }, []);
 
   const albumsWithUploads = useMemo(
     () => albums.filter((album) => (uploadsByAlbum[album.id]?.length ?? 0) > 0),
@@ -1055,7 +1188,7 @@ export default function Home() {
     const TARGET_TOTAL = 20;
     const MIN_PER_ALBUM = 3;
     const albumCount = visibleAlbumIds.length;
-    
+
     // Ensure minimal coverage but fill up to target
     let countPerAlbum = MIN_PER_ALBUM;
     if (albumCount > 0 && albumCount * MIN_PER_ALBUM < TARGET_TOTAL) {
@@ -1078,7 +1211,7 @@ export default function Home() {
     visibleAlbumIds.forEach((albumId) => {
       const albumUploads = uploadsByAlbum[albumId] || [];
       const subset = getStableRandomSubset(albumUploads, countPerAlbum);
-      
+
       selectedItems.push(
         ...subset.map((item) => {
           const album = albums.find((a) => a.id === albumId);
@@ -1097,6 +1230,12 @@ export default function Home() {
   const [lightboxItems, setLightboxItems] = useState<GalleryItem[]>([]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const activeItem = activeIndex === null ? null : lightboxItems[activeIndex];
+  const activeUploadItem = useMemo(() => {
+    if (!activeItem) return null;
+    if (activeItem.albumId) return activeItem;
+    const linkedId = activeItem.mediaId ?? activeItem.id;
+    return uploads.find((item) => item.id === linkedId) ?? null;
+  }, [activeItem, uploads]);
 
   const openLightbox = (id: string, items?: GalleryItem[]) => {
     const source = items && items.length > 0 ? items : galleryItems;
@@ -1191,10 +1330,11 @@ export default function Home() {
   };
 
   const handleLightboxDelete = () => {
-    if (!activeItem || !activeItem.isLocal) return;
-    removeUpload(activeItem.id);
+    if (!activeUploadItem) return;
+    const targetLightboxId = activeItem?.id ?? activeUploadItem.id;
+    removeUpload(activeUploadItem.id);
     setLightboxItems((prev) => {
-      const nextItems = prev.filter((item) => item.id !== activeItem.id);
+      const nextItems = prev.filter((item) => item.id !== targetLightboxId);
       if (nextItems.length === 0) {
         setActiveIndex(null);
         return [];
@@ -1230,6 +1370,7 @@ export default function Home() {
       textOverrides: Record<string, string>;
       globalTheme: Theme;
       albumThemes: Record<string, Theme>;
+      deletedUploadIds: string[];
     }>
   ) {
     if (typeof window === "undefined") return;
@@ -1248,6 +1389,7 @@ export default function Home() {
       textOverrides,
       globalTheme,
       albumThemes,
+      deletedUploadIds,
       ...overrides,
     };
     try {
@@ -1276,11 +1418,14 @@ export default function Home() {
 
   const requestDeleteUpload = (item: GalleryItem, context?: "lightbox") => {
     if (!isEditMode) return;
-    setPendingDelete({
-      type: context === "lightbox" ? "lightbox-upload" : "upload",
-      id: item.id,
-      label: item.title,
-    });
+    const confirmHost = editorWindow && !editorWindow.closed ? editorWindow : window;
+    const shouldDelete = confirmHost.confirm(`Delete ${item.title}?`);
+    if (!shouldDelete) return;
+    if (context === "lightbox" && activeItem?.id === item.id) {
+      handleLightboxDelete();
+      return;
+    }
+    removeUpload(item.id);
   };
 
   const requestDeleteTimeline = (item: TimelineItem) => {
@@ -1565,6 +1710,16 @@ export default function Home() {
   };
 
   const removeUpload = (id: string) => {
+    const removedItem = uploadsRef.current.find((upload) => upload.id === id);
+    if (removedItem && !removedItem.isLocal) {
+      setDeletedUploadIds((deleted) =>
+        {
+          const next = deleted.includes(id) ? deleted : [...deleted, id];
+          persistSettings({ deletedUploadIds: next });
+          return next;
+        }
+      );
+    }
     setUploads((prev) => {
       const item = prev.find((upload) => upload.id === id);
       if (item?.isLocal) {
@@ -1685,12 +1840,12 @@ export default function Home() {
   const getImageNote = (item: GalleryItem) => imageNotes[getMediaKey(item)] ?? "";
 
   const handleMoveToAlbum = (item: GalleryItem, albumId: string) => {
-    if (!albumId || !item.isLocal) return;
+    if (!albumId || !item.albumId) return;
     updateUpload(item.id, { albumId });
   };
 
   const handleDeleteItem = (item: GalleryItem, context?: "lightbox") => {
-    if (item.isLocal) {
+    if (item.albumId) {
       requestDeleteUpload(item, context);
       return;
     }
@@ -1842,6 +1997,8 @@ export default function Home() {
 
        return {
          id: `moment-${item.id}`,
+         mediaId: item.id,
+         albumId: item.albumId,
          date: dateStr,
          title: album ? album.title : "Recent Upload",
          detail: album ? album.date : item.detail,
@@ -2076,6 +2233,13 @@ export default function Home() {
                                 onClick={maximizeEditorWindow}
                               >
                                 max
+                              </button>
+                              <button
+                                type="button"
+                                className="rounded-full border border-[color:var(--muted)] px-4 py-2 font-ui text-xs uppercase tracking-[0.2em]"
+                                onClick={handleSafeReload}
+                              >
+                                save + reload
                               </button>
                               <button
                                 type="button"
@@ -2742,7 +2906,7 @@ export default function Home() {
                               className="mt-1 text-sm"
                               style={{ fontFamily: option.value }}
                             >
-                              A quiet feed of the week, saved in order.
+                              A gentle flow of time, preserved in sequence.
                             </p>
                           </button>
                         ))}
@@ -3249,11 +3413,11 @@ export default function Home() {
                           <select
                             className="mt-2 w-full rounded-full border border-[color:var(--muted)] bg-transparent px-3 py-1"
                             defaultValue=""
-                            disabled={!activeItem.isLocal}
+                            disabled={!activeUploadItem}
                             onChange={(event) => {
                               const albumId = event.currentTarget.value;
-                              if (!albumId) return;
-                              handleMoveToAlbum(activeItem, albumId);
+                              if (!albumId || !activeUploadItem) return;
+                              handleMoveToAlbum(activeUploadItem, albumId);
                               event.currentTarget.value = "";
                               setIsLightboxMenuOpen(false);
                             }}
@@ -3273,11 +3437,11 @@ export default function Home() {
                           <select
                             className="mt-2 w-full rounded-full border border-[color:var(--muted)] bg-transparent px-3 py-1"
                             defaultValue=""
-                            disabled={!activeItem.isLocal}
+                            disabled={!activeUploadItem}
                             onChange={(event) => {
                               const albumId = event.currentTarget.value;
-                              if (!albumId) return;
-                              setAlbumCoverFromItem(albumId, activeItem);
+                              if (!albumId || !activeUploadItem) return;
+                              setAlbumCoverFromItem(albumId, activeUploadItem);
                               event.currentTarget.value = "";
                               setIsLightboxMenuOpen(false);
                             }}
@@ -3308,10 +3472,10 @@ export default function Home() {
                           <button
                             type="button"
                             className="w-full rounded-full border border-[color:var(--muted)] px-3 py-2"
-                            onClick={() => {
-                              handleDeleteItem(activeItem, "lightbox");
-                              setIsLightboxMenuOpen(false);
-                            }}
+                              onClick={() => {
+                                handleDeleteItem(activeUploadItem ?? activeItem, "lightbox");
+                                setIsLightboxMenuOpen(false);
+                              }}
                           >
                             delete
                           </button>
@@ -3380,7 +3544,7 @@ export default function Home() {
                     {lightboxItems.map((item, index) => {
                       const isActive = index === activeIndex;
                       const canReorder =
-                        isEditMode && lightboxItems.every((thumb) => thumb.isLocal);
+                        isEditMode && lightboxItems.every((thumb) => Boolean(thumb.albumId));
                       return (
                         <button
                           key={`${item.id}-thumb-${index}`}
