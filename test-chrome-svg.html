@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chrome SVG Test</title>
+    <style>
+        body {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .test-container {
+            margin: 20px 0;
+            border: 2px solid #ccc;
+            padding: 10px;
+        }
+        .test-img {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+        }
+        .absolute-test {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            border: 2px solid red;
+        }
+        .absolute-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chrome SVG Rendering Test</h1>
+    
+    <div class="test-container">
+        <h2>Test 1: Direct SVG (should work)</h2>
+        <img src="/memories/media/hero-sunday-light.svg" alt="Test 1" class="test-img">
+    </div>
+    
+    <div class="test-container">
+        <h2>Test 2: SVG with absolute positioning (Next.js style)</h2>
+        <div class="absolute-test">
+            <img src="/memories/media/hero-sunday-light.svg" alt="Test 2" class="absolute-img">
+        </div>
+    </div>
+    
+    <div class="test-container">
+        <h2>Test 3: SVG with color transparent (the problem)</h2>
+        <div class="absolute-test">
+            <img src="/memories/media/hero-sunday-light.svg" alt="Test 3" class="absolute-img" style="color: transparent;">
+        </div>
+    </div>
+    
+    <div class="test-container">
+        <h2>Test 4: SVG without color transparent (the fix)</h2>
+        <div class="absolute-test">
+            <img src="/memories/media/hero-sunday-light.svg" alt="Test 4" class="absolute-img" style="color: inherit;">
+        </div>
+    </div>
+    
+    <p><strong>Instructions:</strong> Open this file at <code>http://localhost:3000/test-chrome-svg.html</code> in Chrome and see which tests show the image.</p>
+</body>
+</html>
