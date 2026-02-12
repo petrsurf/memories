@@ -226,7 +226,7 @@ const GallerySection = ({
                           <select
                             className="mt-2 w-full rounded-full border border-[color:var(--muted)] bg-transparent px-2 py-1"
                             defaultValue=""
-                            disabled={!item.isLocal}
+                            disabled={!item.albumId}
                             onChange={(event) => {
                               const albumId = event.currentTarget.value;
                               if (!albumId) return;
@@ -250,7 +250,7 @@ const GallerySection = ({
                           <select
                             className="mt-2 w-full rounded-full border border-[color:var(--muted)] bg-transparent px-2 py-1"
                             defaultValue=""
-                            disabled={!item.isLocal}
+                            disabled={!item.albumId}
                             onChange={(event) => {
                               const albumId = event.currentTarget.value;
                               if (!albumId) return;
@@ -337,7 +337,7 @@ const GallerySection = ({
           </div>
           <div className="mt-6 grid gap-4 sm:grid-cols-3 lg:grid-cols-4">
             {galleryItems.map((item) => {
-              const isSelectable = item.isLocal;
+              const isSelectable = Boolean(item.albumId);
               const isSelected = selectedGalleryIds.includes(item.id);
               return (
                 <div key={`select-${item.id}`} className="relative overflow-hidden rounded-xl">

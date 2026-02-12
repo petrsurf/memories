@@ -1,0 +1,44 @@
+{
+  "imports": [
+    {
+      "albumId": "canada-2024",
+      "albumName": "Canada 2024",
+      "sourcePath": "C:\\Users\\petrs\\Downloads\\Canada 2024-3-001\\Canada 2024"
+    },
+    {
+      "albumId": "sydney",
+      "albumName": "Sydney",
+      "sourcePath": "C:\\Users\\petrs\\Downloads\\Wondering around -3-001\\Sydney"
+    },
+    {
+      "albumId": "blue-mountains",
+      "albumName": "Blue Mountains",
+      "sourcePath": "C:\\Users\\petrs\\Downloads\\Wondering around -3-001\\Blue Mountains"
+    },
+    {
+      "albumId": "nelson-bay",
+      "albumName": "Nelson Bay, Shoal Bay, and Anna Bay",
+      "sourcePath": "C:\\Users\\petrs\\Downloads\\Wondering around -3-001\\Nelson Bay, Shoal Bay, and Anna Bay"
+    },
+    {
+      "albumId": "sunday-walk",
+      "albumName": "Sunday walk",
+      "sourcePath": "C:\\Users\\petrs\\Downloads\\Wondering around -3-001\\Sunday walk"
+    },
+    {
+      "albumId": "port-lincoln",
+      "albumName": "Port Lincoln",
+      "sourcePath": "C:\\Users\\petrs\\Downloads\\Wondering around -3-001\\Port Lincoln"
+    },
+    {
+      "albumId": "japan",
+      "albumName": "Japan",
+      "sourcePath": "D:\\Photos\\Japan"
+    },
+    {
+      "albumId": "japan-2025-presentation",
+      "albumName": "Japan 2025 presentation",
+      "sourcePath": "C:\\Users\\petrs\\Downloads\\Japan 2025 presentation .mp4"
+    }
+  ]
+}

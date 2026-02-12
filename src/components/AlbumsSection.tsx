@@ -104,7 +104,7 @@ const AlbumsSection = ({
         </div>
         <a
           className="font-ui text-xs uppercase tracking-[0.25em] text-[color:var(--olive)]"
-          href="#"
+          href="#albums"
         >
           <EditableText
             as="span"
@@ -203,6 +203,11 @@ const AlbumsSection = ({
             <p className={`mt-2 text-sm text-[color:var(--ink)]/70 ${bodyEffectClass}`}>
               {formatAlbumCount(album.id)} · {album.date}
             </p>
+            {!isEditMode ? (
+              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                {albumMediaCounts[album.id]?.images ?? 0} IMG · {albumMediaCounts[album.id]?.videos ?? 0} VID
+              </p>
+            ) : null}
             {uploadCounts[album.id] ? (
               <p className="mt-2 text-xs uppercase tracking-[0.2em] text-[color:var(--olive)]">
                 {uploadCounts[album.id]} new upload{uploadCounts[album.id] > 1 ? "s" : ""}

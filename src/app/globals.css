@@ -296,10 +296,39 @@ button:disabled:hover {
 .gallery-image {
   transform: scale(var(--gallery-scale, 1));
   transition: transform 0.45s ease;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .gallery-hover:hover .gallery-image {
   transform: scale(1);
+}
+
+/* Ensure SVG images render correctly */
+img[src$=".svg"] {
+  display: block !important;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix Next.js Image component color transparent issue - Chrome SVG bug */
+img[data-nimg="fill"] {
+  color: currentColor !important;
+}
+
+img[data-nimg] {
+  color: currentColor !important;
+}
+
+/* Ensure all images are visible */
+img {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Specific fix for SVG images in Chrome */
+img[src*=".svg"] {
+  color: #2b2723 !important;
 }
 
 .thumb-deck {

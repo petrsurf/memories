@@ -117,6 +117,7 @@ const HeroSection = ({
               width: "100%",
               height: "100%",
               transition: "transform 0.2s ease",
+              position: "relative",
             }}
           >
             {hero.type === "video" && hero.videoSrc ? (
@@ -135,13 +136,21 @@ const HeroSection = ({
                 style={getMediaStyle(hero)}
               />
             ) : (
-              <Image
+              <img
                 src={resolveAssetSrc(hero.src)}
                 alt={hero.alt}
-                fill
-                priority
                 className="gallery-image object-cover"
-                style={getMediaStyle(hero)}
+                style={{
+                  position: 'absolute',
+                  height: '100%',
+                  width: '100%',
+                  left: 0,
+                  top: 0,
+                  right: 0,
+                  bottom: 0,
+                  objectFit: 'cover',
+                  ...getMediaStyle(hero)
+                }}
               />
             )}
           </div>

@@ -1,0 +1,40 @@
+
+> website-app@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.113:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 737ms
+ GET / 200 in 882ms (compile: 608ms, render: 274ms)
+ GET / 200 in 85ms (compile: 10ms, render: 75ms)
+ GET / 200 in 104ms (compile: 11ms, render: 93ms)
+ GET / 200 in 104ms (compile: 10ms, render: 94ms)
+ GET / 200 in 44ms (compile: 5ms, render: 39ms)
+ GET / 200 in 42ms (compile: 6ms, render: 35ms)
+ GET / 200 in 104ms (compile: 10ms, render: 94ms)
+ GET / 200 in 65ms (compile: 7ms, render: 58ms)
+✓ Compiled in 107ms
+✓ Compiled in 83ms
+✓ Compiled in 76ms
+ GET / 200 in 248ms (compile: 107ms, render: 141ms)
+✓ Finished writing to filesystem cache in 94s
+✓ Compiled in 89ms
+✓ Compiled in 101ms
+✓ Compiled in 71ms
+✓ Compiled in 107ms
+✓ Compiled in 75ms
+✓ Compiled in 95ms
+✓ Compiled in 88ms
+✓ Compiled in 89ms
+✓ Compiled in 83ms
+✓ Compiled in 88ms
+✓ Compiled in 78ms
+✓ Compiled in 63ms
+✓ Compiled in 79ms
+✓ Compiled in 87ms
+✓ Compiled in 87ms
+✓ Finished writing to filesystem cache in 13.9s

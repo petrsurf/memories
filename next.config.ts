@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
-const basePath = "/memories";
+// Use basePath only for production (GitHub Pages)
+const isProduction = process.env.NODE_ENV === "production";
+const basePath = isProduction ? "/memories" : "";
 
 const nextConfig: NextConfig = {
   output: "export",
