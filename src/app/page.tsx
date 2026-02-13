@@ -41,7 +41,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const EDIT_PASSWORD = "Bluesky";
 const IMAGE_CACHE_BUST = "20260212-2";
 const REOPEN_EDIT_MODE_KEY = "sunday-album-reopen-edit";
-const DEFAULT_HERO_SOURCE_ALBUM_ID = "japan-2025-presentation";
+const HERO_VIDEO_ALBUM_ID = "japan-2025-presentation";
 
 type UploadManifestItem = {
   id: string;
@@ -621,7 +621,7 @@ export default function Home() {
   const [heroScale, setHeroScale] = useState(1);
   const [albumImageHeight, setAlbumImageHeight] = useState(160);
   const [galleryScale, setGalleryScale] = useState(1);
-  const [heroSourceId, setHeroSourceId] = useState<string | null>(DEFAULT_HERO_SOURCE_ALBUM_ID);
+  const [heroSourceId, setHeroSourceId] = useState<string | null>(null);
   const [imageEdits, setImageEdits] = useState<Record<string, ImageEdit>>({});
   const [imageNotes, setImageNotes] = useState<Record<string, string>>({});
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
@@ -994,11 +994,6 @@ export default function Home() {
   }, [accessLevel, editorWindow]);
 
   useEffect(() => {
-    if (heroSourceId === DEFAULT_HERO_SOURCE_ALBUM_ID) return;
-    setHeroSourceId(DEFAULT_HERO_SOURCE_ALBUM_ID);
-  }, [heroSourceId]);
-
-  useEffect(() => {
     const albumTheme = albumThemes[selectedAlbumId];
     setTheme(albumTheme ?? globalTheme);
   }, [albumThemes, globalTheme, selectedAlbumId]);
@@ -1185,27 +1180,21 @@ export default function Home() {
     return grouped;
   }, [uploads, albums]);
 
-  const heroAlbum = heroSourceId
-    ? albums.find((album) => album.id === heroSourceId)
-    : undefined;
-  const heroAlbumItems = heroAlbum ? uploadsByAlbum[heroAlbum.id] ?? [] : [];
-  const heroCoverItem = heroAlbum
-    ? (heroAlbum.coverId
-        ? heroAlbumItems.find((item) => item.id === heroAlbum.coverId) ?? heroAlbumItems[0]
-        : heroAlbumItems[0])
-    : undefined;
-  const heroMediaId = heroCoverItem?.id;
+  const heroVideoItem = uploadsByAlbum[HERO_VIDEO_ALBUM_ID]?.find(
+    (item) => item.type === "video"
+  );
+  const heroMediaId = heroVideoItem?.id;
   const hero = useMemo(() => ({
-    id: heroAlbum?.id ?? "hero-sunday-light",
-    title: heroAlbum?.title ?? content.heroCardTitle,
-    detail: heroAlbum?.mood ?? content.heroCardDetail,
-    src: heroCoverItem?.src ?? heroAlbum?.src ?? "/media/hero-sunday-light.svg",
-    alt: heroCoverItem?.alt ?? heroAlbum?.alt ?? "Warm morning light through a kitchen window",
-    type: heroCoverItem?.type ?? heroAlbum?.type ?? "image",
-    videoSrc: heroCoverItem?.videoSrc,
-    isLocal: heroCoverItem?.isLocal,
+    id: "hero-japan-2025-presentation",
+    title: content.heroCardTitle,
+    detail: content.heroCardDetail,
+    src: heroVideoItem?.videoSrc ?? heroVideoItem?.src ?? "/media/uploads/albums/japan-2025-presentation/japan-2025-presentation-0d4546c47a.mp4",
+    alt: heroVideoItem?.alt ?? "Japan 2025 presentation video",
+    type: "video" as const,
+    videoSrc: heroVideoItem?.videoSrc ?? heroVideoItem?.src ?? "/media/uploads/albums/japan-2025-presentation/japan-2025-presentation-0d4546c47a.mp4",
+    isLocal: heroVideoItem?.isLocal,
     mediaId: heroMediaId,
-  }), [heroAlbum, heroCoverItem, content.heroCardTitle, content.heroCardDetail]);
+  }), [heroVideoItem, content.heroCardTitle, content.heroCardDetail]);
 
   const handleSafeReload = () => {
     persistSettings();
@@ -1556,12 +1545,11 @@ export default function Home() {
       const nextAlbums = albums.filter((album) => album.id !== albumId);
       const nextSelectedAlbumId =
         selectedAlbumId === albumId ? nextAlbums[0]?.id ?? "" : selectedAlbumId;
-      const nextHeroSourceId =
-        heroSourceId === albumId ? DEFAULT_HERO_SOURCE_ALBUM_ID : heroSourceId;
+      const nextHeroSourceId = heroSourceId === albumId ? null : heroSourceId;
       setAlbums(nextAlbums);
       setSelectedAlbumId(nextSelectedAlbumId);
       if (heroSourceId === albumId) {
-        setHeroSourceId(DEFAULT_HERO_SOURCE_ALBUM_ID);
+        setHeroSourceId(null);
       }
       if (activeItem?.id === albumId) {
         setActiveIndex(null);
@@ -1901,11 +1889,7 @@ export default function Home() {
 
   const updateGalleryTitle = (id: string, value: string) => {
     if (id === hero.id) {
-      if (heroAlbum) {
-        updateAlbum(heroAlbum.id, { title: value });
-      } else {
-        setContent((prev) => ({ ...prev, heroCardTitle: value }));
-      }
+      setContent((prev) => ({ ...prev, heroCardTitle: value }));
       return;
     }
     if (albums.some((album) => album.id === id)) {
@@ -2002,7 +1986,7 @@ export default function Home() {
 
   const getSourceLabel = (item: GalleryItem) => {
     if (item.id === hero.id) {
-      return heroAlbum ? `Hero · ${heroAlbum.title}` : "Hero · Sunday Light";
+      return "Hero · Japan 2025 presentation";
     }
     const albumMatch = albums.find((album) => album.id === item.id);
     if (albumMatch) return `Album · ${albumMatch.title}`;
@@ -2318,17 +2302,11 @@ export default function Home() {
             content={content}
             setContent={setContent}
             hero={hero}
-            heroAlbum={heroAlbum}
             heroHeight={heroHeight}
             heroScale={heroScale}
-            heroSourceId={heroSourceId}
-            setHeroSourceId={setHeroSourceId}
             openLightbox={openLightbox}
-            updateAlbum={updateAlbum}
-            requestDeleteAlbum={requestDeleteAlbum}
             resolveAssetSrc={resolveAssetSrc}
             getMediaStyle={getMediaStyle}
-            albums={albums}
             isEditMode={isEditMode}
             displayEffectClass={displayEffectClass}
             labelEffectClass={labelEffectClass}
@@ -3888,15 +3866,11 @@ export default function Home() {
                     value={activeItem.title}
                     onChange={(value) => {
                       if (activeItem.id === hero.id) {
-                        if (heroAlbum) {
-                          updateAlbum(heroAlbum.id, { title: value });
-                        } else {
-                          setContent((prev) => {
-                            const updated = { ...prev, heroCardTitle: value };
-                            localStorage.setItem('sunday-album-content', JSON.stringify(updated));
-                            return updated;
-                          });
-                        }
+                        setContent((prev) => {
+                          const updated = { ...prev, heroCardTitle: value };
+                          localStorage.setItem('sunday-album-content', JSON.stringify(updated));
+                          return updated;
+                        });
                         return;
                       }
                       const albumMatch = albums.find((album) => album.id === activeItem.id);
@@ -3924,15 +3898,11 @@ export default function Home() {
                       value={activeItem.detail}
                       onChange={(value) => {
                         if (activeItem.id === hero.id) {
-                          if (heroAlbum) {
-                            updateAlbum(heroAlbum.id, { mood: value });
-                          } else {
-                            setContent((prev) => {
-                              const updated = { ...prev, heroCardDetail: value };
-                              localStorage.setItem('sunday-album-content', JSON.stringify(updated));
-                              return updated;
-                            });
-                          }
+                          setContent((prev) => {
+                            const updated = { ...prev, heroCardDetail: value };
+                            localStorage.setItem('sunday-album-content', JSON.stringify(updated));
+                            return updated;
+                          });
                           return;
                         }
                         const timelineMatch = timeline.find(

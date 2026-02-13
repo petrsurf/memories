@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { CSSProperties, Dispatch, ReactElement, SetStateAction } from "react";
-import type { Album, Content, EditableTextProps, GalleryItem } from "../app/types";
+import type { Content, EditableTextProps, GalleryItem } from "../app/types";
 
 type EditableTextComponent = (props: EditableTextProps) => ReactElement;
 
@@ -8,17 +8,11 @@ type HeroSectionProps = {
   content: Content;
   setContent: Dispatch<SetStateAction<Content>>;
   hero: GalleryItem;
-  heroAlbum?: Album;
   heroHeight: number;
   heroScale: number;
-  heroSourceId: string | null;
-  setHeroSourceId: (id: string | null) => void;
   openLightbox: (id: string, items?: GalleryItem[]) => void;
-  updateAlbum: (id: string, patch: Partial<Album>) => void;
-  requestDeleteAlbum: (album: Album) => void;
   resolveAssetSrc: (src?: string) => string;
   getMediaStyle: (item: GalleryItem) => CSSProperties | undefined;
-  albums: Album[];
   isEditMode: boolean;
   displayEffectClass: string;
   labelEffectClass: string;
@@ -30,17 +24,11 @@ const HeroSection = ({
   content,
   setContent,
   hero,
-  heroAlbum,
   heroHeight,
   heroScale,
-  heroSourceId,
-  setHeroSourceId,
   openLightbox,
-  updateAlbum,
-  requestDeleteAlbum,
   resolveAssetSrc,
   getMediaStyle,
-  albums,
   isEditMode,
   displayEffectClass,
   labelEffectClass,
@@ -159,51 +147,19 @@ const HeroSection = ({
           <EditableText
             as="p"
             value={hero.title}
-            onChange={(value) =>
-              heroAlbum
-                ? updateAlbum(heroAlbum.id, { title: value })
-                : setContent((prev) => ({ ...prev, heroCardTitle: value }))
-            }
+            onChange={(value) => setContent((prev) => ({ ...prev, heroCardTitle: value }))}
             className={`font-display text-xl ${displayEffectClass}`}
           />
           <EditableText
             as="p"
             value={hero.detail ?? ""}
-            onChange={(value) =>
-              heroAlbum
-                ? updateAlbum(heroAlbum.id, { mood: value })
-                : setContent((prev) => ({ ...prev, heroCardDetail: value }))
-            }
+            onChange={(value) => setContent((prev) => ({ ...prev, heroCardDetail: value }))}
             className={`text-sm text-[color:var(--ink)]/70 ${bodyEffectClass}`}
           />
         </div>
         {isEditMode ? (
           <div className="mt-4 flex flex-wrap items-center gap-3 font-ui text-xs uppercase tracking-[0.2em]">
-            <span className="text-[color:var(--muted)]">hero source</span>
-            <select
-              className="rounded-full border border-[color:var(--muted)] bg-transparent px-4 py-2"
-              value={heroSourceId ?? ""}
-              onChange={(event) => {
-                const nextValue = event.currentTarget.value;
-                setHeroSourceId(nextValue ? nextValue : null);
-              }}
-            >
-              <option value="">Sunday Light</option>
-              {albums.map((album) => (
-                <option key={`hero-${album.id}`} value={album.id}>
-                  {album.title}
-                </option>
-              ))}
-            </select>
-            {heroAlbum ? (
-              <button
-                type="button"
-                className="rounded-full border border-[color:var(--muted)] px-4 py-2"
-                onClick={() => requestDeleteAlbum(heroAlbum)}
-              >
-                delete album
-              </button>
-            ) : null}
+            <span className="text-[color:var(--muted)]">hero source fixed to Japan 2025 presentation video</span>
           </div>
         ) : null}
       </div>
