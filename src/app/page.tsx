@@ -41,6 +41,8 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const EDIT_PASSWORD = "Bluesky";
 const IMAGE_CACHE_BUST = "20260212-2";
 const REOPEN_EDIT_MODE_KEY = "sunday-album-reopen-edit";
+const HERO_MANUAL_ALBUM_ID = "hero-manual";
+const HERO_MANUAL_ALBUM_TITLE = "Hero Upload";
 
 type UploadManifestItem = {
   id: string;
@@ -2022,6 +2024,45 @@ export default function Home() {
     setNewAlbumTitle("");
   };
 
+  const ensureHeroManualAlbum = () => {
+    const existing = albums.find((album) => album.id === HERO_MANUAL_ALBUM_ID);
+    if (existing) return existing.id;
+    const now = new Date();
+    const dateLabel = now.toLocaleString("en-US", {
+      month: "short",
+      year: "numeric",
+    });
+    const heroAlbum: Album = {
+      id: HERO_MANUAL_ALBUM_ID,
+      title: HERO_MANUAL_ALBUM_TITLE,
+      count: "0 uploads",
+      date: dateLabel,
+      mood: "Manual hero media source.",
+      privacy: "Private link",
+      src: "/media/album-winter-kitchen.svg",
+      alt: "Hero upload cover",
+      type: "image",
+    };
+    setAlbums((prev) => [heroAlbum, ...prev]);
+    return heroAlbum.id;
+  };
+
+  const clearHeroCard = () => {
+    setHeroSourceId(null);
+    setContent((prev) => ({
+      ...prev,
+      heroCardTitle: "",
+      heroCardDetail: "",
+    }));
+  };
+
+  const uploadHeroFiles = (fileList: FileList | null) => {
+    if (!fileList || fileList.length === 0) return;
+    const heroAlbumId = ensureHeroManualAlbum();
+    addFiles(fileList, heroAlbumId);
+    setHeroSourceId(heroAlbumId);
+  };
+
   const closeGallerySelection = () => {
     setIsGallerySelectOpen(false);
     setSelectedGalleryIds([]);
@@ -2302,6 +2343,8 @@ export default function Home() {
             getMediaStyle={getMediaStyle}
             albums={albums}
             isEditMode={isEditMode}
+            clearHeroCard={clearHeroCard}
+            uploadHeroFiles={uploadHeroFiles}
             displayEffectClass={displayEffectClass}
             labelEffectClass={labelEffectClass}
             bodyEffectClass={bodyEffectClass}

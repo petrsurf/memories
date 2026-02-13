@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRef } from "react";
 import type { CSSProperties, Dispatch, ReactElement, SetStateAction } from "react";
 import type { Album, Content, EditableTextProps, GalleryItem } from "../app/types";
 
@@ -20,6 +21,8 @@ type HeroSectionProps = {
   getMediaStyle: (item: GalleryItem) => CSSProperties | undefined;
   albums: Album[];
   isEditMode: boolean;
+  clearHeroCard: () => void;
+  uploadHeroFiles: (files: FileList | null) => void;
   displayEffectClass: string;
   labelEffectClass: string;
   bodyEffectClass: string;
@@ -42,11 +45,15 @@ const HeroSection = ({
   getMediaStyle,
   albums,
   isEditMode,
+  clearHeroCard,
+  uploadHeroFiles,
   displayEffectClass,
   labelEffectClass,
   bodyEffectClass,
   EditableText,
 }: HeroSectionProps) => {
+  const heroUploadInputRef = useRef<HTMLInputElement | null>(null);
+
   return (
     <section className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] fade-up">
       <div className="space-y-5">
@@ -204,6 +211,30 @@ const HeroSection = ({
                 delete album
               </button>
             ) : null}
+            <button
+              type="button"
+              className="rounded-full border border-[color:var(--muted)] px-4 py-2"
+              onClick={clearHeroCard}
+            >
+              clear hero
+            </button>
+            <button
+              type="button"
+              className="rounded-full border border-[color:var(--muted)] px-4 py-2"
+              onClick={() => heroUploadInputRef.current?.click()}
+            >
+              upload hero media
+            </button>
+            <input
+              ref={heroUploadInputRef}
+              type="file"
+              className="hidden"
+              accept="image/*,video/*"
+              onChange={(event) => {
+                uploadHeroFiles(event.target.files);
+                event.currentTarget.value = "";
+              }}
+            />
           </div>
         ) : null}
       </div>
