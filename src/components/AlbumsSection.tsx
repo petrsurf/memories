@@ -157,6 +157,7 @@ const AlbumsSection = ({
                             <video
                               className="gallery-image h-full w-full object-cover"
                               src={resolveAssetSrc(coverItem.videoSrc)}
+                              preload="none"
                               muted
                               playsInline
                               style={getMediaStyle(coverItem)}
@@ -165,6 +166,8 @@ const AlbumsSection = ({
                             <img
                               src={resolveAssetSrc(coverItem.src)}
                               alt={coverItem.alt}
+                              loading="lazy"
+                              decoding="async"
                               className="gallery-image h-full w-full object-cover"
                               style={getMediaStyle(coverItem)}
                             />
@@ -268,6 +271,7 @@ const AlbumsSection = ({
                         <video
                           className="gallery-image h-full w-full object-cover"
                           src={resolveAssetSrc(item.videoSrc)}
+                          preload="none"
                           muted
                           playsInline
                           style={getMediaStyle(item)}
@@ -276,6 +280,8 @@ const AlbumsSection = ({
                         <img
                           src={resolveAssetSrc(item.src)}
                           alt={item.alt}
+                          loading="lazy"
+                          decoding="async"
                           className="gallery-image h-full w-full object-cover"
                           style={getMediaStyle(item)}
                         />

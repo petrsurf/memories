@@ -153,6 +153,7 @@ const GallerySection = ({
                   <video
                     className="gallery-image h-auto w-full rounded-xl object-cover"
                     src={resolveAssetSrc(item.videoSrc)}
+                    preload="none"
                     muted
                     playsInline
                     style={getMediaStyle(item)}
@@ -161,6 +162,8 @@ const GallerySection = ({
                   <img
                     src={resolveAssetSrc(item.src)}
                     alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
                     className="gallery-image h-auto w-full rounded-xl object-cover"
                     style={getMediaStyle(item)}
                   />
@@ -345,6 +348,7 @@ const GallerySection = ({
                     <video
                       className="h-28 w-full object-cover"
                       src={resolveAssetSrc(item.videoSrc)}
+                      preload="none"
                       muted
                       playsInline
                       style={getMediaStyle(item)}
@@ -353,6 +357,8 @@ const GallerySection = ({
                     <img
                       src={resolveAssetSrc(item.src)}
                       alt={item.alt}
+                      loading="lazy"
+                      decoding="async"
                       className="h-28 w-full object-cover"
                       style={getMediaStyle(item)}
                     />

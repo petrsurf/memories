@@ -217,6 +217,7 @@ const UploadSection = ({
                   <video
                     className="h-full w-full object-cover"
                     src={resolveAssetSrc(upload.videoSrc)}
+                    preload="metadata"
                     muted
                     playsInline
                     style={getMediaStyle(upload)}
@@ -225,6 +226,8 @@ const UploadSection = ({
                   <img
                     src={resolveAssetSrc(upload.src)}
                     alt={upload.alt}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                     style={getMediaStyle(upload)}
                   />

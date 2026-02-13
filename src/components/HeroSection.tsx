@@ -131,6 +131,7 @@ const HeroSection = ({
               <video
                 className="gallery-image h-full w-full object-cover"
                 src={resolveAssetSrc(hero.videoSrc)}
+                preload="metadata"
                 muted
                 playsInline
                 style={getMediaStyle(hero)}
@@ -139,6 +140,9 @@ const HeroSection = ({
               <img
                 src={resolveAssetSrc(hero.src)}
                 alt={hero.alt}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="gallery-image h-full w-full object-cover"
                 style={getMediaStyle(hero)}
               />
@@ -146,6 +150,9 @@ const HeroSection = ({
               <img
                 src={resolveAssetSrc(hero.src)}
                 alt={hero.alt}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="gallery-image object-cover"
                 style={{
                   position: 'absolute',

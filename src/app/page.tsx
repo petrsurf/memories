@@ -3756,6 +3756,7 @@ export default function Home() {
                             <video
                               className="h-full w-full object-cover"
                               src={resolveAssetSrc(item.videoSrc)}
+                              preload="none"
                               muted
                               playsInline
                               style={getMediaStyle(item)}
@@ -3764,6 +3765,8 @@ export default function Home() {
                             <img
                               src={resolveAssetSrc(item.src)}
                               alt={item.alt}
+                              loading="lazy"
+                              decoding="async"
                               className="h-full w-full object-cover"
                               style={getMediaStyle(item)}
                             />
