@@ -719,7 +719,6 @@ export default function Home() {
       if (parsed.heroScale) setHeroScale(parsed.heroScale);
       if (parsed.albumImageHeight) setAlbumImageHeight(parsed.albumImageHeight);
       if (parsed.galleryScale) setGalleryScale(parsed.galleryScale);
-      if (parsed.heroSourceId !== undefined) setHeroSourceId(parsed.heroSourceId);
       if (parsed.imageEdits) setImageEdits(parsed.imageEdits);
       if (parsed.imageNotes) setImageNotes(parsed.imageNotes);
       if (parsed.albums) {
@@ -993,6 +992,11 @@ export default function Home() {
       openEditorWindow();
     }
   }, [accessLevel, editorWindow]);
+
+  useEffect(() => {
+    if (heroSourceId === DEFAULT_HERO_SOURCE_ALBUM_ID) return;
+    setHeroSourceId(DEFAULT_HERO_SOURCE_ALBUM_ID);
+  }, [heroSourceId]);
 
   useEffect(() => {
     const albumTheme = albumThemes[selectedAlbumId];
@@ -1552,11 +1556,12 @@ export default function Home() {
       const nextAlbums = albums.filter((album) => album.id !== albumId);
       const nextSelectedAlbumId =
         selectedAlbumId === albumId ? nextAlbums[0]?.id ?? "" : selectedAlbumId;
-      const nextHeroSourceId = heroSourceId === albumId ? null : heroSourceId;
+      const nextHeroSourceId =
+        heroSourceId === albumId ? DEFAULT_HERO_SOURCE_ALBUM_ID : heroSourceId;
       setAlbums(nextAlbums);
       setSelectedAlbumId(nextSelectedAlbumId);
       if (heroSourceId === albumId) {
-        setHeroSourceId(null);
+        setHeroSourceId(DEFAULT_HERO_SOURCE_ALBUM_ID);
       }
       if (activeItem?.id === albumId) {
         setActiveIndex(null);
