@@ -1954,8 +1954,12 @@ export default function Home() {
   const getImageNote = (item: GalleryItem) => imageNotes[getMediaKey(item)] ?? "";
 
   const handleMoveToAlbum = (item: GalleryItem, albumId: string) => {
-    if (!albumId || !item.albumId) return;
-    updateUpload(item.id, { albumId });
+    if (!albumId) return;
+    const uploadId = item.mediaId ?? item.id;
+    const existing = uploads.find((upload) => upload.id === uploadId);
+    if (!existing) return;
+    if (existing.albumId === albumId) return;
+    updateUpload(uploadId, { albumId });
   };
 
   const handleDeleteItem = (item: GalleryItem, context?: "lightbox") => {

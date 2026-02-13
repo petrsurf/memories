@@ -122,11 +122,12 @@ const AlbumsSection = ({
             className="paper-card p-6 transition-transform hover:-translate-y-1"
           >
             {(() => {
-              // Only show cover if explicitly set by user via coverId
-              const hasCover = album.coverId && uploadsByAlbum[album.id];
-              const coverItem = hasCover 
-                ? uploadsByAlbum[album.id]?.find((item) => item.id === album.coverId)
-                : null;
+              // Prefer explicit coverId, otherwise fall back to first media item in the album.
+              const albumItems = uploadsByAlbum[album.id] ?? [];
+              const explicitCover = album.coverId
+                ? albumItems.find((item) => item.id === album.coverId)
+                : undefined;
+              const coverItem = explicitCover ?? albumItems[0];
               
               return (
                 <div
