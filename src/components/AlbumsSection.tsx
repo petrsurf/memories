@@ -146,10 +146,6 @@ const AlbumsSection = ({
                     <button
                       type="button"
                       onClick={() => {
-                        if (!isEditMode && canOpenFlipPreview) {
-                          openFlipPreview(album.id);
-                          return;
-                        }
                         const albumItems = uploadsByAlbum[album.id];
                         if (albumItems && albumItems.length > 0) {
                           openLightbox(albumItems[0].id, albumItems);
@@ -204,8 +200,8 @@ const AlbumsSection = ({
                   onChange={(value) => updateAlbum(album.id, { title: value })}
                   className={`font-display text-xl ${displayEffectClass}`}
                 />
-              <div className="flex items-center gap-2">
-                  {canOpenFlipPreview ? (
+                <div className="flex items-center gap-2">
+                  {!isEditMode && canOpenFlipPreview ? (
                     <button
                       type="button"
                       className="rounded-full border border-[color:var(--accent)] px-3 py-1 font-ui text-[11px] uppercase tracking-[0.2em] text-[color:var(--accent)]"
