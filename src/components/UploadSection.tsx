@@ -206,6 +206,7 @@ const UploadSection = ({
                     src={resolveAssetSrc(upload.videoSrc)}
                     muted
                     playsInline
+                    preload="none"
                     style={getMediaStyle(upload)}
                   />
                 ) : (

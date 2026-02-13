@@ -14,6 +14,7 @@ import {
   useState,
 } from "react";
 import AboutSection from "../components/AboutSection";
+import AlbumFlipPreview from "../components/AlbumFlipPreview";
 import AlbumsSection from "../components/AlbumsSection";
 import GallerySection from "../components/GallerySection";
 import HeroSection from "../components/HeroSection";
@@ -618,6 +619,7 @@ export default function Home() {
   const [editorTargetId, setEditorTargetId] = useState<string | null>(null);
   const [showLightboxInfo, setShowLightboxInfo] = useState(false);
   const [deletedUploadIds, setDeletedUploadIds] = useState<string[]>([]);
+  const [flipPreviewAlbumId, setFlipPreviewAlbumId] = useState<string | null>(null);
 
   const [albums, setAlbums] = useState<Album[]>(initialAlbums);
   const [timeline, setTimeline] = useState<TimelineItem[]>(initialTimeline);
@@ -1087,6 +1089,52 @@ export default function Home() {
     setUploads((prev) => prev.filter((item) => !deletedUploadIds.includes(item.id)));
   }, [deletedUploadIds]);
 
+  const persistSettings = (
+    overrides?: Partial<{
+      content: Content;
+      heroHeight: number;
+      heroScale: number;
+      albumImageHeight: number;
+      galleryScale: number;
+      heroSourceId: string | null;
+      imageEdits: Record<string, ImageEdit>;
+      imageNotes: Record<string, string>;
+      albums: Album[];
+      selectedAlbumId: string;
+      timeline: TimelineItem[];
+      textOverrides: Record<string, string>;
+      globalTheme: Theme;
+      albumThemes: Record<string, Theme>;
+      deletedUploadIds: string[];
+    }>
+  ) => {
+    if (typeof window === "undefined") return;
+    const payload = {
+      content,
+      heroHeight,
+      heroScale,
+      albumImageHeight,
+      galleryScale,
+      heroSourceId,
+      imageEdits,
+      imageNotes,
+      albums,
+      selectedAlbumId,
+      timeline,
+      textOverrides,
+      globalTheme,
+      albumThemes,
+      deletedUploadIds,
+      ...overrides,
+    };
+    try {
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(payload));
+    } catch {
+      // Ignore storage failures and rely on IndexedDB fallback.
+    }
+    void saveSettingsToDb(payload as Record<string, unknown>);
+  };
+
   useEffect(() => {
     const timer = window.setTimeout(() => {
       persistSettings();
@@ -1208,6 +1256,19 @@ export default function Home() {
   );
 
   const visibleAlbums = isEditMode ? albums : albumsWithUploads;
+
+  useEffect(() => {
+    if (isEditMode && flipPreviewAlbumId) {
+      setFlipPreviewAlbumId(null);
+    }
+  }, [isEditMode, flipPreviewAlbumId]);
+
+  useEffect(() => {
+    if (!flipPreviewAlbumId) return;
+    if (!uploadsByAlbum[flipPreviewAlbumId]?.length) {
+      setFlipPreviewAlbumId(null);
+    }
+  }, [flipPreviewAlbumId, uploadsByAlbum]);
 
   const galleryItems = useMemo(() => {
     const heroItem = {
@@ -1393,52 +1454,6 @@ export default function Home() {
     thumbDragStartXRef.current = 0;
     thumbScrollLeftRef.current = 0;
   };
-
-  function persistSettings(
-    overrides?: Partial<{
-      content: Content;
-      heroHeight: number;
-      heroScale: number;
-      albumImageHeight: number;
-      galleryScale: number;
-      heroSourceId: string | null;
-      imageEdits: Record<string, ImageEdit>;
-      imageNotes: Record<string, string>;
-      albums: Album[];
-      selectedAlbumId: string;
-      timeline: TimelineItem[];
-      textOverrides: Record<string, string>;
-      globalTheme: Theme;
-      albumThemes: Record<string, Theme>;
-      deletedUploadIds: string[];
-    }>
-  ) {
-    if (typeof window === "undefined") return;
-    const payload = {
-      content,
-      heroHeight,
-      heroScale,
-      albumImageHeight,
-      galleryScale,
-      heroSourceId,
-      imageEdits,
-      imageNotes,
-      albums,
-      selectedAlbumId,
-      timeline,
-      textOverrides,
-      globalTheme,
-      albumThemes,
-      deletedUploadIds,
-      ...overrides,
-    };
-    try {
-      localStorage.setItem(SETTINGS_KEY, JSON.stringify(payload));
-    } catch {
-      // Ignore storage failures and rely on IndexedDB fallback.
-    }
-    void saveSettingsToDb(payload as Record<string, unknown>);
-  }
 
   const buildSettingsPayload = (overrides?: Record<string, unknown>) => ({
     content,
@@ -1896,8 +1911,6 @@ export default function Home() {
       updateUpload(id, { title: value });
     }
   };
-
-  const defaultImageEdit: ImageEdit = { scale: 1, offsetX: 0, offsetY: 0, rotation: 0 };
 
   const getMediaKey = (item: GalleryItem) => item.mediaId ?? item.id;
 
@@ -3353,6 +3366,7 @@ export default function Home() {
             labelEffectClass={labelEffectClass}
             bodyEffectClass={bodyEffectClass}
             EditableText={EditableText}
+            openFlipPreview={setFlipPreviewAlbumId}
           />
 
           <UploadSection
@@ -3485,6 +3499,14 @@ export default function Home() {
             </div>
           </form>
         </div>
+      ) : null}
+      {flipPreviewAlbumId ? (
+        <AlbumFlipPreview
+          albumTitle={albums.find((album) => album.id === flipPreviewAlbumId)?.title ?? "Album"}
+          items={uploadsByAlbum[flipPreviewAlbumId] ?? []}
+          onClose={() => setFlipPreviewAlbumId(null)}
+          resolveAssetSrc={resolveAssetSrc}
+        />
       ) : null}
       {activeItem ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[color:var(--ink)]/70 p-6">
@@ -3715,6 +3737,7 @@ export default function Home() {
                               src={resolveAssetSrc(item.videoSrc)}
                               muted
                               playsInline
+                              preload="none"
                               style={getMediaStyle(item)}
                             />
                           ) : item.isLocal ? (
