@@ -41,6 +41,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const EDIT_PASSWORD = "Bluesky";
 const IMAGE_CACHE_BUST = "20260212-2";
 const REOPEN_EDIT_MODE_KEY = "sunday-album-reopen-edit";
+const DEFAULT_HERO_SOURCE_ALBUM_ID = "japan-2025-presentation";
 
 type UploadManifestItem = {
   id: string;
@@ -609,7 +610,7 @@ export default function Home() {
   const [heroScale, setHeroScale] = useState(1);
   const [albumImageHeight, setAlbumImageHeight] = useState(160);
   const [galleryScale, setGalleryScale] = useState(1);
-  const [heroSourceId, setHeroSourceId] = useState<string | null>(null);
+  const [heroSourceId, setHeroSourceId] = useState<string | null>(DEFAULT_HERO_SOURCE_ALBUM_ID);
   const [imageEdits, setImageEdits] = useState<Record<string, ImageEdit>>({});
   const [imageNotes, setImageNotes] = useState<Record<string, string>>({});
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
@@ -707,7 +708,6 @@ export default function Home() {
       if (parsed.heroScale) setHeroScale(parsed.heroScale);
       if (parsed.albumImageHeight) setAlbumImageHeight(parsed.albumImageHeight);
       if (parsed.galleryScale) setGalleryScale(parsed.galleryScale);
-      if (parsed.heroSourceId !== undefined) setHeroSourceId(parsed.heroSourceId);
       if (parsed.imageEdits) setImageEdits(parsed.imageEdits);
       if (parsed.imageNotes) setImageNotes(parsed.imageNotes);
       if (parsed.albums) {
