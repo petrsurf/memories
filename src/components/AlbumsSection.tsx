@@ -122,7 +122,7 @@ const AlbumsSection = ({
             className="paper-card p-6 transition-transform hover:-translate-y-1"
           >
             {(() => {
-              // Prefer explicit coverId, otherwise fall back to first media item in the album.
+              // Prefer explicit coverId; otherwise use first media item (including video-only albums).
               const albumItems = uploadsByAlbum[album.id] ?? [];
               const explicitCover = album.coverId
                 ? albumItems.find((item) => item.id === album.coverId)
@@ -158,7 +158,7 @@ const AlbumsSection = ({
                             <video
                               className="gallery-image h-full w-full object-cover"
                               src={resolveAssetSrc(coverItem.videoSrc)}
-                              preload="none"
+                              preload="metadata"
                               muted
                               playsInline
                               style={getMediaStyle(coverItem)}
