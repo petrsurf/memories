@@ -129,10 +129,10 @@ const AlbumsSection = ({
               className="paper-card p-6 transition-transform hover:-translate-y-1"
             >
               {(() => {
-                const hasCover = album.coverId && uploadsByAlbum[album.id];
-                const coverItem = hasCover
-                  ? uploadsByAlbum[album.id]?.find((item) => item.id === album.coverId)
-                  : null;
+                const albumItems = uploadsByAlbum[album.id] ?? [];
+                const coverItem = album.coverId
+                  ? albumItems.find((item) => item.id === album.coverId) ?? albumItems[0] ?? null
+                  : albumItems[0] ?? null;
                 const fallbackSrc = resolveAssetSrc("/media/album-winter-kitchen.svg");
                 const albumSrc = resolveAssetSrc(album.src);
                 const safeAlbumSrc = albumSrc || fallbackSrc;
@@ -201,7 +201,7 @@ const AlbumsSection = ({
                   className={`font-display text-xl ${displayEffectClass}`}
                 />
                 <div className="flex items-center gap-2">
-                  {!isEditMode && canOpenFlipPreview ? (
+                  {canOpenFlipPreview ? (
                     <button
                       type="button"
                       className="rounded-full border border-[color:var(--accent)] px-3 py-1 font-ui text-[11px] uppercase tracking-[0.2em] text-[color:var(--accent)]"

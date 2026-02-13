@@ -1220,8 +1220,11 @@ export default function Home() {
   const heroAlbum = heroSourceId
     ? albums.find((album) => album.id === heroSourceId)
     : undefined;
+  const heroAlbumItems = heroAlbum ? uploadsByAlbum[heroAlbum.id] ?? [] : [];
   const heroCoverItem = heroAlbum
-    ? uploadsByAlbum[heroAlbum.id]?.find((item) => item.id === heroAlbum.coverId)
+    ? (heroAlbum.coverId
+        ? heroAlbumItems.find((item) => item.id === heroAlbum.coverId) ?? heroAlbumItems[0]
+        : heroAlbumItems[0])
     : undefined;
   const heroMediaId = heroCoverItem?.id;
   const hero = useMemo(() => ({
