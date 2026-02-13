@@ -95,6 +95,17 @@ const resolveAssetSrc = (src?: string) => {
   return `${assetUrl}${joiner}v=${IMAGE_CACHE_BUST}`;
 };
 
+const VIDEO_ONLY_ALBUM_IDS = new Set(["japan-2025-presentation"]);
+
+const isMediaAllowedInAlbum = (itemType: "image" | "video", albumId?: string) => {
+  if (!albumId) return true;
+  if (!VIDEO_ONLY_ALBUM_IDS.has(albumId)) return true;
+  return itemType === "video";
+};
+
+const enforceAlbumMediaRules = (items: GalleryItem[]) =>
+  items.filter((item) => isMediaAllowedInAlbum(item.type, item.albumId));
+
 const titleFromAlbumId = (albumId: string) =>
   albumId
     .split("-")
@@ -1001,7 +1012,7 @@ export default function Home() {
           deletedUploadIds.length > 0
             ? manifestUploads.filter((item) => !deletedUploadIds.includes(item.id))
             : manifestUploads;
-        setUploads(filteredUploads);
+        setUploads(enforceAlbumMediaRules(filteredUploads));
         setAlbums((prev) => {
           const known = new Set(prev.map((album) => album.id));
           const missingIds = Array.from(
@@ -1072,7 +1083,7 @@ export default function Home() {
           timestamp: item.timestamp,
         } as GalleryItem;
       });
-      setUploads(restored);
+      setUploads(enforceAlbumMediaRules(restored));
     };
 
     loadUploads();
@@ -1172,8 +1183,11 @@ export default function Home() {
   const heroAlbum = heroSourceId
     ? albums.find((album) => album.id === heroSourceId)
     : undefined;
+  const heroAlbumItems = heroAlbum ? uploadsByAlbum[heroAlbum.id] ?? [] : [];
   const heroCoverItem = heroAlbum
-    ? uploadsByAlbum[heroAlbum.id]?.find((item) => item.id === heroAlbum.coverId)
+    ? (heroAlbum.coverId
+        ? heroAlbumItems.find((item) => item.id === heroAlbum.coverId) ?? heroAlbumItems[0]
+        : heroAlbumItems[0])
     : undefined;
   const heroMediaId = heroCoverItem?.id;
   const hero = useMemo(() => ({
@@ -1789,11 +1803,15 @@ export default function Home() {
       })
       .filter((entry): entry is { item: GalleryItem; file: File } => Boolean(entry));
 
-    const newItems = fileEntries.map(({ item }) => item);
+    const newItems = fileEntries
+      .map(({ item }) => item)
+      .filter((item) => isMediaAllowedInAlbum(item.type, albumId));
 
     setUploads((prev) => [...newItems, ...prev]);
 
-    fileEntries.forEach(({ item, file }) => {
+    fileEntries
+      .filter(({ item }) => isMediaAllowedInAlbum(item.type, albumId))
+      .forEach(({ item, file }) => {
       void saveUploadToDb(item, file);
     });
 
@@ -1801,6 +1819,9 @@ export default function Home() {
       alert(
         `Skipped ${skipped.length} HEIC/HEIF file(s). Please convert to JPG or PNG.`
       );
+    }
+    if (VIDEO_ONLY_ALBUM_IDS.has(albumId) && newItems.length < fileEntries.length) {
+      alert("This album accepts videos only.");
     }
   };
 
@@ -1950,6 +1971,10 @@ export default function Home() {
 
   const handleMoveToAlbum = (item: GalleryItem, albumId: string) => {
     if (!albumId || !item.albumId) return;
+    if (!isMediaAllowedInAlbum(item.type, albumId)) {
+      alert("This album accepts videos only.");
+      return;
+    }
     updateUpload(item.id, { albumId });
   };
 
