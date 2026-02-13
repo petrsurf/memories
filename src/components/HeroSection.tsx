@@ -15,6 +15,8 @@ type HeroSectionProps = {
   heroSourceId: string | null;
   setHeroSourceId: (id: string | null) => void;
   openLightbox: (id: string, items?: GalleryItem[]) => void;
+  heroLightboxTargetId: string;
+  heroLightboxItems: GalleryItem[];
   updateAlbum: (id: string, patch: Partial<Album>) => void;
   requestDeleteAlbum: (album: Album) => void;
   resolveAssetSrc: (src?: string) => string;
@@ -39,6 +41,8 @@ const HeroSection = ({
   heroSourceId,
   setHeroSourceId,
   openLightbox,
+  heroLightboxTargetId,
+  heroLightboxItems,
   updateAlbum,
   requestDeleteAlbum,
   resolveAssetSrc,
@@ -112,7 +116,13 @@ const HeroSection = ({
       <div className="paper-card tape-effect p-6">
         <button
           type="button"
-          onClick={() => openLightbox(hero.id)}
+          onClick={() => {
+            if (!hero.src && !hero.videoSrc) return;
+            openLightbox(
+              heroLightboxTargetId,
+              heroLightboxItems.length > 0 ? heroLightboxItems : undefined
+            );
+          }}
           className="gallery-hover relative w-full overflow-hidden rounded-xl shadow-[inset_0_0_0_1px_rgba(44,42,38,0.08)]"
           style={{ height: heroHeight, "--gallery-scale": 1.02 } as CSSProperties}
           aria-label={`Open ${hero.title}`}
@@ -136,6 +146,10 @@ const HeroSection = ({
                 playsInline
                 style={getMediaStyle(hero)}
               />
+            ) : !hero.src ? (
+              <div className="flex h-full w-full items-center justify-center bg-[color:var(--paper-2)] text-[color:var(--muted)]">
+                hero empty
+              </div>
             ) : hero.isLocal ? (
               <img
                 src={resolveAssetSrc(hero.src)}

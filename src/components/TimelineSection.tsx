@@ -118,7 +118,7 @@ const TimelineSection = ({
                   <video
                     src={resolveAssetSrc(moment.videoSrc)}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.05]"
-                    preload="none"
+                    preload="metadata"
                     muted
                     playsInline
                   />

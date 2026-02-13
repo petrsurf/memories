@@ -119,7 +119,12 @@ const AlbumsSection = ({
         {visibleAlbums.map((album) => (
           <article
             key={album.id}
-            className="paper-card p-6 transition-transform hover:-translate-y-1"
+            id={`album-card-${album.id}`}
+            className={`paper-card p-6 transition-transform hover:-translate-y-1 ${
+              selectedAlbumId === album.id
+                ? "ring-2 ring-[color:var(--accent)] ring-offset-2 ring-offset-[color:var(--paper)]"
+                : ""
+            }`}
           >
             {(() => {
               // Prefer explicit coverId; otherwise use first media item (including video-only albums).
@@ -272,7 +277,7 @@ const AlbumsSection = ({
                         <video
                           className="gallery-image h-full w-full object-cover"
                           src={resolveAssetSrc(item.videoSrc)}
-                          preload="none"
+                          preload="metadata"
                           muted
                           playsInline
                           style={getMediaStyle(item)}

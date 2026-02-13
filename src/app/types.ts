@@ -16,6 +16,7 @@ type Album = {
 type GalleryItem = {
   id: string;
   title: string;
+  albumName?: string;
   detail?: string;
   src: string;
   alt: string;

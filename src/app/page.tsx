@@ -47,6 +47,7 @@ const HERO_MANUAL_ALBUM_TITLE = "Hero Upload";
 type UploadManifestItem = {
   id: string;
   title: string;
+  albumName?: string;
   alt: string;
   type: "image" | "video";
   albumId?: string;
@@ -68,6 +69,7 @@ const loadUploadsFromManifest = async () => {
       return {
         id: item.id,
         title: item.title,
+        albumName: item.albumName,
         alt: item.alt,
         type: item.type,
         src,
@@ -1036,13 +1038,20 @@ export default function Home() {
 
             return {
               id,
-              title: titleFromAlbumId(id),
+              title:
+                firstItem?.albumName && firstItem.albumName.trim().length > 0
+                  ? firstItem.albumName.trim()
+                  : titleFromAlbumId(id),
               count: countParts.join(" · "),
               date,
               mood: "Imported collection.",
               privacy: "Private link",
               src: firstItem?.src ?? "/media/album-winter-kitchen.svg",
-              alt: `${titleFromAlbumId(id)} cover`,
+              alt: `${
+                firstItem?.albumName && firstItem.albumName.trim().length > 0
+                  ? firstItem.albumName.trim()
+                  : titleFromAlbumId(id)
+              } cover`,
               type: firstItem?.type ?? "image",
               coverId: firstItem?.id,
             };
@@ -1174,21 +1183,35 @@ export default function Home() {
   const heroAlbum = heroSourceId
     ? albums.find((album) => album.id === heroSourceId)
     : undefined;
+  const heroAlbumItems = heroAlbum ? uploadsByAlbum[heroAlbum.id] ?? [] : [];
   const heroCoverItem = heroAlbum
-    ? uploadsByAlbum[heroAlbum.id]?.find((item) => item.id === heroAlbum.coverId)
+    ? heroAlbumItems.find((item) => item.id === heroAlbum.coverId) ?? heroAlbumItems[0]
     : undefined;
   const heroMediaId = heroCoverItem?.id;
+  const isHeroCleared =
+    !heroAlbum &&
+    content.heroCardTitle.trim().length === 0 &&
+    content.heroCardDetail.trim().length === 0;
   const hero = useMemo(() => ({
     id: heroAlbum?.id ?? "hero-sunday-light",
     title: heroAlbum?.title ?? content.heroCardTitle,
     detail: heroAlbum?.mood ?? content.heroCardDetail,
-    src: heroCoverItem?.src ?? heroAlbum?.src ?? "/media/hero-sunday-light.svg",
+    src: heroAlbum
+      ? heroCoverItem?.src ?? ""
+      : (isHeroCleared ? "" : "/media/hero-sunday-light.svg"),
     alt: heroCoverItem?.alt ?? heroAlbum?.alt ?? "Warm morning light through a kitchen window",
-    type: heroCoverItem?.type ?? heroAlbum?.type ?? "image",
+    type: heroAlbum ? (heroCoverItem?.type ?? "image") : (heroCoverItem?.type ?? "image"),
     videoSrc: heroCoverItem?.videoSrc,
     isLocal: heroCoverItem?.isLocal,
     mediaId: heroMediaId,
-  }), [heroAlbum, heroCoverItem, content.heroCardTitle, content.heroCardDetail]);
+  }), [heroAlbum, heroCoverItem, content.heroCardTitle, content.heroCardDetail, isHeroCleared]);
+  const heroLightboxItems = useMemo(() => {
+    if (heroAlbum && heroAlbumItems.length > 0) return heroAlbumItems;
+    if (hero.src || hero.videoSrc) return [hero];
+    return [] as GalleryItem[];
+  }, [heroAlbum, heroAlbumItems, hero]);
+  const heroLightboxTargetId =
+    heroCoverItem?.id ?? heroLightboxItems[0]?.id ?? hero.id;
 
   const handleSafeReload = () => {
     persistSettings();
@@ -1336,18 +1359,22 @@ export default function Home() {
     galleryClickTimeoutRef.current = window.setTimeout(() => {
       if (!isGallerySelectOpen) {
         const galleryItem = galleryItems.find((item) => item.id === id);
-        if (galleryItem?.albumId) {
-          setSelectedAlbumId(galleryItem.albumId);
-          document.getElementById('albums')?.scrollIntoView({ behavior: 'smooth' });
+        const targetAlbumId =
+          galleryItem?.albumId ??
+          (albums.find((album) => album.id === galleryItem?.id)?.id ?? null);
+        if (targetAlbumId) {
+          setSelectedAlbumId(targetAlbumId);
+          window.requestAnimationFrame(() => {
+            const card = document.getElementById(`album-card-${targetAlbumId}`);
+            if (card) {
+              card.scrollIntoView({ behavior: "smooth", block: "center" });
+              return;
+            }
+            document.getElementById("albums")?.scrollIntoView({ behavior: "smooth" });
+          });
           return;
         }
-        const albumMatch = albums.find((album) => album.id === galleryItem?.id);
-        if (albumMatch) {
-          setSelectedAlbumId(albumMatch.id);
-          document.getElementById('albums')?.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          openLightbox(id);
-        }
+        openLightbox(id);
       }
       galleryClickTimeoutRef.current = null;
     }, 200);
@@ -2078,6 +2105,45 @@ export default function Home() {
   };
 
   const clearHeroCard = () => {
+    const heroUploads = uploadsRef.current.filter((item) => item.albumId === HERO_MANUAL_ALBUM_ID);
+    const heroUploadIds = heroUploads.map((item) => item.id);
+    const heroRemoteIds = heroUploads.filter((item) => !item.isLocal).map((item) => item.id);
+
+    if (heroUploadIds.length > 0) {
+      setUploads((prev) => prev.filter((item) => !heroUploadIds.includes(item.id)));
+      setImageEdits((prev) => {
+        const next = { ...prev };
+        heroUploadIds.forEach((id) => {
+          delete next[id];
+        });
+        return next;
+      });
+      setImageNotes((prev) => {
+        const next = { ...prev };
+        heroUploadIds.forEach((id) => {
+          delete next[id];
+        });
+        return next;
+      });
+      heroUploads.forEach((item) => {
+        if (item.isLocal) {
+          URL.revokeObjectURL(item.src);
+          if (item.videoSrc) URL.revokeObjectURL(item.videoSrc);
+        }
+        void deleteUploadFromDb(item.id);
+      });
+    }
+    if (heroRemoteIds.length > 0) {
+      setDeletedUploadIds((prev) => {
+        const seen = new Set(prev);
+        heroRemoteIds.forEach((id) => seen.add(id));
+        const next = Array.from(seen);
+        persistSettings({ deletedUploadIds: next });
+        return next;
+      });
+    }
+
+    setAlbums((prev) => prev.filter((album) => album.id !== HERO_MANUAL_ALBUM_ID));
     setHeroSourceId(null);
     setContent((prev) => ({
       ...prev,
@@ -2367,11 +2433,13 @@ export default function Home() {
             heroSourceId={heroSourceId}
             setHeroSourceId={setHeroSourceId}
             openLightbox={openLightbox}
+            heroLightboxTargetId={heroLightboxTargetId}
+            heroLightboxItems={heroLightboxItems}
             updateAlbum={updateAlbum}
             requestDeleteAlbum={requestDeleteAlbum}
             resolveAssetSrc={resolveAssetSrc}
             getMediaStyle={getMediaStyle}
-            albums={albums}
+            albums={albumsWithUploads}
             isEditMode={isEditMode}
             clearHeroCard={clearHeroCard}
             uploadHeroFiles={uploadHeroFiles}
@@ -3644,27 +3712,18 @@ export default function Home() {
                         </div>
                         <div>
                           <p className="text-[10px] text-[color:var(--muted)]">set cover</p>
-                          <select
-                            className="mt-2 w-full rounded-full border border-[color:var(--muted)] bg-transparent px-3 py-1"
-                            defaultValue=""
-                            disabled={!activeUploadItem}
-                            onChange={(event) => {
-                              const albumId = event.currentTarget.value;
-                              if (!albumId || !activeUploadItem) return;
-                              setAlbumCoverFromItem(albumId, activeUploadItem);
-                              event.currentTarget.value = "";
+                          <button
+                            type="button"
+                            className="mt-2 w-full rounded-full border border-[color:var(--muted)] px-3 py-1"
+                            disabled={!activeUploadItem?.albumId}
+                            onClick={() => {
+                              if (!activeUploadItem?.albumId) return;
+                              setAlbumCoverFromItem(activeUploadItem.albumId, activeUploadItem);
                               setIsLightboxMenuOpen(false);
                             }}
                           >
-                            <option value="" disabled>
-                              select album
-                            </option>
-                            {albums.map((album) => (
-                              <option key={`cover-${activeItem.id}-${album.id}`} value={album.id}>
-                                {album.title}
-                              </option>
-                            ))}
-                          </select>
+                            set as cover
+                          </button>
                         </div>
                         <div>
                           <button
@@ -3795,7 +3854,7 @@ export default function Home() {
                             <video
                               className="h-full w-full object-cover"
                               src={resolveAssetSrc(item.videoSrc)}
-                              preload="none"
+                              preload="metadata"
                               muted
                               playsInline
                               style={getMediaStyle(item)}
@@ -3804,7 +3863,7 @@ export default function Home() {
                             <img
                               src={resolveAssetSrc(item.src)}
                               alt={item.alt}
-                              loading="lazy"
+                              loading="eager"
                               decoding="async"
                               className="h-full w-full object-cover"
                               style={getMediaStyle(item)}

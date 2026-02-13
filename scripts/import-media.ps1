@@ -20,6 +20,15 @@ function To-Title {
   return ($Value -replace "[-_]+", " ").Trim()
 }
 
+function Get-SourceName {
+  param([Parameter(Mandatory = $true)][string]$PathValue)
+  $item = Get-Item -LiteralPath $PathValue
+  if ($item.PSIsContainer) {
+    return (Split-Path -Path $PathValue -Leaf)
+  }
+  return [System.IO.Path]::GetFileNameWithoutExtension($item.Name)
+}
+
 function Get-Hash10 {
   param([Parameter(Mandatory = $true)][string]$FilePath)
   $sha = [System.Security.Cryptography.SHA256]::Create()
@@ -79,8 +88,17 @@ foreach ($entry in $imports) {
     continue
   }
 
-  $albumId = if ($entry.albumId) { [string]$entry.albumId } else { Get-Slug -Value (Split-Path $sourcePath -Leaf) }
-  $albumName = if ($entry.albumName) { [string]$entry.albumName } else { To-Title -Value $albumId }
+  $sourceName = Get-SourceName -PathValue $sourcePath
+  $entryAlbumId = $null
+  $entryAlbumName = $null
+  if ($entry.PSObject.Properties.Name -contains "albumId") {
+    $entryAlbumId = [string]$entry.albumId
+  }
+  if ($entry.PSObject.Properties.Name -contains "albumName") {
+    $entryAlbumName = [string]$entry.albumName
+  }
+  $albumId = if (-not [string]::IsNullOrWhiteSpace($entryAlbumId)) { $entryAlbumId } else { Get-Slug -Value $sourceName }
+  $albumName = if (-not [string]::IsNullOrWhiteSpace($entryAlbumName)) { $entryAlbumName } else { $sourceName }
   $albumDir = Join-Path $albumsRoot $albumId
   New-Item -ItemType Directory -Path $albumDir -Force | Out-Null
 
@@ -123,6 +141,7 @@ foreach ($entry in $imports) {
     $manifest.Add([ordered]@{
         id = $id
         title = $title
+        albumName = $albumName
         alt = $alt
         type = $type
         albumId = $albumId

@@ -2,48 +2,39 @@
   "imports": [
     {
       "albumId": "canada-2024",
-      "albumName": "Canada 2024",
-      "sourcePath": "C:\\Users\\petrs\\Downloads\\Canada 2024-3-001\\Canada 2024"
+      "sourcePath": "D:\\Photos\\Canada 2024-3-001\\Canada 2024"
     },
     {
       "albumId": "sydney",
-      "albumName": "Sydney",
-      "sourcePath": "C:\\Users\\petrs\\Downloads\\Wondering around -3-001\\Sydney"
+      "sourcePath": "D:\\Photos\\Wondering around -3-001\\Sydney"
     },
     {
       "albumId": "blue-mountains",
-      "albumName": "Blue Mountains",
-      "sourcePath": "C:\\Users\\petrs\\Downloads\\Wondering around -3-001\\Blue Mountains"
+      "sourcePath": "D:\\Photos\\Wondering around -3-001\\Blue Mountains"
     },
     {
       "albumId": "nelson-bay",
-      "albumName": "Nelson Bay, Shoal Bay, and Anna Bay",
-      "sourcePath": "C:\\Users\\petrs\\Downloads\\Wondering around -3-001\\Nelson Bay, Shoal Bay, and Anna Bay"
+      "sourcePath": "D:\\Photos\\Wondering around -3-001\\Nelson Bay, Shoal Bay, and Anna Bay"
     },
     {
       "albumId": "sunday-walk",
-      "albumName": "Sunday walk",
-      "sourcePath": "C:\\Users\\petrs\\Downloads\\Wondering around -3-001\\Sunday walk"
+      "sourcePath": "D:\\Photos\\Wondering around -3-001\\Sunday walk"
     },
     {
       "albumId": "port-lincoln",
-      "albumName": "Port Lincoln",
-      "sourcePath": "C:\\Users\\petrs\\Downloads\\Wondering around -3-001\\Port Lincoln"
+      "sourcePath": "D:\\Photos\\Wondering around -3-001\\Port Lincoln"
     },
     {
       "albumId": "japan",
-      "albumName": "Japan",
-      "sourcePath": "D:\\Photos\\Japan"
+      "sourcePath": "D:\\Photos\\Japan snowy holiday 2025"
     },
     {
       "albumId": "japan-2025-presentation",
-      "albumName": "Japan 2025 presentation",
-      "sourcePath": "C:\\Users\\petrs\\Downloads\\Japan 2025 presentation .mp4"
+      "sourcePath": "D:\\Photos\\Japan 2025 presentation .mp4"
     },
     {
       "albumId": "honk-kong-2025",
-      "albumName": "Honk Kong 2025",
-      "sourcePath": "C:\\Users\\petrs\\Downloads\\Honk Kong 2025 -3-001\\Honk Kong 2025\\JPG"
+      "sourcePath": "D:\\Photos\\Honk Kong 2025 -3-001\\Honk Kong 2025\\Honk Kong 2025"
     }
   ]
 }

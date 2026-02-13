@@ -153,7 +153,7 @@ const GallerySection = ({
                   <video
                     className="gallery-image h-auto w-full rounded-xl object-cover"
                     src={resolveAssetSrc(item.videoSrc)}
-                    preload="none"
+                    preload="metadata"
                     muted
                     playsInline
                     style={getMediaStyle(item)}
@@ -162,7 +162,7 @@ const GallerySection = ({
                   <img
                     src={resolveAssetSrc(item.src)}
                     alt={item.alt}
-                    loading="lazy"
+                    loading="eager"
                     decoding="async"
                     className="gallery-image h-auto w-full rounded-xl object-cover"
                     style={getMediaStyle(item)}
@@ -250,27 +250,18 @@ const GallerySection = ({
                         </div>
                         <div>
                           <p className="text-[9px] text-[color:var(--muted)]">set cover</p>
-                          <select
-                            className="mt-2 w-full rounded-full border border-[color:var(--muted)] bg-transparent px-2 py-1"
-                            defaultValue=""
+                          <button
+                            type="button"
+                            className="mt-2 w-full rounded-full border border-[color:var(--muted)] px-2 py-1"
                             disabled={!item.albumId}
-                            onChange={(event) => {
-                              const albumId = event.currentTarget.value;
-                              if (!albumId) return;
-                              setAlbumCoverFromItem(albumId, item);
-                              event.currentTarget.value = "";
+                            onClick={() => {
+                              if (!item.albumId) return;
+                              setAlbumCoverFromItem(item.albumId, item);
                               setOpenMenuId(null);
                             }}
                           >
-                            <option value="" disabled>
-                              select album
-                            </option>
-                            {albums.map((album) => (
-                              <option key={`cover-${item.id}-${album.id}`} value={album.id}>
-                                {album.title}
-                              </option>
-                            ))}
-                          </select>
+                            set as cover
+                          </button>
                         </div>
                         <div>
                           <button
@@ -348,7 +339,7 @@ const GallerySection = ({
                     <video
                       className="h-28 w-full object-cover"
                       src={resolveAssetSrc(item.videoSrc)}
-                      preload="none"
+                      preload="metadata"
                       muted
                       playsInline
                       style={getMediaStyle(item)}
@@ -357,7 +348,7 @@ const GallerySection = ({
                     <img
                       src={resolveAssetSrc(item.src)}
                       alt={item.alt}
-                      loading="lazy"
+                      loading="eager"
                       decoding="async"
                       className="h-28 w-full object-cover"
                       style={getMediaStyle(item)}
