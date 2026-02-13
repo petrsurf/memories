@@ -160,6 +160,7 @@ type ImageEdit = {
   scale: number;
   offsetX: number;
   offsetY: number;
+  rotation: number;
 };
 
 export type {
