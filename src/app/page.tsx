@@ -1270,6 +1270,8 @@ export default function Home() {
       type: hero.type,
       videoSrc: hero.videoSrc,
       isLocal: hero.isLocal,
+      mediaId: hero.mediaId,
+      albumId: heroAlbum?.id,
     } as GalleryItem;
 
     const visibleAlbumIds = albumsWithUploads
@@ -1316,7 +1318,7 @@ export default function Home() {
     });
 
     return [heroItem, ...selectedItems];
-  }, [albumsWithUploads, hero, uploadsByAlbum, albums]);
+  }, [albumsWithUploads, hero, heroAlbum, uploadsByAlbum, albums]);
 
   const [lightboxItems, setLightboxItems] = useState<GalleryItem[]>([]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -2013,6 +2015,13 @@ export default function Home() {
     if (!existing) return;
     if (existing.albumId === albumId) return;
     updateUpload(uploadId, { albumId });
+    setSelectedAlbumId(albumId);
+    window.requestAnimationFrame(() => {
+      const card = document.getElementById(`album-card-${albumId}`);
+      if (card) {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
   };
 
   const handleDeleteItem = (item: GalleryItem, context?: "lightbox") => {
@@ -3703,7 +3712,9 @@ export default function Home() {
                             <option value="" disabled>
                               select album
                             </option>
-                            {albums.map((album) => (
+                            {albums
+                              .filter((album) => album.id !== activeUploadItem?.albumId)
+                              .map((album) => (
                               <option key={`move-${activeItem.id}-${album.id}`} value={album.id}>
                                 {album.title}
                               </option>

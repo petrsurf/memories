@@ -229,7 +229,7 @@ const GallerySection = ({
                           <select
                             className="mt-2 w-full rounded-full border border-[color:var(--muted)] bg-transparent px-2 py-1"
                             defaultValue=""
-                            disabled={!item.albumId}
+                            disabled={albums.length === 0 || (!item.albumId && !item.mediaId)}
                             onChange={(event) => {
                               const albumId = event.currentTarget.value;
                               if (!albumId) return;
@@ -241,7 +241,9 @@ const GallerySection = ({
                             <option value="" disabled>
                               select album
                             </option>
-                            {albums.map((album) => (
+                            {albums
+                              .filter((album) => album.id !== item.albumId)
+                              .map((album) => (
                               <option key={`move-${item.id}-${album.id}`} value={album.id}>
                                 {album.title}
                               </option>
