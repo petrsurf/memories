@@ -123,10 +123,10 @@ const AlbumsSection = ({
           >
             {(() => {
               // Only show cover if explicitly set by user via coverId
-                const albumItems = uploadsByAlbum[album.id] ?? [];
-                const coverItem = album.coverId
-                  ? albumItems.find((item) => item.id === album.coverId) ?? albumItems[0] ?? null
-                  : albumItems[0] ?? null;
+              const hasCover = album.coverId && uploadsByAlbum[album.id];
+              const coverItem = hasCover 
+                ? uploadsByAlbum[album.id]?.find((item) => item.id === album.coverId)
+                : null;
               
               return (
                 <div

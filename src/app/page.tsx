@@ -41,7 +41,6 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const EDIT_PASSWORD = "Bluesky";
 const IMAGE_CACHE_BUST = "20260212-2";
 const REOPEN_EDIT_MODE_KEY = "sunday-album-reopen-edit";
-const HERO_VIDEO_ALBUM_ID = "japan-2025-presentation";
 
 type UploadManifestItem = {
   id: string;
@@ -95,17 +94,6 @@ const resolveAssetSrc = (src?: string) => {
   const joiner = assetUrl.includes("?") ? "&" : "?";
   return `${assetUrl}${joiner}v=${IMAGE_CACHE_BUST}`;
 };
-
-const VIDEO_ONLY_ALBUM_IDS = new Set(["japan-2025-presentation"]);
-
-const isMediaAllowedInAlbum = (itemType: "image" | "video", albumId?: string) => {
-  if (!albumId) return true;
-  if (!VIDEO_ONLY_ALBUM_IDS.has(albumId)) return true;
-  return itemType === "video";
-};
-
-const enforceAlbumMediaRules = (items: GalleryItem[]) =>
-  items.filter((item) => isMediaAllowedInAlbum(item.type, item.albumId));
 
 const titleFromAlbumId = (albumId: string) =>
   albumId
@@ -719,6 +707,7 @@ export default function Home() {
       if (parsed.heroScale) setHeroScale(parsed.heroScale);
       if (parsed.albumImageHeight) setAlbumImageHeight(parsed.albumImageHeight);
       if (parsed.galleryScale) setGalleryScale(parsed.galleryScale);
+      if (parsed.heroSourceId !== undefined) setHeroSourceId(parsed.heroSourceId);
       if (parsed.imageEdits) setImageEdits(parsed.imageEdits);
       if (parsed.imageNotes) setImageNotes(parsed.imageNotes);
       if (parsed.albums) {
@@ -1012,7 +1001,7 @@ export default function Home() {
           deletedUploadIds.length > 0
             ? manifestUploads.filter((item) => !deletedUploadIds.includes(item.id))
             : manifestUploads;
-        setUploads(enforceAlbumMediaRules(filteredUploads));
+        setUploads(filteredUploads);
         setAlbums((prev) => {
           const known = new Set(prev.map((album) => album.id));
           const missingIds = Array.from(
@@ -1083,7 +1072,7 @@ export default function Home() {
           timestamp: item.timestamp,
         } as GalleryItem;
       });
-      setUploads(enforceAlbumMediaRules(restored));
+      setUploads(restored);
     };
 
     loadUploads();
@@ -1180,21 +1169,24 @@ export default function Home() {
     return grouped;
   }, [uploads, albums]);
 
-  const heroVideoItem = uploadsByAlbum[HERO_VIDEO_ALBUM_ID]?.find(
-    (item) => item.type === "video"
-  );
-  const heroMediaId = heroVideoItem?.id;
+  const heroAlbum = heroSourceId
+    ? albums.find((album) => album.id === heroSourceId)
+    : undefined;
+  const heroCoverItem = heroAlbum
+    ? uploadsByAlbum[heroAlbum.id]?.find((item) => item.id === heroAlbum.coverId)
+    : undefined;
+  const heroMediaId = heroCoverItem?.id;
   const hero = useMemo(() => ({
-    id: "hero-japan-2025-presentation",
-    title: content.heroCardTitle,
-    detail: content.heroCardDetail,
-    src: heroVideoItem?.videoSrc ?? heroVideoItem?.src ?? "/media/uploads/albums/japan-2025-presentation/japan-2025-presentation-0d4546c47a.mp4",
-    alt: heroVideoItem?.alt ?? "Japan 2025 presentation video",
-    type: "video" as const,
-    videoSrc: heroVideoItem?.videoSrc ?? heroVideoItem?.src ?? "/media/uploads/albums/japan-2025-presentation/japan-2025-presentation-0d4546c47a.mp4",
-    isLocal: heroVideoItem?.isLocal,
+    id: heroAlbum?.id ?? "hero-sunday-light",
+    title: heroAlbum?.title ?? content.heroCardTitle,
+    detail: heroAlbum?.mood ?? content.heroCardDetail,
+    src: heroCoverItem?.src ?? heroAlbum?.src ?? "/media/hero-sunday-light.svg",
+    alt: heroCoverItem?.alt ?? heroAlbum?.alt ?? "Warm morning light through a kitchen window",
+    type: heroCoverItem?.type ?? heroAlbum?.type ?? "image",
+    videoSrc: heroCoverItem?.videoSrc,
+    isLocal: heroCoverItem?.isLocal,
     mediaId: heroMediaId,
-  }), [heroVideoItem, content.heroCardTitle, content.heroCardDetail]);
+  }), [heroAlbum, heroCoverItem, content.heroCardTitle, content.heroCardDetail]);
 
   const handleSafeReload = () => {
     persistSettings();
@@ -1524,11 +1516,14 @@ export default function Home() {
 
   const requestDeleteUpload = (item: GalleryItem, context?: "lightbox") => {
     if (!isEditMode) return;
-    setPendingDelete({
-      type: context === "lightbox" ? "lightbox-upload" : "upload",
-      id: item.id,
-      label: item.title,
-    });
+    const confirmHost = editorWindow && !editorWindow.closed ? editorWindow : window;
+    const shouldDelete = confirmHost.confirm(`Delete ${item.title}?`);
+    if (!shouldDelete) return;
+    if (context === "lightbox" && activeItem?.id === item.id) {
+      handleLightboxDelete();
+      return;
+    }
+    removeUpload(item.id);
   };
 
   const requestDeleteTimeline = (item: TimelineItem) => {
@@ -1797,15 +1792,11 @@ export default function Home() {
       })
       .filter((entry): entry is { item: GalleryItem; file: File } => Boolean(entry));
 
-    const newItems = fileEntries
-      .map(({ item }) => item)
-      .filter((item) => isMediaAllowedInAlbum(item.type, albumId));
+    const newItems = fileEntries.map(({ item }) => item);
 
     setUploads((prev) => [...newItems, ...prev]);
 
-    fileEntries
-      .filter(({ item }) => isMediaAllowedInAlbum(item.type, albumId))
-      .forEach(({ item, file }) => {
+    fileEntries.forEach(({ item, file }) => {
       void saveUploadToDb(item, file);
     });
 
@@ -1813,9 +1804,6 @@ export default function Home() {
       alert(
         `Skipped ${skipped.length} HEIC/HEIF file(s). Please convert to JPG or PNG.`
       );
-    }
-    if (VIDEO_ONLY_ALBUM_IDS.has(albumId) && newItems.length < fileEntries.length) {
-      alert("This album accepts videos only.");
     }
   };
 
@@ -1889,7 +1877,11 @@ export default function Home() {
 
   const updateGalleryTitle = (id: string, value: string) => {
     if (id === hero.id) {
-      setContent((prev) => ({ ...prev, heroCardTitle: value }));
+      if (heroAlbum) {
+        updateAlbum(heroAlbum.id, { title: value });
+      } else {
+        setContent((prev) => ({ ...prev, heroCardTitle: value }));
+      }
       return;
     }
     if (albums.some((album) => album.id === id)) {
@@ -1961,10 +1953,6 @@ export default function Home() {
 
   const handleMoveToAlbum = (item: GalleryItem, albumId: string) => {
     if (!albumId || !item.albumId) return;
-    if (!isMediaAllowedInAlbum(item.type, albumId)) {
-      alert("This album accepts videos only.");
-      return;
-    }
     updateUpload(item.id, { albumId });
   };
 
@@ -1986,7 +1974,7 @@ export default function Home() {
 
   const getSourceLabel = (item: GalleryItem) => {
     if (item.id === hero.id) {
-      return "Hero · Japan 2025 presentation";
+      return heroAlbum ? `Hero · ${heroAlbum.title}` : "Hero · Sunday Light";
     }
     const albumMatch = albums.find((album) => album.id === item.id);
     if (albumMatch) return `Album · ${albumMatch.title}`;
@@ -2302,11 +2290,17 @@ export default function Home() {
             content={content}
             setContent={setContent}
             hero={hero}
+            heroAlbum={heroAlbum}
             heroHeight={heroHeight}
             heroScale={heroScale}
+            heroSourceId={heroSourceId}
+            setHeroSourceId={setHeroSourceId}
             openLightbox={openLightbox}
+            updateAlbum={updateAlbum}
+            requestDeleteAlbum={requestDeleteAlbum}
             resolveAssetSrc={resolveAssetSrc}
             getMediaStyle={getMediaStyle}
+            albums={albums}
             isEditMode={isEditMode}
             displayEffectClass={displayEffectClass}
             labelEffectClass={labelEffectClass}
@@ -3866,11 +3860,15 @@ export default function Home() {
                     value={activeItem.title}
                     onChange={(value) => {
                       if (activeItem.id === hero.id) {
-                        setContent((prev) => {
-                          const updated = { ...prev, heroCardTitle: value };
-                          localStorage.setItem('sunday-album-content', JSON.stringify(updated));
-                          return updated;
-                        });
+                        if (heroAlbum) {
+                          updateAlbum(heroAlbum.id, { title: value });
+                        } else {
+                          setContent((prev) => {
+                            const updated = { ...prev, heroCardTitle: value };
+                            localStorage.setItem('sunday-album-content', JSON.stringify(updated));
+                            return updated;
+                          });
+                        }
                         return;
                       }
                       const albumMatch = albums.find((album) => album.id === activeItem.id);
@@ -3898,11 +3896,15 @@ export default function Home() {
                       value={activeItem.detail}
                       onChange={(value) => {
                         if (activeItem.id === hero.id) {
-                          setContent((prev) => {
-                            const updated = { ...prev, heroCardDetail: value };
-                            localStorage.setItem('sunday-album-content', JSON.stringify(updated));
-                            return updated;
-                          });
+                          if (heroAlbum) {
+                            updateAlbum(heroAlbum.id, { mood: value });
+                          } else {
+                            setContent((prev) => {
+                              const updated = { ...prev, heroCardDetail: value };
+                              localStorage.setItem('sunday-album-content', JSON.stringify(updated));
+                              return updated;
+                            });
+                          }
                           return;
                         }
                         const timelineMatch = timeline.find(
