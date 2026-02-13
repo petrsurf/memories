@@ -155,7 +155,6 @@ const GallerySection = ({
                     src={resolveAssetSrc(item.videoSrc)}
                     muted
                     playsInline
-                    preload="none"
                     style={getMediaStyle(item)}
                   />
                 ) : item.isLocal ? (
@@ -348,7 +347,6 @@ const GallerySection = ({
                       src={resolveAssetSrc(item.videoSrc)}
                       muted
                       playsInline
-                      preload="none"
                       style={getMediaStyle(item)}
                     />
                   ) : item.isLocal ? (

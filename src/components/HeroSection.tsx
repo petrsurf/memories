@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { CSSProperties, Dispatch, ReactElement, SetStateAction } from "react";
 import type { Album, Content, EditableTextProps, GalleryItem } from "../app/types";
 
@@ -125,7 +126,6 @@ const HeroSection = ({
                 src={resolveAssetSrc(hero.videoSrc)}
                 muted
                 playsInline
-                preload="none"
                 style={getMediaStyle(hero)}
               />
             ) : hero.isLocal ? (
@@ -133,8 +133,6 @@ const HeroSection = ({
                 src={resolveAssetSrc(hero.src)}
                 alt={hero.alt}
                 className="gallery-image h-full w-full object-cover"
-                loading="eager"
-                fetchPriority="high"
                 style={getMediaStyle(hero)}
               />
             ) : (
@@ -142,8 +140,6 @@ const HeroSection = ({
                 src={resolveAssetSrc(hero.src)}
                 alt={hero.alt}
                 className="gallery-image object-cover"
-                loading="eager"
-                fetchPriority="high"
                 style={{
                   position: 'absolute',
                   height: '100%',
