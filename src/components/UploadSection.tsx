@@ -65,6 +65,14 @@ const UploadSection = ({
   EditableText,
 }: UploadSectionProps) => {
   if (!isEditMode) return null;
+  const selectableAlbums = albums.filter(
+    (album) => (uploadsByAlbum[album.id]?.length ?? 0) > 0
+  );
+  const effectiveSelectedAlbumId = selectableAlbums.some(
+    (album) => album.id === selectedAlbumId
+  )
+    ? selectedAlbumId
+    : selectableAlbums[0]?.id ?? "";
 
   return (
     <section id="upload" className="mt-20">
@@ -108,7 +116,8 @@ const UploadSection = ({
         onDrop={(event) => {
           event.preventDefault();
           setIsDragging(false);
-          addFiles(event.dataTransfer.files, selectedAlbumId);
+          if (!effectiveSelectedAlbumId) return;
+          addFiles(event.dataTransfer.files, effectiveSelectedAlbumId);
         }}
       >
         <EditableText
@@ -135,15 +144,15 @@ const UploadSection = ({
           />
           <select
             className="rounded-full border border-[color:var(--muted)] bg-transparent px-4 py-2"
-            value={selectedAlbumId || albums[0]?.id || ""}
+            value={effectiveSelectedAlbumId}
             onChange={(event) => setSelectedAlbumId(event.target.value)}
           >
-            {albums.length === 0 ? (
+            {selectableAlbums.length === 0 ? (
               <option value="" disabled>
-                No albums available
+                No albums with media
               </option>
             ) : (
-              albums.map((album) => (
+              selectableAlbums.map((album) => (
                 <option key={album.id} value={album.id}>
                   {album.title}
                 </option>
@@ -163,7 +172,11 @@ const UploadSection = ({
               accept="image/*,video/*"
               multiple
               className="hidden"
-              onChange={(event) => addFiles(event.target.files, selectedAlbumId)}
+              disabled={!effectiveSelectedAlbumId}
+              onChange={(event) => {
+                if (!effectiveSelectedAlbumId) return;
+                addFiles(event.target.files, effectiveSelectedAlbumId);
+              }}
             />
           </label>
         </div>
