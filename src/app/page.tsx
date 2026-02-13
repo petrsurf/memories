@@ -1196,6 +1196,32 @@ export default function Home() {
     window.location.reload();
   };
 
+  const clearLocalDbAndReload = async () => {
+    const shouldProceed = window.confirm(
+      "Clear local browser data for this site and reload?"
+    );
+    if (!shouldProceed) return;
+
+    try {
+      localStorage.removeItem(SETTINGS_KEY);
+      localStorage.removeItem("sunday-album-content");
+    } catch {
+      // Ignore storage failures.
+    }
+
+    if (typeof indexedDB !== "undefined") {
+      await new Promise<void>((resolve) => {
+        const request = indexedDB.deleteDatabase(UPLOAD_DB_NAME);
+        request.onsuccess = () => resolve();
+        request.onerror = () => resolve();
+        request.onblocked = () => resolve();
+      });
+    }
+
+    sessionStorage.setItem(REOPEN_EDIT_MODE_KEY, "1");
+    window.location.reload();
+  };
+
   useEffect(() => {
     if (sessionStorage.getItem(REOPEN_EDIT_MODE_KEY) !== "1") return;
     sessionStorage.removeItem(REOPEN_EDIT_MODE_KEY);
@@ -2399,6 +2425,15 @@ export default function Home() {
                                 onClick={handleSafeReload}
                               >
                                 save + reload
+                              </button>
+                              <button
+                                type="button"
+                                className="rounded-full border border-[color:var(--muted)] px-4 py-2 font-ui text-xs uppercase tracking-[0.2em]"
+                                onClick={() => {
+                                  void clearLocalDbAndReload();
+                                }}
+                              >
+                                clean local db + reload
                               </button>
                               <button
                                 type="button"
