@@ -1516,14 +1516,11 @@ export default function Home() {
 
   const requestDeleteUpload = (item: GalleryItem, context?: "lightbox") => {
     if (!isEditMode) return;
-    const confirmHost = editorWindow && !editorWindow.closed ? editorWindow : window;
-    const shouldDelete = confirmHost.confirm(`Delete ${item.title}?`);
-    if (!shouldDelete) return;
-    if (context === "lightbox" && activeItem?.id === item.id) {
-      handleLightboxDelete();
-      return;
-    }
-    removeUpload(item.id);
+    setPendingDelete({
+      type: context === "lightbox" ? "lightbox-upload" : "upload",
+      id: item.id,
+      label: item.title,
+    });
   };
 
   const requestDeleteTimeline = (item: TimelineItem) => {
