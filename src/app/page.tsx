@@ -41,7 +41,6 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const EDIT_PASSWORD = "Bluesky";
 const IMAGE_CACHE_BUST = "20260212-2";
 const REOPEN_EDIT_MODE_KEY = "sunday-album-reopen-edit";
-const DEFAULT_HERO_SOURCE_ALBUM_ID = "japan-2025-presentation";
 
 type UploadManifestItem = {
   id: string;
@@ -102,41 +101,6 @@ const titleFromAlbumId = (albumId: string) =>
     .filter(Boolean)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");
-
-const FALLBACK_ALBUM_COVER_SRC = "/media/album-winter-kitchen.svg";
-
-const normalizeStoredAlbum = (album: Partial<Album>, index: number): Album => {
-  const safeTitle = typeof album.title === "string" && album.title.trim()
-    ? album.title.trim()
-    : `Album ${index + 1}`;
-
-  const safeId = typeof album.id === "string" && album.id.trim()
-    ? album.id
-    : `album-restored-${index + 1}`;
-
-  const safeSrc = typeof album.src === "string" && album.src.trim()
-    ? album.src
-    : FALLBACK_ALBUM_COVER_SRC;
-
-  return {
-    id: safeId,
-    title: safeTitle,
-    count: typeof album.count === "string" && album.count.trim() ? album.count : "0 uploads",
-    date: typeof album.date === "string" && album.date.trim() ? album.date : "Unknown date",
-    mood: typeof album.mood === "string" ? album.mood : "",
-    privacy: typeof album.privacy === "string" && album.privacy.trim()
-      ? album.privacy
-      : "Private link",
-    src: safeSrc,
-    alt: typeof album.alt === "string" && album.alt.trim()
-      ? album.alt
-      : `${safeTitle} cover`,
-    type: album.type === "video" ? "video" : "image",
-    coverId: typeof album.coverId === "string" && album.coverId.trim()
-      ? album.coverId
-      : undefined,
-  };
-};
 
 const initialAlbums: Album[] = [
   {
@@ -610,7 +574,7 @@ export default function Home() {
   const [heroScale, setHeroScale] = useState(1);
   const [albumImageHeight, setAlbumImageHeight] = useState(160);
   const [galleryScale, setGalleryScale] = useState(1);
-  const [heroSourceId, setHeroSourceId] = useState<string | null>(DEFAULT_HERO_SOURCE_ALBUM_ID);
+  const [heroSourceId, setHeroSourceId] = useState<string | null>(null);
   const [imageEdits, setImageEdits] = useState<Record<string, ImageEdit>>({});
   const [imageNotes, setImageNotes] = useState<Record<string, string>>({});
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
@@ -708,14 +672,10 @@ export default function Home() {
       if (parsed.heroScale) setHeroScale(parsed.heroScale);
       if (parsed.albumImageHeight) setAlbumImageHeight(parsed.albumImageHeight);
       if (parsed.galleryScale) setGalleryScale(parsed.galleryScale);
+      if (parsed.heroSourceId !== undefined) setHeroSourceId(parsed.heroSourceId);
       if (parsed.imageEdits) setImageEdits(parsed.imageEdits);
       if (parsed.imageNotes) setImageNotes(parsed.imageNotes);
-      if (parsed.albums) {
-        const normalizedAlbums = parsed.albums.map((album, index) =>
-          normalizeStoredAlbum(album, index)
-        );
-        setAlbums(normalizedAlbums);
-      }
+      if (parsed.albums) setAlbums(parsed.albums);
       if (parsed.selectedAlbumId) setSelectedAlbumId(parsed.selectedAlbumId);
       if (parsed.timeline && parsed.timeline.length > 0) setTimeline(parsed.timeline);
       if (parsed.textOverrides) setTextOverrides(parsed.textOverrides);
@@ -1440,64 +1400,6 @@ export default function Home() {
     void saveSettingsToDb(payload as Record<string, unknown>);
   }
 
-  const buildSettingsPayload = (overrides?: Record<string, unknown>) => ({
-    content,
-    heroHeight,
-    heroScale,
-    albumImageHeight,
-    galleryScale,
-    heroSourceId,
-    imageEdits,
-    imageNotes,
-    albums,
-    selectedAlbumId,
-    timeline,
-    textOverrides,
-    globalTheme,
-    albumThemes,
-    deletedUploadIds,
-    ...overrides,
-  });
-
-  const copySyncJson = async () => {
-    const payload = buildSettingsPayload();
-    const json = JSON.stringify(payload);
-    try {
-      if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(json);
-        alert("Sync JSON copied to clipboard.");
-        return;
-      }
-    } catch {
-      // Fallback to prompt below.
-    }
-    window.prompt("Copy sync JSON", json);
-  };
-
-  const importSyncJson = () => {
-    const raw = window.prompt("Paste sync JSON");
-    if (!raw) return;
-    try {
-      const parsed = JSON.parse(raw) as Record<string, unknown>;
-      if (Array.isArray(parsed.albums)) {
-        parsed.albums = parsed.albums.map((album, index) =>
-          normalizeStoredAlbum((album ?? {}) as Partial<Album>, index)
-        );
-      }
-      const payload = buildSettingsPayload(parsed);
-      localStorage.setItem(SETTINGS_KEY, JSON.stringify(payload));
-      localStorage.setItem(
-        "sunday-album-content",
-        JSON.stringify((payload.content as Content | undefined) ?? content)
-      );
-      void saveSettingsToDb(payload as Record<string, unknown>);
-      alert("Sync JSON imported. Reloading.");
-      window.location.reload();
-    } catch {
-      alert("Invalid sync JSON.");
-    }
-  };
-
   const scrollThumbsBy = (direction: "left" | "right") => {
     const container = thumbStripRef.current;
     if (!container) return;
@@ -1897,26 +1799,18 @@ export default function Home() {
     }
   };
 
-  const defaultImageEdit: ImageEdit = { scale: 1, offsetX: 0, offsetY: 0, rotation: 0 };
+  const defaultImageEdit: ImageEdit = { scale: 1, offsetX: 0, offsetY: 0 };
 
   const getMediaKey = (item: GalleryItem) => item.mediaId ?? item.id;
 
-  const normalizeImageEdit = (edit?: Partial<ImageEdit>): ImageEdit => ({
-    scale: typeof edit?.scale === "number" ? edit.scale : 1,
-    offsetX: typeof edit?.offsetX === "number" ? edit.offsetX : 0,
-    offsetY: typeof edit?.offsetY === "number" ? edit.offsetY : 0,
-    rotation: typeof edit?.rotation === "number" ? edit.rotation : 0,
-  });
-
   const getImageEdit = (item: GalleryItem) =>
-    normalizeImageEdit(imageEdits[getMediaKey(item)]);
+    imageEdits[getMediaKey(item)] ?? defaultImageEdit;
 
   const getMediaStyle = (item: GalleryItem): CSSProperties | undefined => {
-    const stored = imageEdits[getMediaKey(item)];
-    if (!stored) return undefined;
-    const edit = normalizeImageEdit(stored);
+    const edit = imageEdits[getMediaKey(item)];
+    if (!edit) return undefined;
     return {
-      transform: `translate(${edit.offsetX}%, ${edit.offsetY}%) rotate(${edit.rotation}deg) scale(${edit.scale})`,
+      transform: `translate(${edit.offsetX}%, ${edit.offsetY}%) scale(${edit.scale})`,
       transformOrigin: "center",
     };
   };
@@ -1925,14 +1819,8 @@ export default function Home() {
     const key = getMediaKey(item);
     setImageEdits((prev) => ({
       ...prev,
-      [key]: { ...normalizeImageEdit(prev[key]), ...patch },
+      [key]: { ...(prev[key] ?? defaultImageEdit), ...patch },
     }));
-  };
-
-  const rotateImage = (item: GalleryItem, delta: number) => {
-    const current = getImageEdit(item).rotation;
-    const next = ((current + delta) % 360 + 360) % 360;
-    updateImageEdit(item, { rotation: next });
   };
 
   const resetImageEdit = (item: GalleryItem) => {
@@ -2723,22 +2611,6 @@ export default function Home() {
                     <h3 className="font-display text-2xl">Palette, fonts, effects</h3>
                   </div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <button
-                      type="button"
-                      className="rounded-full border border-[color:var(--muted)] px-4 py-2 font-ui text-xs uppercase tracking-[0.2em]"
-                      onClick={() => {
-                        void copySyncJson();
-                      }}
-                    >
-                      copy sync json
-                    </button>
-                    <button
-                      type="button"
-                      className="rounded-full border border-[color:var(--muted)] px-4 py-2 font-ui text-xs uppercase tracking-[0.2em]"
-                      onClick={importSyncJson}
-                    >
-                      import sync json
-                    </button>
                     <button
                       type="button"
                       className="rounded-full border border-[color:var(--muted)] px-4 py-2 font-ui text-xs uppercase tracking-[0.2em] disabled:opacity-50"
@@ -3763,7 +3635,7 @@ export default function Home() {
                   <p className="font-ui text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
                     edit image
                   </p>
-                  <div className="mt-3 grid gap-3 sm:grid-cols-4">
+                  <div className="mt-3 grid gap-3 sm:grid-cols-3">
                     <label className="text-xs uppercase tracking-[0.2em] text-[color:var(--ink)]/70">
                       resize
                       <input
@@ -3812,28 +3684,6 @@ export default function Home() {
                         className="mt-2 w-full"
                       />
                     </label>
-                    <div className="text-xs uppercase tracking-[0.2em] text-[color:var(--ink)]/70">
-                      rotate
-                      <div className="mt-2 flex items-center gap-2">
-                        <button
-                          type="button"
-                          className="rounded-full border border-[color:var(--muted)] px-2 py-1 text-[10px]"
-                          onClick={() => rotateImage(activeItem, -90)}
-                        >
-                          left
-                        </button>
-                        <button
-                          type="button"
-                          className="rounded-full border border-[color:var(--muted)] px-2 py-1 text-[10px]"
-                          onClick={() => rotateImage(activeItem, 90)}
-                        >
-                          right
-                        </button>
-                      </div>
-                      <p className="mt-2 text-[10px] text-[color:var(--ink)]/60">
-                        {getImageEdit(activeItem).rotation}&deg;
-                      </p>
-                    </div>
                   </div>
                   <div className="mt-3 flex flex-wrap gap-2">
                     <button
