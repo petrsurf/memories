@@ -2,6 +2,15 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Local Runtime
+
+Use Node.js 20 LTS for local development in this project.
+
+```bash
+node -v
+# expected: v20.x
+```
+
 First, run the development server:
 
 ```bash
